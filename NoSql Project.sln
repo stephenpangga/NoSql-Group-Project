@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1022
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosqlModel", "Model\NosqlModel.csproj", "{FD89F7B1-907D-4684-B11D-FC610D8C4B42}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosqlDAL", "NosqlDAL\NosqlDAL.csproj", "{879542DA-FE77-4401-9730-9513D00DDC3B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosqlLogic", "NosqlLogic\NosqlLogic.csproj", "{500FC101-AAC4-43ED-8C56-78E2876FCDE2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosqlUI", "NosqlUI\NosqlUI.csproj", "{9DB3B22A-284F-4C95-ACAC-AB3532493E08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosqlDAL", "NosqlDAL\NosqlDAL.csproj", "{7BA89204-54C6-4594-9FD9-1495D8C3FA30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosqlLogic", "NosqlLogic\NosqlLogic.csproj", "{05B0C3A7-1C02-4C76-A69D-E2CD57BC0552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosqlModel", "NosqlModel\NosqlModel.csproj", "{8DFAD6E7-4507-4F52-99B6-C49DE4A86789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD89F7B1-907D-4684-B11D-FC610D8C4B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD89F7B1-907D-4684-B11D-FC610D8C4B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD89F7B1-907D-4684-B11D-FC610D8C4B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD89F7B1-907D-4684-B11D-FC610D8C4B42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{879542DA-FE77-4401-9730-9513D00DDC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{879542DA-FE77-4401-9730-9513D00DDC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{879542DA-FE77-4401-9730-9513D00DDC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{879542DA-FE77-4401-9730-9513D00DDC3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{500FC101-AAC4-43ED-8C56-78E2876FCDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{500FC101-AAC4-43ED-8C56-78E2876FCDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{500FC101-AAC4-43ED-8C56-78E2876FCDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{500FC101-AAC4-43ED-8C56-78E2876FCDE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9DB3B22A-284F-4C95-ACAC-AB3532493E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DB3B22A-284F-4C95-ACAC-AB3532493E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DB3B22A-284F-4C95-ACAC-AB3532493E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DB3B22A-284F-4C95-ACAC-AB3532493E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA89204-54C6-4594-9FD9-1495D8C3FA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA89204-54C6-4594-9FD9-1495D8C3FA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA89204-54C6-4594-9FD9-1495D8C3FA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA89204-54C6-4594-9FD9-1495D8C3FA30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B0C3A7-1C02-4C76-A69D-E2CD57BC0552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B0C3A7-1C02-4C76-A69D-E2CD57BC0552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B0C3A7-1C02-4C76-A69D-E2CD57BC0552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B0C3A7-1C02-4C76-A69D-E2CD57BC0552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFAD6E7-4507-4F52-99B6-C49DE4A86789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFAD6E7-4507-4F52-99B6-C49DE4A86789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFAD6E7-4507-4F52-99B6-C49DE4A86789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFAD6E7-4507-4F52-99B6-C49DE4A86789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,29 +4,34 @@ using MongoDB.Bson;
 
 namespace NosqlDAL
 {
-    class Base
-
+    public abstract class Base
     {
-        private MongoClient dbClient;
-        public void OpenConnection()
+        private MongoClient MongoClient;
+        private IMongoDatabase database;
+
+        public Base()
         {
-            dbClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
+            MongoClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
+            database = MongoClient.GetDatabase("NoSql");
+
 
         }
 
-        public void GetCollection(string name)
+        //example for selecting a certain document from a collection by INT
+        protected BsonDocument GetDocument(string CollectionName, int SearchValue)
         {
-            //select db
-            var db = dbClient.GetDatabase("NoSql");
-
-            //Select collection
-            var collection = db.GetCollection<BsonDocument>(name);
+            var collection = database.GetCollection<BsonDocument>(CollectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq("userId", SearchValue);
+            var Document = collection.Find(filter).FirstOrDefault();
+            return Document;
         }
 
-        public void ExecuteQuery(string name)
+        protected BsonDocument SearchDocument(string CollectionName, string SearchValue)
         {
-            OpenConnection();
-            GetCollection(name);
+            var collection = database.GetCollection<BsonDocument>(CollectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq("firstName", "admin");
+            var firstDocument = collection.Find(filter).FirstOrDefault();
+            return firstDocument;
         }
     }
 }

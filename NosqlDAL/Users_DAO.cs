@@ -1,16 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NosqlModel;
 
 namespace NosqlDAL
 {
-    class Users_DAO :Base
-
-        //this is just an example
+    public class Users_DAO :Base
     {
-        public void GetUser(/*//pass the parametres to be searched*/)
+        public User GetUser(string Coll, int searchTerm)
         {
-            //add the query here. dont forget to open connection
+            User admin = new User();
+            var document = GetDocument(Coll, searchTerm);
+
+            admin.email = document["email"].ToString();
+            admin.name = document["firstName"].ToString();
+
+            return admin;
+        }
+
+
+        //this method is just a useless working test(fornow)
+        public User SearchUser(string Coll, string searchTerm)
+        {
+            User admin = new User();
+            var document = SearchDocument(Coll, searchTerm);
+
+            admin.email = document["email"].ToString();
+            admin.name = document["firstName"].ToString();
+
+            return admin;
         }
     }
 }
