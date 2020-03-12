@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_dash = new System.Windows.Forms.Button();
+            this.btn_incident = new System.Windows.Forms.Button();
+            this.btn_userM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_dash
             // 
-            this.button1.Location = new System.Drawing.Point(223, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_dash.Location = new System.Drawing.Point(213, 63);
+            this.btn_dash.Name = "btn_dash";
+            this.btn_dash.Size = new System.Drawing.Size(127, 48);
+            this.btn_dash.TabIndex = 0;
+            this.btn_dash.Text = "Dashboard";
+            this.btn_dash.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_incident
             // 
-            this.button2.Location = new System.Drawing.Point(340, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_incident.Location = new System.Drawing.Point(356, 63);
+            this.btn_incident.Name = "btn_incident";
+            this.btn_incident.Size = new System.Drawing.Size(127, 48);
+            this.btn_incident.TabIndex = 1;
+            this.btn_incident.Text = "Incident Management";
+            this.btn_incident.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_userM
             // 
-            this.button3.Location = new System.Drawing.Point(463, 49);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_userM.Location = new System.Drawing.Point(504, 63);
+            this.btn_userM.Name = "btn_userM";
+            this.btn_userM.Size = new System.Drawing.Size(127, 48);
+            this.btn_userM.TabIndex = 2;
+            this.btn_userM.Text = "User Management";
+            this.btn_userM.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.btn_userM);
+            this.Controls.Add(this.btn_incident);
+            this.Controls.Add(this.btn_dash);
+            this.Name = "BaseForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -76,9 +76,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        protected System.Windows.Forms.Button btn_dash;
+        protected System.Windows.Forms.Button btn_incident;
+        protected System.Windows.Forms.Button btn_userM;
     }
 }
 

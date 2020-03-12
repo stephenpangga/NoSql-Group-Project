@@ -15,6 +15,11 @@ namespace NosqlUI
         public LoginForm()
         {
             InitializeComponent();
+            //hide the base buttons
+            btn_dash.Hide();
+            btn_incident.Hide();
+            btn_userM.Hide();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
