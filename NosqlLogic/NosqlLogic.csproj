@@ -4,4 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NosqlDAL\NosqlDAL.csproj" />
+    <ProjectReference Include="..\NosqlModel\NosqlModel.csproj" />
+    <ProjectReference Include="..\NosqlUI\NosqlUI.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -14,7 +14,6 @@ namespace NosqlDAL
             MongoClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
             database = MongoClient.GetDatabase("NoSql");
 
-
         }
 
         //example for selecting a certain document from a collection by INT
