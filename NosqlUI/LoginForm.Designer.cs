@@ -40,7 +40,7 @@
             // 
             this.btn_login.Location = new System.Drawing.Point(213, 247);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(211, 63);
+            this.btn_login.Size = new System.Drawing.Size(215, 36);
             this.btn_login.TabIndex = 3;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
@@ -50,14 +50,14 @@
             // 
             this.txtbox_user.Location = new System.Drawing.Point(213, 152);
             this.txtbox_user.Name = "txtbox_user";
-            this.txtbox_user.Size = new System.Drawing.Size(418, 20);
+            this.txtbox_user.Size = new System.Drawing.Size(361, 20);
             this.txtbox_user.TabIndex = 4;
             // 
             // txtbox_password
             // 
             this.txtbox_password.Location = new System.Drawing.Point(213, 202);
             this.txtbox_password.Name = "txtbox_password";
-            this.txtbox_password.Size = new System.Drawing.Size(418, 20);
+            this.txtbox_password.Size = new System.Drawing.Size(361, 20);
             this.txtbox_password.TabIndex = 5;
             // 
             // lbl_user
@@ -81,7 +81,7 @@
             // link_resetpass
             // 
             this.link_resetpass.AutoSize = true;
-            this.link_resetpass.Location = new System.Drawing.Point(486, 270);
+            this.link_resetpass.Location = new System.Drawing.Point(482, 259);
             this.link_resetpass.Name = "link_resetpass";
             this.link_resetpass.Size = new System.Drawing.Size(92, 13);
             this.link_resetpass.TabIndex = 8;
