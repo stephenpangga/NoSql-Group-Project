@@ -26,6 +26,8 @@ namespace NosqlUI
         {
             DashBoardForm dashboard = new DashBoardForm();
 
+            //send user to different forms(employee or customer) based on their roles
+
             dashboard.Show();
             this.Hide();
         }

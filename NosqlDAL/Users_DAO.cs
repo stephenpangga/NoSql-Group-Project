@@ -7,13 +7,14 @@ namespace NosqlDAL
 {
     public class Users_DAO :Base
     {
+        //use constructors
         public User GetUser(string Coll, int searchTerm)
         {
             User admin = new User();
             var document = GetDocument(Coll, searchTerm);
 
-            admin.email = document["email"].ToString();
-            admin.name = document["firstName"].ToString();
+            admin.Email = document["email"].ToString();
+            admin.FirstName = document["firstName"].ToString();
 
             return admin;
         }
@@ -25,8 +26,8 @@ namespace NosqlDAL
             User admin = new User();
             var document = SearchDocument(Coll, searchTerm);
 
-            admin.email = document["email"].ToString();
-            admin.name = document["firstName"].ToString();
+            admin.Email = document["email"].ToString();
+            admin.FirstName = document["firstName"].ToString();
 
             return admin;
         }

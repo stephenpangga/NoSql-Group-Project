@@ -1,6 +1,7 @@
 ﻿using System;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Collections.Generic;
 
 namespace NosqlDAL
 {
@@ -31,6 +32,14 @@ namespace NosqlDAL
             var filter = Builders<BsonDocument>.Filter.Eq("firstName", "admin");
             var firstDocument = collection.Find(filter).FirstOrDefault();
             return firstDocument;
+        }
+
+        protected List<BsonDocument> GetSpecificDocumentsList(string CollectionName, string SearchValue)
+        {
+            var collection = database.GetCollection<BsonDocument>(CollectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq("Reported by", SearchValue);
+            var documents = collection.Find(filter).ToList();
+            return documents;
         }
     }
 }
