@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.btn_login = new System.Windows.Forms.Button();
             this.txtbox_email = new System.Windows.Forms.TextBox();
             this.txtbox_password = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(213, 247);
+            this.btn_login.Location = new System.Drawing.Point(256, 263);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(215, 36);
             this.btn_login.TabIndex = 3;
@@ -49,14 +50,14 @@
             // 
             // txtbox_email
             // 
-            this.txtbox_email.Location = new System.Drawing.Point(213, 151);
+            this.txtbox_email.Location = new System.Drawing.Point(256, 167);
             this.txtbox_email.Name = "txtbox_email";
             this.txtbox_email.Size = new System.Drawing.Size(361, 20);
             this.txtbox_email.TabIndex = 4;
             // 
             // txtbox_password
             // 
-            this.txtbox_password.Location = new System.Drawing.Point(213, 202);
+            this.txtbox_password.Location = new System.Drawing.Point(256, 218);
             this.txtbox_password.Name = "txtbox_password";
             this.txtbox_password.Size = new System.Drawing.Size(361, 20);
             this.txtbox_password.TabIndex = 5;
@@ -64,25 +65,29 @@
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(137, 158);
+            this.lbl_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_user.Location = new System.Drawing.Point(180, 170);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(32, 13);
+            this.lbl_user.Size = new System.Drawing.Size(45, 18);
             this.lbl_user.TabIndex = 6;
             this.lbl_user.Text = "Email";
+            this.lbl_user.Click += new System.EventHandler(this.lbl_user_Click);
             // 
             // lbl_pass
             // 
             this.lbl_pass.AutoSize = true;
-            this.lbl_pass.Location = new System.Drawing.Point(137, 209);
+            this.lbl_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pass.Location = new System.Drawing.Point(180, 221);
             this.lbl_pass.Name = "lbl_pass";
-            this.lbl_pass.Size = new System.Drawing.Size(53, 13);
+            this.lbl_pass.Size = new System.Drawing.Size(75, 18);
             this.lbl_pass.TabIndex = 7;
             this.lbl_pass.Text = "Password";
+            this.lbl_pass.Click += new System.EventHandler(this.lbl_pass_Click);
             // 
             // link_resetpass
             // 
             this.link_resetpass.AutoSize = true;
-            this.link_resetpass.Location = new System.Drawing.Point(482, 259);
+            this.link_resetpass.Location = new System.Drawing.Point(525, 275);
             this.link_resetpass.Name = "link_resetpass";
             this.link_resetpass.Size = new System.Drawing.Size(92, 13);
             this.link_resetpass.TabIndex = 8;
@@ -92,11 +97,12 @@
             // sisalbl
             // 
             this.sisalbl.AutoSize = true;
-            this.sisalbl.Location = new System.Drawing.Point(213, 351);
+            this.sisalbl.Location = new System.Drawing.Point(256, 367);
             this.sisalbl.Name = "sisalbl";
             this.sisalbl.Size = new System.Drawing.Size(35, 13);
             this.sisalbl.TabIndex = 9;
             this.sisalbl.Text = "label1";
+            this.sisalbl.Click += new System.EventHandler(this.sisalbl_Click);
             // 
             // LoginForm
             // 
@@ -110,18 +116,9 @@
             this.Controls.Add(this.txtbox_password);
             this.Controls.Add(this.txtbox_email);
             this.Controls.Add(this.btn_login);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "LoginForm";
-            this.Controls.SetChildIndex(this.btn_dash, 0);
-            this.Controls.SetChildIndex(this.btn_incident, 0);
-            this.Controls.SetChildIndex(this.btn_userM, 0);
-            this.Controls.SetChildIndex(this.btn_login, 0);
-            this.Controls.SetChildIndex(this.txtbox_email, 0);
-            this.Controls.SetChildIndex(this.txtbox_password, 0);
-            this.Controls.SetChildIndex(this.lbl_user, 0);
-            this.Controls.SetChildIndex(this.lbl_pass, 0);
-            this.Controls.SetChildIndex(this.link_resetpass, 0);
-            this.Controls.SetChildIndex(this.sisalbl, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

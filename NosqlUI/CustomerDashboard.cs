@@ -27,5 +27,10 @@ namespace NosqlUI
         {
 
         }
+
+        private void CustomerDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

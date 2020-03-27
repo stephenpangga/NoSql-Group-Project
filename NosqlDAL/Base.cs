@@ -26,17 +26,6 @@ namespace NosqlDAL
             return Document;
         }
 
-        protected BsonDocument SearchByString(string CollectionName, string SearchValue, string Attribute)
-        {
-            //attribute is column value
-            //collectionName is table
-            //searchvalue is what you are looking for.
-            var collection = database.GetCollection<BsonDocument>(CollectionName);
-            var filter = Builders<BsonDocument>.Filter.Eq(Attribute, SearchValue);
-            var firstDocument = collection.Find(filter).FirstOrDefault();
-            return firstDocument;
-        }
-
         protected BsonDocument SearchDocument(string CollectionName, string SearchValue)
         {
             var collection = database.GetCollection<BsonDocument>(CollectionName);
@@ -51,6 +40,17 @@ namespace NosqlDAL
             var filter = Builders<BsonDocument>.Filter.Eq("Reported by", SearchValue);
             var documents = collection.Find(filter).ToList();
             return documents;
+        }
+
+        protected BsonDocument SearchByString(string CollectionName, string SearchValue, string Attribute)
+        {
+            //attribute is column value
+            //collectionName is table
+            //searchvalue is what you are looking for.
+            var collection = database.GetCollection<BsonDocument>(CollectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq(Attribute, SearchValue);
+            var firstDocument = collection.Find(filter).FirstOrDefault();
+            return firstDocument;
         }
     }
 }

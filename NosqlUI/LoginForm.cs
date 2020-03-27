@@ -18,9 +18,6 @@ namespace NosqlUI
         {
             InitializeComponent();
             //hide the base buttons
-            btn_dash.Hide();
-            btn_incident.Hide();
-            btn_userM.Hide();
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
             //User u = userlogic.getByEmail("useratgmaisl.com");
@@ -58,6 +55,22 @@ namespace NosqlUI
             }
             
             //send user to different forms(employee or customer) based on their roles            
+        }
+
+        private void sisalbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void lbl_pass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_user_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
