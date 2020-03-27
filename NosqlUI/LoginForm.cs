@@ -24,7 +24,6 @@ namespace NosqlUI
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
             //User u = userlogic.getByEmail("useratgmaisl.com");
-            //sisalbl.Text = u.Password;
             
         }
 
@@ -36,6 +35,7 @@ namespace NosqlUI
             Users_Logic userlogic = new Users_Logic();
 
             User u = userlogic.getByEmail(email);
+            sisalbl.Text = u.roles.ToString();
 
             if (u!=null)
             {

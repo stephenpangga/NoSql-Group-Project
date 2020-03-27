@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NosqlModel;
+using NosqlModel.Enums;
 
 namespace NosqlDAL
 {
@@ -41,8 +42,10 @@ namespace NosqlDAL
                 var document = SearchByString("Users", Email, "email");
 
                 admin.Email = document["email"].ToString();
-                admin.FirstName = document["firstName"].ToString();
                 admin.Password = document["password"].ToString();
+                admin.FirstName = document["firstName"].ToString();
+                admin.LastName = document["lastName"].ToString();
+                admin.roles = (Roles)Enum.Parse(typeof(Roles), document["role"].ToString());
 
                 return admin;
             }
