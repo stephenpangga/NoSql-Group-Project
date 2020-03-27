@@ -9,6 +9,5 @@ namespace NosqlModel.Enums
         Resolved,
         Unresolved,
         InProcess
-
     }
 }

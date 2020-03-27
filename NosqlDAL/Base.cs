@@ -26,10 +26,21 @@ namespace NosqlDAL
             return Document;
         }
 
+        protected BsonDocument SearchByString(string CollectionName, string SearchValue, string Attribute)
+        {
+            //attribute is column value
+            //collectionName is table
+            //searchvalue is what you are looking for.
+            var collection = database.GetCollection<BsonDocument>(CollectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq(Attribute, SearchValue);
+            var firstDocument = collection.Find(filter).FirstOrDefault();
+            return firstDocument;
+        }
+
         protected BsonDocument SearchDocument(string CollectionName, string SearchValue)
         {
             var collection = database.GetCollection<BsonDocument>(CollectionName);
-            var filter = Builders<BsonDocument>.Filter.Eq("firstName", "admin");
+            var filter = Builders<BsonDocument>.Filter.Eq("firstName", SearchValue);
             var firstDocument = collection.Find(filter).FirstOrDefault();
             return firstDocument;
         }

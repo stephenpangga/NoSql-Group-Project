@@ -20,5 +20,10 @@ namespace NosqlLogic
         {
             return Users_data.SearchUser(collectionName, SearchTerm);
         }
+
+        public User getByEmail(string Email)
+        {
+            return Users_data.SearchByEmail(Email);
+        }
     }
 }

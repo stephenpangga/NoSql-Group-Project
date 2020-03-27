@@ -35,7 +35,7 @@
             // 
             // btn_dash
             // 
-            this.btn_dash.Location = new System.Drawing.Point(213, 63);
+            this.btn_dash.Location = new System.Drawing.Point(191, 34);
             this.btn_dash.Name = "btn_dash";
             this.btn_dash.Size = new System.Drawing.Size(127, 48);
             this.btn_dash.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // btn_incident
             // 
-            this.btn_incident.Location = new System.Drawing.Point(356, 63);
+            this.btn_incident.Location = new System.Drawing.Point(334, 34);
             this.btn_incident.Name = "btn_incident";
             this.btn_incident.Size = new System.Drawing.Size(127, 48);
             this.btn_incident.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // btn_userM
             // 
-            this.btn_userM.Location = new System.Drawing.Point(504, 63);
+            this.btn_userM.Location = new System.Drawing.Point(482, 34);
             this.btn_userM.Name = "btn_userM";
             this.btn_userM.Size = new System.Drawing.Size(127, 48);
             this.btn_userM.TabIndex = 2;

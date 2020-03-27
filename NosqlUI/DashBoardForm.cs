@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NosqlLogic;
+using NosqlModel;
 
 namespace NosqlUI
 {
@@ -15,6 +17,11 @@ namespace NosqlUI
         public DashBoardForm()
         {
             InitializeComponent();
+
+            
+            Users_Logic userlogic = new Users_Logic();
+            User u = userlogic.SearchUser("Users", "admin");
+            
         }
     }
 }

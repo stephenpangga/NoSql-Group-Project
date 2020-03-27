@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NosqlLogic;
+using NosqlModel;
 
 namespace NosqlUI
 {
@@ -19,18 +21,30 @@ namespace NosqlUI
             btn_dash.Hide();
             btn_incident.Hide();
             btn_userM.Hide();
+            //Users_Logic userlogic = new Users_Logic();
+            //User u = userlogic.SearchUser("Users", "admin");
+            //User u = userlogic.getByEmail("useratgmaisl.com");
+            //sisalbl.Text = u.Password;
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             DashBoardForm dashboard = new DashBoardForm();
-            /*
-            if (check username)
+            string email = txtbox_email.Text;
+            string password = txtbox_password.Text;
+            Users_Logic userlogic = new Users_Logic();
+
+            User u = userlogic.getByEmail(email);
+
+            if (u!=null)
             {
-                if (check password)
+                if (password == u.Password)
                 {
-                    //use switch here maybe?
+                    //admin view
+                    dashboard.Show();
+                    this.Hide();
+                    //user view.
                 }
                 else
                 {
@@ -42,11 +56,8 @@ namespace NosqlUI
                 //if user doesnt not exist, show this message
                 MessageBox.Show("the user does not exist.","", MessageBoxButtons.OK);
             }
-            */
-            //send user to different forms(employee or customer) based on their roles
-
-            dashboard.Show();
-            this.Hide();
+            
+            //send user to different forms(employee or customer) based on their roles            
         }
     }
 }

@@ -31,5 +31,26 @@ namespace NosqlDAL
 
             return admin;
         }
+
+        //clean this later.
+        public User SearchByEmail(string Email)
+        {
+            try
+            {
+                User admin = new User();
+                var document = SearchByString("Users", Email, "email");
+
+                admin.Email = document["email"].ToString();
+                admin.FirstName = document["firstName"].ToString();
+                admin.Password = document["password"].ToString();
+
+                return admin;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }
