@@ -19,7 +19,7 @@ namespace NosqlDAL
 
             foreach(var doc in documents)
             {
-                Ticket ticket = new Ticket(doc["Subject"].ToString(), doc["Description"].ToString(), (Status)Enum.Parse(typeof(Status), doc["Status"].ToString()), doc["Deadline"].ToInt32(), (IncidentType)Enum.Parse(typeof(IncidentType), doc["Incident Type"].ToString()));
+                Ticket ticket = new Ticket(doc["Subject"].ToString(), doc["Description"].ToString(), (Status)Enum.Parse(typeof(Status), doc["Status"].ToString()), doc["Deadline"].ToInt32(), (IncidentType)Enum.Parse(typeof(IncidentType), doc["Incidenttype"].ToString()));
                 tickets.Add(ticket);
             }
 

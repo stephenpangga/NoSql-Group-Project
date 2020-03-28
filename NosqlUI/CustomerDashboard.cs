@@ -30,10 +30,10 @@ namespace NosqlUI
         void FillListView()
         {
             //user will be sent from login to be used here
-            tickets = customers_Logic.FetchEmployeeTickets("Tickets","Hank","Reported by");
+            tickets = customers_Logic.FetchEmployeeTickets("Tickets","Hank","Reportedby");
 
             //dataList.Clear();
-            dataList.Columns.Add("Subject", 86);
+            dataList.Columns.Add("Subject", 80);
             dataList.Columns.Add("Description", 120);
             dataList.Columns.Add("Status", 160);
             dataList.Columns.Add("Deadline", 120);
