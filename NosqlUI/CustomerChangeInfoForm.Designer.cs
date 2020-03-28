@@ -58,7 +58,7 @@
             this.ChngeEmailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChngeEmailBtn.Location = new System.Drawing.Point(472, 85);
             this.ChngeEmailBtn.Name = "ChngeEmailBtn";
-            this.ChngeEmailBtn.Size = new System.Drawing.Size(156, 32);
+            this.ChngeEmailBtn.Size = new System.Drawing.Size(233, 32);
             this.ChngeEmailBtn.TabIndex = 4;
             this.ChngeEmailBtn.Text = "Change email";
             this.ChngeEmailBtn.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             this.ChngePswdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChngePswdBtn.Location = new System.Drawing.Point(472, 259);
             this.ChngePswdBtn.Name = "ChngePswdBtn";
-            this.ChngePswdBtn.Size = new System.Drawing.Size(156, 32);
+            this.ChngePswdBtn.Size = new System.Drawing.Size(233, 32);
             this.ChngePswdBtn.TabIndex = 8;
             this.ChngePswdBtn.Text = "Change Password";
             this.ChngePswdBtn.UseVisualStyleBackColor = true;
