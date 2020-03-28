@@ -68,7 +68,17 @@ namespace NosqlDAL
             var update = Builders<BsonDocument>.Update.Set(column, updateValue);
             var result =collection.UpdateOne(filter, update);
 
-            return result.IsAcknowledged;
+            bool checkResult;
+            
+            if(result.MatchedCount==1 && result.ModifiedCount==1)
+            {
+                checkResult = true;
+            }
+            else
+            {
+                checkResult = false;
+            }
+            return checkResult;
             
 
 

@@ -90,6 +90,7 @@
             this.ChngePswdBtn.TabIndex = 8;
             this.ChngePswdBtn.Text = "Change password";
             this.ChngePswdBtn.UseVisualStyleBackColor = true;
+            this.ChngePswdBtn.Click += new System.EventHandler(this.ChngePswdBtn_Click);
             // 
             // CustomerChangeInfoForm
             // 
