@@ -9,7 +9,7 @@ using NosqlModel.Enums;
 
 namespace NosqlDAL
 {
-    class Customer_DAO : Base
+    public class Customer_DAO : Base
     {
         public List<Ticket> GetTicketsForEmployee(string Coll, string searchTerm, string attribute)
         {

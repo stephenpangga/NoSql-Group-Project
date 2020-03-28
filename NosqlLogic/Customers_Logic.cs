@@ -6,12 +6,13 @@ using NosqlModel;
 
 namespace NosqlLogic
 {
-    class Customers_Logic
+    public class Customers_Logic
     {
+        Customer_DAO customer_DAO = new Customer_DAO();
         //make ticket list(to get for one employee) and tickets model
-        //public User SearchUser(string collectionName, string SearchTerm)
-        //{
-        //    return Users_data.SearchUser(collectionName, SearchTerm);
-        //}
+        public List<Ticket> FetchEmployeeTickets(string collectionName, string searchTerm, string attribute)
+        {
+            return customer_DAO.GetTicketsForEmployee(collectionName, searchTerm, attribute);
+        }
     }
 }
