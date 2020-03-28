@@ -33,24 +33,23 @@ namespace NosqlUI
             tickets = customers_Logic.FetchEmployeeTickets("Tickets","Hank","Reportedby");
 
             //dataList.Clear();
-            dataList.Columns.Add("Subject", 80);
-            dataList.Columns.Add("Description", 120);
-            dataList.Columns.Add("Status", 160);
-            dataList.Columns.Add("Deadline", 120);
-            dataList.Columns.Add("Incident type", 240);
+            dataListView.Columns.Add("Subject", 140);
+            dataListView.Columns.Add("Description", 120);
+            dataListView.Columns.Add("Status", 160);
+            dataListView.Columns.Add("Deadline", 120);
+            dataListView.Columns.Add("Incident type", 240);
 
             foreach (Ticket ticket in tickets)
             {
                 var item = new string[5] { ticket.Subject.ToString(),ticket.Description,ticket.Status.ToString(),ticket.Deadline.ToString(), ticket.IncidentType.ToString() };
 
-                dataList.Items.Add(new ListViewItem(item));
+                dataListView.Items.Add(new ListViewItem(item));
             }
 
         }
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

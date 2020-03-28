@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataList = new System.Windows.Forms.ListView();
+            this.dataListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(667, 80);
+            this.button1.Location = new System.Drawing.Point(1037, 77);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 46);
@@ -63,22 +63,23 @@
             this.button1.Text = "Edit info";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataList
+            // dataListView
             // 
-            this.dataList.HideSelection = false;
-            this.dataList.Location = new System.Drawing.Point(15, 64);
-            this.dataList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataList.Name = "dataList";
-            this.dataList.Size = new System.Drawing.Size(607, 346);
-            this.dataList.TabIndex = 3;
-            this.dataList.UseCompatibleStateImageBehavior = false;
+            this.dataListView.HideSelection = false;
+            this.dataListView.Location = new System.Drawing.Point(15, 64);
+            this.dataListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataListView.Name = "dataListView";
+            this.dataListView.Size = new System.Drawing.Size(974, 379);
+            this.dataListView.TabIndex = 3;
+            this.dataListView.UseCompatibleStateImageBehavior = false;
+            this.dataListView.View = System.Windows.Forms.View.Details;
             // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataList);
+            this.ClientSize = new System.Drawing.Size(1178, 527);
+            this.Controls.Add(this.dataListView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -96,6 +97,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView dataList;
+        internal System.Windows.Forms.ListView dataListView;
     }
 }
