@@ -88,7 +88,7 @@
             this.ChngePswdBtn.Name = "ChngePswdBtn";
             this.ChngePswdBtn.Size = new System.Drawing.Size(156, 32);
             this.ChngePswdBtn.TabIndex = 8;
-            this.ChngePswdBtn.Text = "Change password";
+            this.ChngePswdBtn.Text = "Change Password";
             this.ChngePswdBtn.UseVisualStyleBackColor = true;
             this.ChngePswdBtn.Click += new System.EventHandler(this.ChngePswdBtn_Click);
             // 

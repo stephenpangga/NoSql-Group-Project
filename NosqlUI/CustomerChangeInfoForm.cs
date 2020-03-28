@@ -88,6 +88,10 @@ namespace NosqlUI
                     MessageBox.Show("Your password should be more than 7 letters", "Password length error.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else
+            {
+                MessageBox.Show("Password field must not be empty!", "Unsuccessfull", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
