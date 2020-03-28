@@ -99,6 +99,18 @@
     <Compile Include="CustomerDashboard.Designer.cs">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="IncidentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncidentReport.Designer.cs">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncidentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncidentView.Designer.cs">
+      <DependentUpon>IncidentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncidentReport.resx">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncidentView.resx">
+      <DependentUpon>IncidentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

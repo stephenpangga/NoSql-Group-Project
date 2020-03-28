@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NosqlModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace NosqlUI
 {
     public partial class BaseForm : Form
     {
-        public BaseForm()
+        public User currentUser;
+
+        public BaseForm() // for when no one is logged in
         {
             InitializeComponent();
+        }
+        public BaseForm(User user) // for when someone is logged in
+        {
+            InitializeComponent();
+            this.currentUser = user;
         }
     }
 }
