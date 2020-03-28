@@ -27,8 +27,11 @@ namespace NosqlUI
         private void button4_Click(object sender, EventArgs e)
         {
             DashBoardForm dashboard = new DashBoardForm();
+
+            //user info
             string email = txtbox_email.Text;
             string password = txtbox_password.Text;
+
             Users_Logic userlogic = new Users_Logic();
 
             User u = userlogic.getByEmail(email);
