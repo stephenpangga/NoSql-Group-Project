@@ -17,6 +17,10 @@ namespace NosqlDAL
 
         }
 
+        //attribute is column value
+        //collectionName is table
+        //searchvalue is what you are looking for.
+
         //example for selecting a certain document from a collection by INT
         protected BsonDocument GetDocument(string CollectionName, int SearchValue)
         {
@@ -34,10 +38,10 @@ namespace NosqlDAL
             return firstDocument;
         }
 
-        protected List<BsonDocument> GetSpecificDocumentsList(string CollectionName, string SearchValue)
+        protected List<BsonDocument> GetSpecificDocumentsList(string CollectionName, string SearchValue, string Attribute)
         {
             var collection = database.GetCollection<BsonDocument>(CollectionName);
-            var filter = Builders<BsonDocument>.Filter.Eq("Reported by", SearchValue);
+            var filter = Builders<BsonDocument>.Filter.Eq(Attribute, SearchValue);
             var documents = collection.Find(filter).ToList();
             return documents;
         }
