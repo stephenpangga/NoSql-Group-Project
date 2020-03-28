@@ -12,7 +12,7 @@ namespace NosqlDAL
         public User GetUser(string Coll, int searchTerm)
         {
             User admin = new User();
-            var document = GetDocument(Coll, searchTerm);
+            var document = GetDocumentByInt(Coll, searchTerm);
 
             admin.Email = document["email"].ToString();
             admin.FirstName = document["firstName"].ToString();

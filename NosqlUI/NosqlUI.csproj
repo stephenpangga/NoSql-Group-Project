@@ -87,6 +87,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerChangeInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerChangeInfoForm.Designer.cs">
+      <DependentUpon>CustomerChangeInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerChangeInfoForm.resx">
+      <DependentUpon>CustomerChangeInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>

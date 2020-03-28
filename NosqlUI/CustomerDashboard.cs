@@ -16,6 +16,7 @@ namespace NosqlUI
     {
         Customers_Logic customers_Logic = new Customers_Logic();
         List<Ticket> tickets = new List<Ticket>();
+        CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm();
         public CustomerDashboard()
         {
             InitializeComponent();
@@ -50,6 +51,11 @@ namespace NosqlUI
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            changeInfoForm.Show();
         }
     }
 }

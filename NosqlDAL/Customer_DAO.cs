@@ -11,7 +11,7 @@ namespace NosqlDAL
 {
     public class Customer_DAO : Base
     {
-        public List<Ticket> GetTicketsForEmployee(string Coll, string searchTerm, string attribute)
+        public List<Ticket> GetTicketsForCustomer(string Coll, string searchTerm, string attribute)
         {
             var documents = GetSpecificDocumentsList(Coll, searchTerm, attribute);
 
@@ -24,6 +24,13 @@ namespace NosqlDAL
             }
 
             return tickets;
+        }
+
+        public bool UpdateCustomerInfo(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        {
+            var result = UpdateDocument(collectionName, searchValue, attribute, updateValue, column);
+            return result;
+            
         }
     }
 }
