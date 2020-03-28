@@ -60,9 +60,6 @@
             this.Controls.Add(this.chart1);
             this.Name = "DashBoardForm";
             this.Text = "DashBoardForm";
-            this.Controls.SetChildIndex(this.btn_dash, 0);
-            this.Controls.SetChildIndex(this.btn_incident, 0);
-            this.Controls.SetChildIndex(this.btn_userM, 0);
             this.Controls.SetChildIndex(this.chart1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);

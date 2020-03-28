@@ -18,24 +18,24 @@ namespace NosqlUI
         {
             InitializeComponent();
             //hide the base buttons
-            btn_dash.Hide();
-            btn_incident.Hide();
-            btn_userM.Hide();
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
             //User u = userlogic.getByEmail("useratgmaisl.com");
-            //sisalbl.Text = u.Password;
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             DashBoardForm dashboard = new DashBoardForm();
+
+            //user info
             string email = txtbox_email.Text;
             string password = txtbox_password.Text;
+
             Users_Logic userlogic = new Users_Logic();
 
             User u = userlogic.getByEmail(email);
+            sisalbl.Text = u.roles.ToString();
 
             if (u!=null)
             {
@@ -58,6 +58,22 @@ namespace NosqlUI
             }
             
             //send user to different forms(employee or customer) based on their roles            
+        }
+
+        private void sisalbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void lbl_pass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_user_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

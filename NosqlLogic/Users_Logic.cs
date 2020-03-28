@@ -8,7 +8,6 @@ namespace NosqlLogic
 {
     public class Users_Logic
     {
-        
         Users_DAO Users_data = new Users_DAO();
 
         public User getSpecificUser(string collectionName, int SearchTerm)
