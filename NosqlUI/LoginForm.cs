@@ -34,13 +34,14 @@ namespace NosqlUI
 
             Users_Logic userlogic = new Users_Logic();
 
-            User u = userlogic.getByEmail(email);
+            User user = userlogic.getByEmail(email);
             //sisalbl.Text = u.roles.ToString();
 
-            if (u!=null)
+            if (user!=null)
             {
-                if (password == u.Password)
+                if (password == user.Password)
                 {
+                    //set up the account info here.
                     //admin view
                     dashboard.Show();
                     this.Hide();
