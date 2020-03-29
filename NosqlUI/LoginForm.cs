@@ -35,7 +35,7 @@ namespace NosqlUI
             Users_Logic userlogic = new Users_Logic();
 
             User u = userlogic.getByEmail(email);
-            sisalbl.Text = u.roles.ToString();
+            //sisalbl.Text = u.roles.ToString();
 
             if (u!=null)
             {

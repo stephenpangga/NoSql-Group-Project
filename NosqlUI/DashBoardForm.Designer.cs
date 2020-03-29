@@ -41,14 +41,14 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(504, 129);
+            this.chart1.Location = new System.Drawing.Point(120, 74);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(127, 101);
+            this.chart1.Size = new System.Drawing.Size(491, 334);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             // 
@@ -60,7 +60,6 @@
             this.Controls.Add(this.chart1);
             this.Name = "DashBoardForm";
             this.Text = "DashBoardForm";
-            this.Controls.SetChildIndex(this.chart1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
