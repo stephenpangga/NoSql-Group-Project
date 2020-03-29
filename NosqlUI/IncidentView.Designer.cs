@@ -37,15 +37,15 @@
             // 
             // btn_dash
             // 
-            this.btn_dash.Location = new System.Drawing.Point(13, 13);
+            //this.btn_dash.Location = new System.Drawing.Point(13, 13);
             // 
             // btn_incident
             // 
-            this.btn_incident.Location = new System.Drawing.Point(204, 13);
+           // this.btn_incident.Location = new System.Drawing.Point(204, 13);
             // 
             // btn_userM
             // 
-            this.btn_userM.Location = new System.Drawing.Point(401, 13);
+            //this.btn_userM.Location = new System.Drawing.Point(401, 13);
             // 
             // incident_lstvw
             // 
@@ -105,9 +105,9 @@
             this.Controls.Add(this.incident_lstvw);
             this.Name = "IncidentView";
             this.Text = "IncidentManagment";
-            this.Controls.SetChildIndex(this.btn_dash, 0);
-            this.Controls.SetChildIndex(this.btn_incident, 0);
-            this.Controls.SetChildIndex(this.btn_userM, 0);
+            //this.Controls.SetChildIndex(this.btn_dash, 0);
+            //this.Controls.SetChildIndex(this.btn_incident, 0);
+            //this.Controls.SetChildIndex(this.btn_userM, 0);
             this.Controls.SetChildIndex(this.incident_lstvw, 0);
             this.Controls.SetChildIndex(this.incidentViewTitle_lbl, 0);
             this.Controls.SetChildIndex(this.incidentFilter_txtbx, 0);

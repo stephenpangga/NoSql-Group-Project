@@ -50,21 +50,21 @@
             // 
             // btn_dash
             // 
-            this.btn_dash.Location = new System.Drawing.Point(14, 14);
-            this.btn_dash.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_dash.Size = new System.Drawing.Size(211, 74);
+            //this.btn_dash.Location = new System.Drawing.Point(14, 14);
+            //this.btn_dash.Margin = new System.Windows.Forms.Padding(5);
+            //this.btn_dash.Size = new System.Drawing.Size(211, 74);
             // 
             // btn_incident
             // 
-            this.btn_incident.Location = new System.Drawing.Point(253, 14);
-            this.btn_incident.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_incident.Size = new System.Drawing.Size(211, 74);
+            //this.btn_incident.Location = new System.Drawing.Point(253, 14);
+            //this.btn_incident.Margin = new System.Windows.Forms.Padding(5);
+            //this.btn_incident.Size = new System.Drawing.Size(211, 74);
             // 
             // btn_userM
             // 
-            this.btn_userM.Location = new System.Drawing.Point(499, 14);
-            this.btn_userM.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_userM.Size = new System.Drawing.Size(211, 74);
+            //this.btn_userM.Location = new System.Drawing.Point(499, 14);
+            //this.btn_userM.Margin = new System.Windows.Forms.Padding(5);
+            //this.btn_userM.Size = new System.Drawing.Size(211, 74);
             // 
             // incidentDate_lbl
             // 
@@ -302,9 +302,9 @@
             this.Controls.SetChildIndex(this.incidentSubject_txtbx, 0);
             this.Controls.SetChildIndex(this.incidentDescription_rtxtbx, 0);
             this.Controls.SetChildIndex(this.incidentCancel_btn, 0);
-            this.Controls.SetChildIndex(this.btn_dash, 0);
-            this.Controls.SetChildIndex(this.btn_incident, 0);
-            this.Controls.SetChildIndex(this.btn_userM, 0);
+            //this.Controls.SetChildIndex(this.btn_dash, 0);
+            //this.Controls.SetChildIndex(this.btn_incident, 0);
+            //this.Controls.SetChildIndex(this.btn_userM, 0);
             this.Controls.SetChildIndex(this.incidentSubmit_btn, 0);
             this.Controls.SetChildIndex(this.incidentReportTitle_lbl, 0);
             this.Controls.SetChildIndex(this.incidentDate_dtp, 0);
