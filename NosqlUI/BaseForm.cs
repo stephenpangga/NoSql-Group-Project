@@ -24,5 +24,10 @@ namespace NosqlUI
             InitializeComponent();
             this.currentUser = user;
         }
+
+        private void btn_Dashboard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

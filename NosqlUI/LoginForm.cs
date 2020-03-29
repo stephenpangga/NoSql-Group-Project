@@ -17,6 +17,9 @@ namespace NosqlUI
         public LoginForm()
         {
             InitializeComponent();
+            btn_Dashboard.Hide();
+            btn_IncidentM.Hide();
+            btn_UserM.Hide();
             //hide the base buttons
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
@@ -24,7 +27,7 @@ namespace NosqlUI
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_Login_Click(object sender, EventArgs e)
         {
             DashBoardForm dashboard = new DashBoardForm();
 
@@ -42,10 +45,21 @@ namespace NosqlUI
                 if (password == user.Password)
                 {
                     //set up the account info here.
-                    //admin view
-                    dashboard.Show();
+                    currentUser = user;
+                    switch(user.roles)
+                    {
+                        //admin view
+                        case NosqlModel.Enums.Roles.Admin:
+                            DashBoardForm dashboardForm = new DashBoardForm();
+                            dashboard.Show();
+                            break;
+                        //user view.
+                        case NosqlModel.Enums.Roles.Employee:
+                            CustomerDashboard customerDashBoard = new CustomerDashboard();
+                            customerDashBoard.Show();
+                            break;
+                    }
                     this.Hide();
-                    //user view.
                 }
                 else
                 {

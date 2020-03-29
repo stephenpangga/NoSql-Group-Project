@@ -46,7 +46,7 @@
             this.btn_login.TabIndex = 3;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
-            this.btn_login.Click += new System.EventHandler(this.button4_Click);
+            this.btn_login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // txtbox_email
             // 
