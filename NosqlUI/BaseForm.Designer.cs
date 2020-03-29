@@ -36,7 +36,7 @@
             // 
             // btn_Dashboard
             // 
-            this.btn_Dashboard.Location = new System.Drawing.Point(129, 60);
+            this.btn_Dashboard.Location = new System.Drawing.Point(133, 56);
             this.btn_Dashboard.Name = "btn_Dashboard";
             this.btn_Dashboard.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_Dashboard.Size = new System.Drawing.Size(178, 33);
@@ -47,7 +47,7 @@
             // 
             // btn_IncidentM
             // 
-            this.btn_IncidentM.Location = new System.Drawing.Point(313, 60);
+            this.btn_IncidentM.Location = new System.Drawing.Point(317, 56);
             this.btn_IncidentM.Name = "btn_IncidentM";
             this.btn_IncidentM.Size = new System.Drawing.Size(178, 33);
             this.btn_IncidentM.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // btn_UserM
             // 
-            this.btn_UserM.Location = new System.Drawing.Point(497, 60);
+            this.btn_UserM.Location = new System.Drawing.Point(501, 56);
             this.btn_UserM.Name = "btn_UserM";
             this.btn_UserM.Size = new System.Drawing.Size(178, 33);
             this.btn_UserM.TabIndex = 2;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.btn_Dashboard);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BaseForm";
-            this.Text = "Form1";
+            this.Text = "DashBoard";
             this.ResumeLayout(false);
 
         }

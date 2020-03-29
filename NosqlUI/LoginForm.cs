@@ -42,9 +42,10 @@ namespace NosqlUI
 
             if (user!=null)
             {
+                //need to make method to unhash password.
                 if (password == user.Password)
                 {
-                    //set up the account info here.
+                    //set up the account info here. need to  see what tim use here
                     currentUser = user;
                     switch(user.roles)
                     {

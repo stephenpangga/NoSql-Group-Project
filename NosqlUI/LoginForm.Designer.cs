@@ -119,6 +119,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "LoginForm";
+            this.Controls.SetChildIndex(this.btn_login, 0);
+            this.Controls.SetChildIndex(this.txtbox_email, 0);
+            this.Controls.SetChildIndex(this.txtbox_password, 0);
+            this.Controls.SetChildIndex(this.lbl_user, 0);
+            this.Controls.SetChildIndex(this.lbl_pass, 0);
+            this.Controls.SetChildIndex(this.link_resetpass, 0);
+            this.Controls.SetChildIndex(this.sisalbl, 0);
+            this.Controls.SetChildIndex(this.btn_Dashboard, 0);
+            this.Controls.SetChildIndex(this.btn_IncidentM, 0);
+            this.Controls.SetChildIndex(this.btn_UserM, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
