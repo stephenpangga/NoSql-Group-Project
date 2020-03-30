@@ -37,5 +37,12 @@ namespace NosqlUI
             btn_IncidentM.Hide();
             btn_UserM.Hide();
         }
+
+        private void btn_IncidentM_Click(object sender, EventArgs e)
+        {
+            CustomerManagement cm = new CustomerManagement();
+            cm.Show();
+            this.Hide();
+        }
     }
 }

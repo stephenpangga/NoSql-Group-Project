@@ -53,6 +53,7 @@
             this.btn_IncidentM.TabIndex = 1;
             this.btn_IncidentM.Text = "Incident Management";
             this.btn_IncidentM.UseVisualStyleBackColor = true;
+            this.btn_IncidentM.Click += new System.EventHandler(this.btn_IncidentM_Click);
             // 
             // btn_UserM
             // 

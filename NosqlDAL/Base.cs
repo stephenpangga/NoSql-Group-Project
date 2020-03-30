@@ -17,10 +17,6 @@ namespace NosqlDAL
 
         }
 
-        //attribute is column value
-        //collectionName is table
-        //searchvalue is what you are looking for.
-
         //example for selecting a certain document from a collection by INT
         protected BsonDocument GetDocumentByInt(string collectionName, int searchValue)
         {
@@ -56,6 +52,7 @@ namespace NosqlDAL
 
         protected BsonDocument SearchByString(string collectionName, string searchValue, string attribute)
         {
+            //used for looking at user accounts at the db
             //attribute is column value
             //collectionName is table
             //searchvalue is what you are looking for.
@@ -63,6 +60,14 @@ namespace NosqlDAL
             var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
             var firstDocument = collection.Find(filter).FirstOrDefault();
             return firstDocument;
+        }
+        //get all method from the database.maybe a general one?
+        protected List<BsonDocument> GetAll(string collectionName)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var Document = collection.Find(filter).ToList();
+            return Document;
         }
 
         //attribute is the column for selecting doc and column is used to select the column to be updated
