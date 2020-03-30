@@ -30,6 +30,14 @@ namespace NosqlDAL
             return Document;
         }
 
+        protected List<BsonDocument> GetAllEmployees(string collectionName) 
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var Document = collection.Find(filter).ToList();
+            return Document;
+        }
+
         protected BsonDocument SearchDocument(string collectionName, string searchValue)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);

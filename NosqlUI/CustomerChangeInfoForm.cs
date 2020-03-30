@@ -93,5 +93,10 @@ namespace NosqlUI
                 MessageBox.Show("Password field must not be empty!", "Unsuccessfull", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void CustomerChangeInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

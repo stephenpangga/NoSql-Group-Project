@@ -57,5 +57,10 @@ namespace NosqlUI
         {
             changeInfoForm.Show();
         }
+
+        private void dataListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

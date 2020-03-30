@@ -20,5 +20,10 @@ namespace NosqlLogic
             var result = customer_DAO.UpdateCustomerInfo(collectionName, searchValue, attribute, updateValue, column);
             return result;
         }
+
+        public List<Employees> getAllEmployees(string collectionName) 
+        {
+            return customer_DAO.getAllEmployees(collectionName);
+        }
     }
 }
