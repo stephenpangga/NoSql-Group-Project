@@ -70,7 +70,7 @@ namespace NosqlDAL
 
             bool checkResult;
             
-            if(result.MatchedCount==1 && result.ModifiedCount==1)
+            if(result.MatchedCount == 1 && result.ModifiedCount == 1)
             {
                 checkResult = true;
             }
@@ -79,9 +79,6 @@ namespace NosqlDAL
                 checkResult = false;
             }
             return checkResult;
-            
-
-
         }
     }
 }

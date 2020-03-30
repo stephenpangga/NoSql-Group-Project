@@ -12,6 +12,5 @@ namespace NosqlModel
         public string Email { get; set; }
         public Roles roles;
         public string Password { get; set; }
-
     }
 }

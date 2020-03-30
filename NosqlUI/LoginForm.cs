@@ -27,7 +27,7 @@ namespace NosqlUI
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            DashBoardForm dashboard = new DashBoardForm();
+            //DashBoardForm dashboard = new DashBoardForm();
 
             //user info
             string email = txtbox_email.Text;
@@ -48,8 +48,8 @@ namespace NosqlUI
                     {
                         //admin view
                         case NosqlModel.Enums.Roles.Admin:
-                            DashBoardForm dashboardForm = new DashBoardForm();
-                            dashboard.Show();
+                            DashBoardForm dashboardForm = new DashBoardForm(currentUser);
+                            dashboardForm.Show();
                             break;
                         //user view.
                         case NosqlModel.Enums.Roles.Employee:

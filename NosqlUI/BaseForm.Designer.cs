@@ -73,7 +73,7 @@
             this.Controls.Add(this.btn_Dashboard);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BaseForm";
-            this.Text = "DashBoard";
+            this.Text = "BaseForm";
             this.ResumeLayout(false);
 
         }

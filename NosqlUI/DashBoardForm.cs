@@ -14,14 +14,12 @@ namespace NosqlUI
 {
     public partial class DashBoardForm : BaseForm
     {
-        public DashBoardForm()
+        public DashBoardForm(User loggendUser)
         {
             InitializeComponent();
-
-            
-            Users_Logic userlogic = new Users_Logic();
-            User u = userlogic.SearchUser("Users", "admin");
-            
+            //Users_Logic userlogic = new Users_Logic();
+            //User u = userlogic.SearchUser("Users", "admin");
+            lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
         }
     }
 }

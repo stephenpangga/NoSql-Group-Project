@@ -20,7 +20,6 @@ namespace NosqlDAL
             return admin;
         }
 
-
         //this method is just a useless working test(fornow)
         public User SearchUser(string Coll, string searchTerm)
         {

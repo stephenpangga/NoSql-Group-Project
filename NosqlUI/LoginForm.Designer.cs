@@ -65,7 +65,7 @@
             // 
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_user.Location = new System.Drawing.Point(180, 170);
+            this.lbl_user.Location = new System.Drawing.Point(150, 169);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(45, 18);
             this.lbl_user.TabIndex = 6;
@@ -76,7 +76,7 @@
             // 
             this.lbl_pass.AutoSize = true;
             this.lbl_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pass.Location = new System.Drawing.Point(180, 221);
+            this.lbl_pass.Location = new System.Drawing.Point(150, 220);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(75, 18);
             this.lbl_pass.TabIndex = 7;
