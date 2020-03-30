@@ -17,10 +17,11 @@ namespace NosqlUI
         Customers_Logic customers_Logic = new Customers_Logic();
         List<Ticket> tickets = new List<Ticket>();
         CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm();
-        public CustomerDashboard()
+        public CustomerDashboard(User currentUser)
         {
             InitializeComponent();
             FillListView();
+            lbl_EmployeeName.Text = currentUser.FirstName;
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -29,5 +29,13 @@ namespace NosqlUI
         {
 
         }
+
+        //to hide the buttons not needed for some forms
+        public void hideButtons()
+        {
+            btn_Dashboard.Hide();
+            btn_IncidentM.Hide();
+            btn_UserM.Hide();
+        }
     }
 }

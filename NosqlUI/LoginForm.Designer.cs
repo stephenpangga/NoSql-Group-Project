@@ -35,7 +35,6 @@
             this.lbl_user = new System.Windows.Forms.Label();
             this.lbl_pass = new System.Windows.Forms.Label();
             this.link_resetpass = new System.Windows.Forms.LinkLabel();
-            this.sisalbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_login
@@ -94,22 +93,11 @@
             this.link_resetpass.TabStop = true;
             this.link_resetpass.Text = "Forget Password?";
             // 
-            // sisalbl
-            // 
-            this.sisalbl.AutoSize = true;
-            this.sisalbl.Location = new System.Drawing.Point(256, 367);
-            this.sisalbl.Name = "sisalbl";
-            this.sisalbl.Size = new System.Drawing.Size(35, 13);
-            this.sisalbl.TabIndex = 9;
-            this.sisalbl.Text = "label1";
-            this.sisalbl.Click += new System.EventHandler(this.sisalbl_Click);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.sisalbl);
             this.Controls.Add(this.link_resetpass);
             this.Controls.Add(this.lbl_pass);
             this.Controls.Add(this.lbl_user);
@@ -125,7 +113,6 @@
             this.Controls.SetChildIndex(this.lbl_user, 0);
             this.Controls.SetChildIndex(this.lbl_pass, 0);
             this.Controls.SetChildIndex(this.link_resetpass, 0);
-            this.Controls.SetChildIndex(this.sisalbl, 0);
             this.Controls.SetChildIndex(this.btn_Dashboard, 0);
             this.Controls.SetChildIndex(this.btn_IncidentM, 0);
             this.Controls.SetChildIndex(this.btn_UserM, 0);
@@ -142,6 +129,5 @@
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Label lbl_pass;
         private System.Windows.Forms.LinkLabel link_resetpass;
-        private System.Windows.Forms.Label sisalbl;
     }
 }

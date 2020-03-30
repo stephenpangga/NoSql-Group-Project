@@ -17,9 +17,7 @@ namespace NosqlUI
         public LoginForm()
         {
             InitializeComponent();
-            btn_Dashboard.Hide();
-            btn_IncidentM.Hide();
-            btn_UserM.Hide();
+            hideButtons();
             //hide the base buttons
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
@@ -38,7 +36,6 @@ namespace NosqlUI
             Users_Logic userlogic = new Users_Logic();
 
             User user = userlogic.getByEmail(email);
-            //sisalbl.Text = u.roles.ToString();
 
             if (user!=null)
             {
@@ -56,7 +53,7 @@ namespace NosqlUI
                             break;
                         //user view.
                         case NosqlModel.Enums.Roles.Employee:
-                            CustomerDashboard customerDashBoard = new CustomerDashboard();
+                            CustomerDashboard customerDashBoard = new CustomerDashboard(currentUser);
                             customerDashBoard.Show();
                             break;
                     }
@@ -75,12 +72,6 @@ namespace NosqlUI
             
             //send user to different forms(employee or customer) based on their roles            
         }
-
-        private void sisalbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void lbl_pass_Click(object sender, EventArgs e)
         {
