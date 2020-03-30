@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_EmployeeName = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
@@ -45,15 +45,15 @@
             this.label1.Text = "Welcome";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lbl_EmployeeName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Employee name";
+            this.lbl_EmployeeName.AutoSize = true;
+            this.lbl_EmployeeName.Location = new System.Drawing.Point(63, 15);
+            this.lbl_EmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_EmployeeName.Name = "lbl_EmployeeName";
+            this.lbl_EmployeeName.Size = new System.Drawing.Size(82, 13);
+            this.lbl_EmployeeName.TabIndex = 1;
+            this.lbl_EmployeeName.Text = "Employee name";
             // 
             // button1
             // 
@@ -76,7 +76,6 @@
             this.dataListView.TabIndex = 3;
             this.dataListView.UseCompatibleStateImageBehavior = false;
             this.dataListView.View = System.Windows.Forms.View.Details;
-            this.dataListView.SelectedIndexChanged += new System.EventHandler(this.dataListView_SelectedIndexChanged);
             // 
             // CustomerDashboard
             // 
@@ -85,7 +84,7 @@
             this.ClientSize = new System.Drawing.Size(884, 428);
             this.Controls.Add(this.dataListView);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_EmployeeName);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CustomerDashboard";
@@ -99,7 +98,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_EmployeeName;
         private System.Windows.Forms.Button button1;
         internal System.Windows.Forms.ListView dataListView;
     }
