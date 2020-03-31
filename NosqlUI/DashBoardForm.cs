@@ -20,6 +20,25 @@ namespace NosqlUI
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
+            
+            countTickets();
         }
+
+        private void countTickets()
+        {
+            Ticket_Logic tickets = new Ticket_Logic();
+
+            List<Ticket>listofTickets = tickets.getTickets();
+
+            int count = 0;
+
+            foreach(Ticket t in listofTickets)
+            {
+                count++;
+            }
+
+            lbl_amount.Text = listofTickets.Count().ToString() ;
+        }
+
     }
 }

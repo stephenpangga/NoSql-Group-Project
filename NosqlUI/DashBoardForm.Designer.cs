@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.lbl_amount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(133, 173);
+            this.chart1.Location = new System.Drawing.Point(133, 157);
             this.chart1.Name = "chart1";
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series1.ChartArea = "ChartArea1";
@@ -62,24 +63,34 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(362, 202);
+            this.chart1.Size = new System.Drawing.Size(178, 124);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
             // 
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(550, 9);
+            this.lbl_name.Location = new System.Drawing.Point(550, 18);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(77, 13);
             this.lbl_name.TabIndex = 4;
             this.lbl_name.Text = "Welcome User";
+            // 
+            // lbl_amount
+            // 
+            this.lbl_amount.AutoSize = true;
+            this.lbl_amount.Location = new System.Drawing.Point(130, 112);
+            this.lbl_amount.Name = "lbl_amount";
+            this.lbl_amount.Size = new System.Drawing.Size(35, 13);
+            this.lbl_amount.TabIndex = 5;
+            this.lbl_amount.Text = "label1";
             // 
             // DashBoardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_amount);
             this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.chart1);
             this.Name = "DashBoardForm";
@@ -88,6 +99,7 @@
             this.Controls.SetChildIndex(this.btn_IncidentM, 0);
             this.Controls.SetChildIndex(this.btn_UserM, 0);
             this.Controls.SetChildIndex(this.lbl_name, 0);
+            this.Controls.SetChildIndex(this.lbl_amount, 0);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,5 +110,6 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.Label lbl_amount;
     }
 }
