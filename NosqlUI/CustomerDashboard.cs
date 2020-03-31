@@ -16,12 +16,15 @@ namespace NosqlUI
     {
         Customers_Logic customers_Logic = new Customers_Logic();
         List<Ticket> tickets = new List<Ticket>();
-        CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm();
+        private string fullName;
+        User loggedInUser;
         public CustomerDashboard(User currentUser)
         {
             InitializeComponent();
-            FillListView();
+            FillListView(currentUser);
             lbl_EmployeeName.Text = currentUser.FirstName;
+            loggedInUser = currentUser;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,10 +32,13 @@ namespace NosqlUI
 
         }
 
-        void FillListView()
+        void FillListView(User user)
         {
+            fullName = user.FirstName + " "+ user.LastName;
+
             //user will be sent from login to be used here
-            tickets = customers_Logic.FetchEmployeeTickets("Tickets","Hank","Reportedby");
+            //tickets will be get using fullname to make it uniqe
+            tickets = customers_Logic.FetchEmployeeTickets("Tickets",fullName,"Reportedby");
 
             //dataList.Clear();
             dataListView.Columns.Add("Subject", 140);
@@ -56,6 +62,7 @@ namespace NosqlUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm(loggedInUser.userId);
             changeInfoForm.Show();
         }
 
