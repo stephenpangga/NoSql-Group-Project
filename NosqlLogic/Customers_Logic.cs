@@ -15,7 +15,7 @@ namespace NosqlLogic
             return customer_DAO.GetTicketsForCustomer(collectionName, searchTerm, attribute);
         }
 
-        public bool ChangeCustomerInfo(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        public bool ChangeCustomerInfo(string collectionName, int searchValue, string attribute, string updateValue, string column)
         {
             var result = customer_DAO.UpdateCustomerInfo(collectionName, searchValue, attribute, updateValue, column);
             return result;

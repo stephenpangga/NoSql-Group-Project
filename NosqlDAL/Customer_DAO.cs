@@ -26,7 +26,7 @@ namespace NosqlDAL
             return tickets;
         }
 
-        public bool UpdateCustomerInfo(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        public bool UpdateCustomerInfo(string collectionName, int searchValue, string attribute, string updateValue, string column)
         {
             var result = UpdateDocument(collectionName, searchValue, attribute, updateValue, column);
             return result;
