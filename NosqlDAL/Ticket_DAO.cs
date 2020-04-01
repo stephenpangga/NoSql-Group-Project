@@ -9,7 +9,7 @@ namespace NosqlDAL
     public class Ticket_DAO : Base
     {
         //not sure if this will work, just trying.
-        public List<Ticket> GetTickets()
+        public List<Ticket> getTickets()
         {
             List<Ticket> tickets = new List<Ticket>();
             var document = GetAll("Tickets");
@@ -27,5 +27,46 @@ namespace NosqlDAL
             }
             return tickets;
         }
+
+        //get tickets with different status
+        public List<Ticket> getSpecificTickets(string ticketStatus)
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            var document = GetSpecificDocumentsList("Tickets",ticketStatus, "Status");
+            foreach (var info in document)
+            {
+                string subject = info["Subject"].ToString();
+                string description = info["Description"].ToString();
+                Status status = (Status)Enum.Parse(typeof(Status), info["Status"].ToString());
+                int deadline = int.Parse(info["Deadline"].ToString());
+                IncidentType incidentType = (IncidentType)Enum.Parse(typeof(IncidentType), info["Incidenttype"].ToString());
+
+                Ticket ticket = new Ticket(subject, description, status, deadline, incidentType);
+
+                tickets.Add(ticket);
+            }
+            return tickets;
+        }
+        
+        //get ticket based on incident type
+        public List<Ticket> getIncidentTicket(string incident)
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            var document = GetSpecificDocumentsList("Tickets", incident, "Incidenttype");
+            foreach (var info in document)
+            {
+                string subject = info["Subject"].ToString();
+                string description = info["Description"].ToString();
+                Status status = (Status)Enum.Parse(typeof(Status), info["Status"].ToString());
+                int deadline = int.Parse(info["Deadline"].ToString());
+                IncidentType incidentType = (IncidentType)Enum.Parse(typeof(IncidentType), info["Incidenttype"].ToString());
+
+                Ticket ticket = new Ticket(subject, description, status, deadline, incidentType);
+
+                tickets.Add(ticket);
+            }
+            return tickets;
+        }
+        
     }
 }
