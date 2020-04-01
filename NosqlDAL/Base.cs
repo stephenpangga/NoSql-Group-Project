@@ -34,6 +34,21 @@ namespace NosqlDAL
             return Document;
         }
 
+        //Tim - Insert a new user into the database / cluster
+        public void InsertUser(int id, string mail, string password, string firstName, string lastName, string role) 
+        {
+            BsonDocument document = new BsonDocument();
+            document["userId"] = id;
+            document["email"] = mail;
+            document["password"] = password;
+            document["firstName"] = firstName;
+            document["lastName"] = lastName;
+            document["role"] = role;
+
+            var collection = database.GetCollection<BsonDocument>("Users");
+            collection.InsertOne(document);
+        }
+
         protected BsonDocument SearchDocument(string collectionName, string searchValue)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);

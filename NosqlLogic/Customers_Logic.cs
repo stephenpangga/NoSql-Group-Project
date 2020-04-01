@@ -21,6 +21,8 @@ namespace NosqlLogic
             return result;
         }
 
+
+        //Method made by Tim
         public List<Employees> getAllEmployees(string collectionName) 
         {
             return customer_DAO.getAllEmployees(collectionName);
@@ -40,6 +42,41 @@ namespace NosqlLogic
             var finalString = new String(stringChars);
             customer_DAO.sendEmail(email, finalString);
             customer_DAO.resetEmail("Users", email, "email", finalString, "password");
+        }
+
+        //Tim - Send the new user info to the database
+        public void createUser(string firstname, string lastname, string email, string role) 
+        {
+            //create the id
+            int id = getNewID();
+            string password = getNewPassword();
+            customer_DAO.enterUser(id, email, password, firstname, lastname, role);
+
+        }
+
+        //Tim- create a new user ID which is 1 more than the last one.
+        public int getNewID() 
+        {
+            int id = 0;
+            List<Employees> employees = customer_DAO.getAllEmployees("Users");
+            foreach (Employees employee in employees) 
+            { if (employee.userID > id) { id = employee.userID; } }
+            return id + 1;
+        }
+
+        public string getNewPassword() 
+        {
+            string password = "";
+            string passstring = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            for(int i = 0; i < 6; i++)
+            {
+                int number = rnd.Next(0, 62);
+                string sub = passstring.Substring(number, 1);
+                password = password + sub;
+            }
+            return password;
         }
     }
 }
