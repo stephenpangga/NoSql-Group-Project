@@ -14,8 +14,8 @@ namespace NosqlUI
     public partial class BaseForm : Form
     {
 
-        
-        public User currentUser;
+
+        public User currentUser = new User();
 
         public BaseForm() // for when no one is logged in
         {

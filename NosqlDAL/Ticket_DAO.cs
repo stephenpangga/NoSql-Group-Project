@@ -39,7 +39,7 @@ namespace NosqlDAL
                 string description = info["Description"].ToString();
                 Status status = (Status)Enum.Parse(typeof(Status), info["Status"].ToString());
                 int deadline = int.Parse(info["Deadline"].ToString());
-                IncidentType incidentType = (IncidentType)Enum.Parse(typeof(IncidentType), info["Incidenttype"].ToString());
+                NosqlModel.Enums.IncidentType incidentType = (NosqlModel.Enums.IncidentType)Enum.Parse(typeof(NosqlModel.Enums.IncidentType), info["Incidenttype"].ToString());
 
                 Ticket ticket = new Ticket(subject, description, status, deadline, incidentType);
 
@@ -59,7 +59,7 @@ namespace NosqlDAL
                 string description = info["Description"].ToString();
                 Status status = (Status)Enum.Parse(typeof(Status), info["Status"].ToString());
                 int deadline = int.Parse(info["Deadline"].ToString());
-                IncidentType incidentType = (IncidentType)Enum.Parse(typeof(IncidentType), info["Incidenttype"].ToString());
+                NosqlModel.Enums.IncidentType incidentType = (NosqlModel.Enums.IncidentType)Enum.Parse(typeof(NosqlModel.Enums.IncidentType), info["Incidenttype"].ToString());
 
                 Ticket ticket = new Ticket(subject, description, status, deadline, incidentType);
 

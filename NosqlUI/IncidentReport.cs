@@ -15,17 +15,17 @@ namespace NosqlUI
     public partial class IncidentReport : BaseForm
     {
         private static IncidentReport view;
-        public static IncidentReport getView(User user)
+        public static IncidentReport getView()
         {
             if (view == null)
             {
-                view = new IncidentReport(user);
+                view = new IncidentReport();
             }
             return view;
         }
 
         Incident_Logic Incident_Logic = new Incident_Logic();
-        public IncidentReport(User user) : base(user)
+        public IncidentReport() : base()
         {
             InitializeComponent();
             incidentSubType_cbx.Hide();
