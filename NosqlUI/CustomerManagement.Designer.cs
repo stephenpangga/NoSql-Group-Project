@@ -32,7 +32,9 @@
             this.editbuttom = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
             this.returnbutton = new System.Windows.Forms.Button();
+            this.eventLog1 = new System.Diagnostics.EventLog();
             this.showCustomers = new System.Windows.Forms.ListView();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // addbuttom
@@ -43,6 +45,7 @@
             this.addbuttom.TabIndex = 0;
             this.addbuttom.Text = "Add employee";
             this.addbuttom.UseVisualStyleBackColor = true;
+            this.addbuttom.Click += new System.EventHandler(this.addbuttom_Click);
             // 
             // editbuttom
             // 
@@ -71,15 +74,18 @@
             this.returnbutton.Text = "Go Back";
             this.returnbutton.UseVisualStyleBackColor = true;
             // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
             // showCustomers
             // 
             this.showCustomers.HideSelection = false;
             this.showCustomers.Location = new System.Drawing.Point(44, 64);
             this.showCustomers.Name = "showCustomers";
-            this.showCustomers.Size = new System.Drawing.Size(581, 352);
+            this.showCustomers.Size = new System.Drawing.Size(614, 364);
             this.showCustomers.TabIndex = 4;
             this.showCustomers.UseCompatibleStateImageBehavior = false;
-            this.showCustomers.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // CustomerManagement
             // 
@@ -94,6 +100,7 @@
             this.Name = "CustomerManagement";
             this.Text = "CustomerManagement";
             this.Load += new System.EventHandler(this.CustomerManagement_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,6 +111,7 @@
         private System.Windows.Forms.Button editbuttom;
         private System.Windows.Forms.Button deletebutton;
         private System.Windows.Forms.Button returnbutton;
+        private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.ListView showCustomers;
     }
 }
