@@ -56,7 +56,13 @@ namespace NosqlUI
 
         private void addbuttom_Click(object sender, EventArgs e)
         {
+            AddCustomer AddCustomer = new AddCustomer();
+            AddCustomer.Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadEmployees();
         }
     }
 }

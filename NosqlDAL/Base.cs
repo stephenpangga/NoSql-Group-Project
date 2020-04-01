@@ -14,7 +14,6 @@ namespace NosqlDAL
         {
             MongoClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
             database = MongoClient.GetDatabase("NoSql");
-
         }
 
         //example for selecting a certain document from a collection by INT
@@ -32,6 +31,21 @@ namespace NosqlDAL
             var filter = Builders<BsonDocument>.Filter.Empty;
             var Document = collection.Find(filter).ToList();
             return Document;
+        }
+
+        //Tim - Insert a new user into the database / cluster
+        public void InsertUser(int id, string mail, string password, string firstName, string lastName, string role) 
+        {
+            BsonDocument document = new BsonDocument();
+            document["userId"] = id;
+            document["email"] = mail;
+            document["password"] = password;
+            document["firstName"] = firstName;
+            document["lastName"] = lastName;
+            document["role"] = role;
+
+            var collection = database.GetCollection<BsonDocument>("Users");
+            collection.InsertOne(document);
         }
 
         protected BsonDocument SearchDocument(string collectionName, string searchValue)
@@ -52,7 +66,7 @@ namespace NosqlDAL
 
         protected BsonDocument SearchByString(string collectionName, string searchValue, string attribute)
         {
-            //used for looking at user accounts at the db
+            //used for looking at user specific accounts at the db
             //attribute is column value
             //collectionName is table
             //searchvalue is what you are looking for.
@@ -64,6 +78,7 @@ namespace NosqlDAL
         //get all method from the database.maybe a general one?
         protected List<BsonDocument> GetAll(string collectionName)
         {
+            //using this to get all tickets -stephen
             var collection = database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Empty;
             var Document = collection.Find(filter).ToList();

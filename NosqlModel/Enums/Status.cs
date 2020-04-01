@@ -8,6 +8,7 @@ namespace NosqlModel.Enums
     {
         Resolved,
         Unresolved,
-        InProcess
+        InProcess,
+        PassDeadLine
     }
 }

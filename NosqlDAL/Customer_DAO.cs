@@ -61,6 +61,11 @@ namespace NosqlDAL
             return employees;
         }
 
+        public void enterUser(int id, string mail, string password, string firstname, string lastname, string role) 
+        {
+            InsertUser(id, mail, password, firstname, lastname, role);
+        }
+
         public void  sendEmail(string email, string tempPass)
         {
             try

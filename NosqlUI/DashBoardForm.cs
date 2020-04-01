@@ -21,10 +21,12 @@ namespace NosqlUI
             //User u = userlogic.SearchUser("Users", "admin");
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
             
-            int totalticket = countTickets()-1;
+            int totalticket = countTickets();
             chart1.Series["Series1"].Points.AddY(1); // number of resolved issues
             chart1.Series["Series1"].Points.AddY(totalticket); // number of unresolved issues
             chart1.Series["Series1"].IsVisibleInLegend = false;
+
+            //lbl_amount.Text = totalticket.ToString();
            
         }
 
@@ -32,7 +34,7 @@ namespace NosqlUI
         {
             Ticket_Logic tickets = new Ticket_Logic();
 
-            List<Ticket>listofTickets = tickets.getTickets();
+            List<Ticket> listofTickets = tickets.getResolvedTickets();
 
             int count = 0;
 
@@ -50,8 +52,11 @@ namespace NosqlUI
 
         //method unresolved tickets and resolved tickets
 
-        //method for
-        
+        //method
+        //4 fill charts methods with different incident colors.
+
+
+        //charts for each incidents.
 
     }
 }
