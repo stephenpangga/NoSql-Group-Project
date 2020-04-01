@@ -41,7 +41,7 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_amount = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.UnresolvedPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnresolvedPie)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Dashboard
@@ -121,23 +121,23 @@
             this.chart2.TabIndex = 6;
             this.chart2.Text = "chart2";
             // 
-            // chart3
+            // UnresolvedPie
             // 
             chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
+            this.UnresolvedPie.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
-            this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(260, 141);
-            this.chart3.Name = "chart3";
+            this.UnresolvedPie.Legends.Add(legend3);
+            this.UnresolvedPie.Location = new System.Drawing.Point(260, 141);
+            this.UnresolvedPie.Name = "UnresolvedPie";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series3.IsVisibleInLegend = false;
             series3.Legend = "Legend1";
             series3.Name = "Series1";
-            this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(178, 124);
-            this.chart3.TabIndex = 7;
-            this.chart3.Text = "chart3";
+            this.UnresolvedPie.Series.Add(series3);
+            this.UnresolvedPie.Size = new System.Drawing.Size(178, 124);
+            this.UnresolvedPie.TabIndex = 7;
+            this.UnresolvedPie.Text = "Chart";
             // 
             // label1
             // 
@@ -224,7 +224,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chart3);
+            this.Controls.Add(this.UnresolvedPie);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.lbl_amount);
             this.Controls.Add(this.lbl_name);
@@ -238,7 +238,7 @@
             this.Controls.SetChildIndex(this.lbl_name, 0);
             this.Controls.SetChildIndex(this.lbl_amount, 0);
             this.Controls.SetChildIndex(this.chart2, 0);
-            this.Controls.SetChildIndex(this.chart3, 0);
+            this.Controls.SetChildIndex(this.UnresolvedPie, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -249,7 +249,7 @@
             this.Controls.SetChildIndex(this.label7, 0);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnresolvedPie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,7 +261,7 @@
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Label lbl_amount;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart UnresolvedPie;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
