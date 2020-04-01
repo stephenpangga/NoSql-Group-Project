@@ -15,9 +15,11 @@ namespace NosqlUI
     public partial class CustomerManagement : Form
     {
         Customers_Logic customers_Logic = new Customers_Logic();
+        List<Employees> employees = new List<Employees>();
         public CustomerManagement()
         {
             InitializeComponent();
+            LoadEmployees();
         }
 
 
@@ -26,25 +28,35 @@ namespace NosqlUI
 
         }
 
-        private void CustomerManagement_Load(object sender, EventArgs e)
+        void LoadEmployees()
         {
-            List<Employees> employees = new List<Employees>();
-            employees = customers_Logic.getAllEmployees("user");
+            employees = customers_Logic.getAllEmployees("Users");
 
-            showCustomers.Columns.Add("ID", 30);
-            showCustomers.Columns.Add("E-Mail", 160);
-            showCustomers.Columns.Add("Password", 140);
-            showCustomers.Columns.Add("First Name", 140);
-            showCustomers.Columns.Add("Last Name", 140);
-            showCustomers.Columns.Add("Role", 140);
+            showCustomers.View = View.Details;
+
+            showCustomers.Columns.Add("userID", -2, HorizontalAlignment.Left);
+            showCustomers.Columns.Add("E-mail", -2, HorizontalAlignment.Left);
+            showCustomers.Columns.Add("Password", -2, HorizontalAlignment.Left);
+            showCustomers.Columns.Add("FirstName", -2, HorizontalAlignment.Left);
+            showCustomers.Columns.Add("LastName", -2, HorizontalAlignment.Left);
+            showCustomers.Columns.Add("Role", -2, HorizontalAlignment.Left);
 
             foreach (Employees employee in employees)
             {
-                var item = new string[6] { employee.userID.ToString(), employee.email.ToString(), employee.password.ToString(), employee.firstName.ToString(), 
-                    employee.lastName.ToString(), employee.role.ToString() };
+                var item = new string[6] { employee.userID.ToString(), employee.email, employee.password, employee.firstName, employee.lastName, employee.role.ToString() };
 
                 showCustomers.Items.Add(new ListViewItem(item));
             }
+        }
+
+        private void CustomerManagement_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addbuttom_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

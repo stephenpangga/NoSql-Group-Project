@@ -99,5 +99,10 @@ namespace NosqlUI
         {
 
         }
+
+        private void CustomerChangeInfoForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

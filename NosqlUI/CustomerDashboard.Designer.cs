@@ -58,7 +58,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(778, 63);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 37);
             this.button1.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.dataListView.HideSelection = false;
             this.dataListView.Location = new System.Drawing.Point(11, 52);
-            this.dataListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataListView.Margin = new System.Windows.Forms.Padding(2);
             this.dataListView.Name = "dataListView";
             this.dataListView.Size = new System.Drawing.Size(732, 309);
             this.dataListView.TabIndex = 3;
@@ -86,7 +86,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_EmployeeName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerDashboard";
             this.Text = "EmployeeDashboard";
             this.Load += new System.EventHandler(this.CustomerDashboard_Load);

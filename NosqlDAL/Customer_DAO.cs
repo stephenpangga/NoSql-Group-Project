@@ -42,7 +42,7 @@ namespace NosqlDAL
 
         }
 
-        //Get all the meployes from the 'user' table
+        //Get all the employes from the 'user' table
         public List<Employees> getAllEmployees(string collectionName)
         {
             var collection = GetAllEmployees(collectionName);
