@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NosqlModel;
+using NosqlModel.Enums;
 
 namespace NosqlModel
 {
@@ -12,9 +13,9 @@ namespace NosqlModel
         public string subject;
         public IncidentType incidentType;
         public User incidentUser;
-        public PriorityType priority;
+        public PriorityTypes priority;
         public DateTime deadline;
-        public string Description;
+        public string description;
         public Enums.Status status;
 
         public void SetDeadline(string text)

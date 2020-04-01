@@ -11,9 +11,9 @@ namespace NosqlModel
         public string Description { get; set; }
         public Status Status { get; set; }
         public int Deadline { get; set; }
-        public IncidentType IncidentType { get; set; }
+        public NosqlModel.Enums.IncidentType IncidentType { get; set; }
 
-        public Ticket(string Subject, string Description, Status Status, int Deadline, IncidentType IncidentType)
+        public Ticket(string Subject, string Description, Status Status, int Deadline, NosqlModel.Enums.IncidentType IncidentType)
         {
             this.Subject = Subject;
             this.Description = Description;

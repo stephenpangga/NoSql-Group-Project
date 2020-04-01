@@ -15,6 +15,7 @@ namespace NosqlUI
 {
     public partial class ForgotPassForm : Form
     {
+
         Customers_Logic customers_Logic = new Customers_Logic();
         public ForgotPassForm()
         {

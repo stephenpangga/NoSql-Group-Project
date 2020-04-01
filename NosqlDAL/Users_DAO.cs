@@ -8,6 +8,9 @@ namespace NosqlDAL
 {
     public class Users_DAO :Base
     {
+        //used in order to get user from incident_dao
+        public readonly string COLLECTION = "Users";
+
         //use constructors
         public User GetUser(string Coll, int searchTerm)
         {
