@@ -93,5 +93,28 @@ namespace NosqlDAL
             }
             return checkResult;
         }
+
+        protected bool UpdateDocumentbyString(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        {
+            //select which document to update
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
+
+            //select what value to change in that document
+            var update = Builders<BsonDocument>.Update.Set(column, updateValue);
+            var result = collection.UpdateOne(filter, update);
+
+            bool checkResult;
+
+            if (result.MatchedCount == 1 && result.ModifiedCount == 1)
+            {
+                checkResult = true;
+            }
+            else
+            {
+                checkResult = false;
+            }
+            return checkResult;
+        }
     }
 }

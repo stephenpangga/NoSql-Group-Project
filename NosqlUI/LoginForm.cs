@@ -82,5 +82,11 @@ namespace NosqlUI
         {
 
         }
+
+        private void link_resetpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassForm forgotPassForm = new ForgotPassForm();
+            forgotPassForm.Show();
+        }
     }
 }

@@ -5,6 +5,8 @@ using NosqlModel;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using NosqlModel.Enums;
+using System.Net.Mail;
+
 
 
 namespace NosqlDAL
@@ -33,6 +35,13 @@ namespace NosqlDAL
             
         }
 
+        public bool resetEmail(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        {
+            var result = UpdateDocumentbyString(collectionName, searchValue, attribute, updateValue, column);
+            return result;
+
+        }
+
         //Get all the meployes from the 'user' table
         public List<Employees> getAllEmployees(string collectionName)
         {
@@ -50,6 +59,31 @@ namespace NosqlDAL
             }
 
             return employees;
+        }
+
+        public void  sendEmail(string email, string tempPass)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("jumbomumbo399@gmail.com");
+                mail.To.Add(email);
+                mail.Subject = "Password reset request.";
+                mail.Body = "Here is a temporary password for you to login: "+ tempPass+ ".Make sure to change your password when you log in.";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("jumbomumbo399@gmail.com", "Haarlem123!");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
     }
 }
