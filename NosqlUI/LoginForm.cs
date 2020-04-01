@@ -14,6 +14,7 @@ namespace NosqlUI
 {
     public partial class LoginForm : BaseForm
     {
+
         public LoginForm()
         {
             InitializeComponent();

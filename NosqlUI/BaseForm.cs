@@ -13,7 +13,9 @@ namespace NosqlUI
 {
     public partial class BaseForm : Form
     {
-        public User currentUser;
+
+
+        public User currentUser = new User();
 
         public BaseForm() // for when no one is logged in
         {
@@ -38,11 +40,29 @@ namespace NosqlUI
             btn_UserM.Hide();
         }
 
+        //disable button for current view
+        protected void disableButton(Button btn)
+        {
+            btn_Dashboard.Enabled = true;
+            btn_IncidentM.Enabled = true;
+            btn_UserM.Enabled = true;
+
+            btn.Enabled = false;
+        }
+
         private void btn_IncidentM_Click(object sender, EventArgs e)
+        {
+            IncidentManagment.getView().Show();
+            this.Hide();
+            IncidentManagment.getView().disableButton(btn_IncidentM);
+        }
+
+        private void btn_UserM_Click(object sender, EventArgs e)
         {
             CustomerManagement cm = new CustomerManagement();
             cm.Show();
             this.Hide();
         }
+
     }
 }

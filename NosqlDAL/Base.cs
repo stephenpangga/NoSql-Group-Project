@@ -131,5 +131,11 @@ namespace NosqlDAL
             }
             return checkResult;
         }
+
+        protected void InsertOne(BsonDocument document, string collectionName)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            collection.InsertOne(document);
+        }
     }
 }

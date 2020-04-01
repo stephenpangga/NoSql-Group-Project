@@ -38,10 +38,10 @@
             // incident_lstvw
             // 
             this.incident_lstvw.HideSelection = false;
-            this.incident_lstvw.Location = new System.Drawing.Point(20, 162);
-            this.incident_lstvw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.incident_lstvw.Location = new System.Drawing.Point(27, 199);
+            this.incident_lstvw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.incident_lstvw.Name = "incident_lstvw";
-            this.incident_lstvw.Size = new System.Drawing.Size(608, 331);
+            this.incident_lstvw.Size = new System.Drawing.Size(809, 406);
             this.incident_lstvw.TabIndex = 3;
             this.incident_lstvw.UseCompatibleStateImageBehavior = false;
             // 
@@ -49,52 +49,52 @@
             // 
             this.incidentViewTitle_lbl.AutoSize = true;
             this.incidentViewTitle_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incidentViewTitle_lbl.Location = new System.Drawing.Point(20, 76);
-            this.incidentViewTitle_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.incidentViewTitle_lbl.Location = new System.Drawing.Point(27, 94);
             this.incidentViewTitle_lbl.Name = "incidentViewTitle_lbl";
-            this.incidentViewTitle_lbl.Size = new System.Drawing.Size(188, 29);
+            this.incidentViewTitle_lbl.Size = new System.Drawing.Size(230, 33);
             this.incidentViewTitle_lbl.TabIndex = 4;
             this.incidentViewTitle_lbl.Text = "Overview tickets";
             // 
             // incidentFilter_txtbx
             // 
-            this.incidentFilter_txtbx.Location = new System.Drawing.Point(20, 125);
-            this.incidentFilter_txtbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.incidentFilter_txtbx.Location = new System.Drawing.Point(27, 154);
+            this.incidentFilter_txtbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.incidentFilter_txtbx.Name = "incidentFilter_txtbx";
-            this.incidentFilter_txtbx.Size = new System.Drawing.Size(192, 20);
+            this.incidentFilter_txtbx.Size = new System.Drawing.Size(255, 22);
             this.incidentFilter_txtbx.TabIndex = 5;
             // 
             // incidentFilter_lbl
             // 
             this.incidentFilter_lbl.AutoSize = true;
-            this.incidentFilter_lbl.Location = new System.Drawing.Point(20, 106);
-            this.incidentFilter_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.incidentFilter_lbl.Location = new System.Drawing.Point(27, 130);
             this.incidentFilter_lbl.Name = "incidentFilter_lbl";
-            this.incidentFilter_lbl.Size = new System.Drawing.Size(70, 13);
+            this.incidentFilter_lbl.Size = new System.Drawing.Size(95, 17);
             this.incidentFilter_lbl.TabIndex = 6;
             this.incidentFilter_lbl.Text = "filter by email:";
             // 
             // incidentCreate_btn
             // 
             this.incidentCreate_btn.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.incidentCreate_btn.Location = new System.Drawing.Point(464, 106);
+            this.incidentCreate_btn.Location = new System.Drawing.Point(619, 130);
+            this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.incidentCreate_btn.Name = "incidentCreate_btn";
-            this.incidentCreate_btn.Size = new System.Drawing.Size(164, 43);
+            this.incidentCreate_btn.Size = new System.Drawing.Size(219, 53);
             this.incidentCreate_btn.TabIndex = 19;
             this.incidentCreate_btn.Text = "CREATE INCIDENT";
             this.incidentCreate_btn.UseVisualStyleBackColor = false;
+            this.incidentCreate_btn.Click += new System.EventHandler(this.incidentCreate_btn_Click);
             // 
             // IncidentManagment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 515);
+            this.ClientSize = new System.Drawing.Size(899, 634);
             this.Controls.Add(this.incidentCreate_btn);
             this.Controls.Add(this.incidentFilter_lbl);
             this.Controls.Add(this.incidentFilter_txtbx);
             this.Controls.Add(this.incidentViewTitle_lbl);
             this.Controls.Add(this.incident_lstvw);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "IncidentManagment";
             this.Text = "IncidentManagment";
             this.Controls.SetChildIndex(this.btn_Dashboard, 0);
