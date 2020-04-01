@@ -6,5 +6,6 @@ namespace NosqlLogic
 {
     class Incident_Logic
     {
+
     }
 }
