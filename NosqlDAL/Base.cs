@@ -17,16 +17,20 @@ namespace NosqlDAL
 
         }
 
-        //attribute is column value
-        //collectionName is table
-        //searchvalue is what you are looking for.
-
         //example for selecting a certain document from a collection by INT
         protected BsonDocument GetDocumentByInt(string collectionName, int searchValue)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Eq("userId", searchValue);
             var Document = collection.Find(filter).FirstOrDefault();
+            return Document;
+        }
+
+        protected List<BsonDocument> GetAllEmployees(string collectionName) 
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var Document = collection.Find(filter).ToList();
             return Document;
         }
 
@@ -48,6 +52,7 @@ namespace NosqlDAL
 
         protected BsonDocument SearchByString(string collectionName, string searchValue, string attribute)
         {
+            //used for looking at user accounts at the db
             //attribute is column value
             //collectionName is table
             //searchvalue is what you are looking for.
@@ -56,9 +61,17 @@ namespace NosqlDAL
             var firstDocument = collection.Find(filter).FirstOrDefault();
             return firstDocument;
         }
+        //get all method from the database.maybe a general one?
+        protected List<BsonDocument> GetAll(string collectionName)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var Document = collection.Find(filter).ToList();
+            return Document;
+        }
 
         //attribute is the column for selecting doc and column is used to select the column to be updated
-        protected bool UpdateDocument(string collectionName, string searchValue, string attribute,string updateValue,string column)
+        protected bool UpdateDocument(string collectionName, int searchValue, string attribute,string updateValue,string column)
         {
             //select which document to update
             var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -70,7 +83,7 @@ namespace NosqlDAL
 
             bool checkResult;
             
-            if(result.MatchedCount==1 && result.ModifiedCount==1)
+            if(result.MatchedCount == 1 && result.ModifiedCount == 1)
             {
                 checkResult = true;
             }
@@ -79,9 +92,29 @@ namespace NosqlDAL
                 checkResult = false;
             }
             return checkResult;
-            
+        }
 
+        protected bool UpdateDocumentbyString(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        {
+            //select which document to update
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
 
+            //select what value to change in that document
+            var update = Builders<BsonDocument>.Update.Set(column, updateValue);
+            var result = collection.UpdateOne(filter, update);
+
+            bool checkResult;
+
+            if (result.MatchedCount == 1 && result.ModifiedCount == 1)
+            {
+                checkResult = true;
+            }
+            else
+            {
+                checkResult = false;
+            }
+            return checkResult;
         }
     }
 }

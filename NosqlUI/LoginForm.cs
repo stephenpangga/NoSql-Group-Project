@@ -17,6 +17,7 @@ namespace NosqlUI
         public LoginForm()
         {
             InitializeComponent();
+            hideButtons();
             //hide the base buttons
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
@@ -24,9 +25,9 @@ namespace NosqlUI
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_Login_Click(object sender, EventArgs e)
         {
-            DashBoardForm dashboard = new DashBoardForm();
+            //DashBoardForm dashboard = new DashBoardForm();
 
             //user info
             string email = txtbox_email.Text;
@@ -35,17 +36,28 @@ namespace NosqlUI
             Users_Logic userlogic = new Users_Logic();
 
             User user = userlogic.getByEmail(email);
-            //sisalbl.Text = u.roles.ToString();
 
             if (user!=null)
             {
+                //need to make method to unhash password.
                 if (password == user.Password)
                 {
-                    //set up the account info here.
-                    //admin view
-                    dashboard.Show();
+                    //set up the account info here. need to  see what tim use here
+                    currentUser = user;
+                    switch(user.roles)
+                    {
+                        //admin view
+                        case NosqlModel.Enums.Roles.Admin:
+                            DashBoardForm dashboardForm = new DashBoardForm(currentUser);
+                            dashboardForm.Show();
+                            break;
+                        //user view.
+                        case NosqlModel.Enums.Roles.Employee:
+                            CustomerDashboard customerDashBoard = new CustomerDashboard(currentUser);
+                            customerDashBoard.Show();
+                            break;
+                    }
                     this.Hide();
-                    //user view.
                 }
                 else
                 {
@@ -61,12 +73,6 @@ namespace NosqlUI
             //send user to different forms(employee or customer) based on their roles            
         }
 
-        private void sisalbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void lbl_pass_Click(object sender, EventArgs e)
         {
 
@@ -75,6 +81,12 @@ namespace NosqlUI
         private void lbl_user_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void link_resetpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassForm forgotPassForm = new ForgotPassForm();
+            forgotPassForm.Show();
         }
     }
 }

@@ -24,5 +24,25 @@ namespace NosqlUI
             InitializeComponent();
             this.currentUser = user;
         }
+
+        private void btn_Dashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //to hide the buttons not needed for some forms
+        public void hideButtons()
+        {
+            btn_Dashboard.Hide();
+            btn_IncidentM.Hide();
+            btn_UserM.Hide();
+        }
+
+        private void btn_IncidentM_Click(object sender, EventArgs e)
+        {
+            CustomerManagement cm = new CustomerManagement();
+            cm.Show();
+            this.Hide();
+        }
     }
 }

@@ -93,6 +93,12 @@
     <Compile Include="CustomerChangeInfoForm.Designer.cs">
       <DependentUpon>CustomerChangeInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerManagement.Designer.cs">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="CustomerDashboard.Designer.cs">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassForm.Designer.cs">
+      <DependentUpon>ForgotPassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IncidentReport.cs">
       <SubType>Form</SubType>
@@ -134,8 +146,14 @@
     <EmbeddedResource Include="CustomerDashboard.resx">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerManagement.resx">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassForm.resx">
+      <DependentUpon>ForgotPassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IncidentReport.resx">
       <DependentUpon>IncidentReport.cs</DependentUpon>
@@ -187,4 +205,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

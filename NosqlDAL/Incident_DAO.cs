@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using NosqlModel;
+using NosqlModel.Enums;
 
 namespace NosqlDAL
 {
-    class Incident_DAO
+    public class Incident_DAO : Base
     {
         public List<Incident> GetIncidents(string Coll, int searchTerm)
         {
@@ -16,7 +17,7 @@ namespace NosqlDAL
 
         public void CreateIncident(string Coll, string searchTerm)
         {
-           
+
         }
 
         //clean this later.
@@ -39,4 +40,5 @@ namespace NosqlDAL
             }
         }
     }
+
 }
