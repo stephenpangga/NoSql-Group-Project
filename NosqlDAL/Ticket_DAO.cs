@@ -29,10 +29,10 @@ namespace NosqlDAL
         }
 
         //get tickets with different status
-        public List<Ticket> getSpecificTickets(string ticketStatus)
+        public List<Ticket> getSpecificTickets(string ticketStatus, string column)
         {
             List<Ticket> tickets = new List<Ticket>();
-            var document = GetSpecificDocumentsList("Tickets",ticketStatus, "Status");
+            var document = GetSpecificDocumentsList("Tickets",ticketStatus, column);
             foreach (var info in document)
             {
                 string subject = info["Subject"].ToString();
