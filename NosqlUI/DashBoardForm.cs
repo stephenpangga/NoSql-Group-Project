@@ -7,90 +7,180 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using NosqlLogic;
 using NosqlModel;
+using NosqlModel.Enums;
 
 namespace NosqlUI
 {
     public partial class DashBoardForm : BaseForm
     {
+        Ticket_Logic ticket_logic;
+
+        List<Ticket> inProcessTickets;
+        List<Ticket> unresolvedTickets;
+        List<Ticket> resolvedTickets;
+        List<Ticket> allTickets;
         public DashBoardForm(User loggendUser)
         {
             InitializeComponent();
-            //Users_Logic userlogic = new Users_Logic();
-            //User u = userlogic.SearchUser("Users", "admin");
+            ticket_logic = new Ticket_Logic();
+            inProcessTickets = ticket_logic.getInProcessTickets();
+            unresolvedTickets = ticket_logic.getUnResolvedTickets();
+            resolvedTickets = ticket_logic.getResolvedTickets();
+            allTickets = ticket_logic.getTickets();
+
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
 
-            //int totalticket = countTickets();
-            //chart1.Series["Series1"].Points.AddY(1); // number of resolved issues
-            //chart1.Series["Series1"].Points.AddY(totalticket); // number of unresolved issues
-            //chart1.Series["Series1"].IsVisibleInLegend = false;
+            fillCharts();
 
-            //lbl_amount.Text = totalticket.ToString();
-            OverviewChart();
-            UnresolvedChart();
-           
+            int urgent = ticket_logic.getUrgentTickets().Count();
+            lbl_urgent.Text += "\n\n" + urgent + "\n ";
         }
 
-        private int countTickets()
+        private void fillCharts()
         {
-            Ticket_Logic tickets = new Ticket_Logic();
+            OverviewChart();
+            fillUnresolvedChart();
+            fillInProcessByIncidentChart();
+            fillResolvedChart();
+        }
 
-            List<Ticket> listofTickets = tickets.getResolvedTickets();
-
-            int count = 0;
-
-            foreach(Ticket t in listofTickets)
+        
+        private Dictionary<NosqlModel.Enums.IncidentType, int> separateTicketsByIncidentType(List<Ticket> tickets)
+        {
+            Dictionary<NosqlModel.Enums.IncidentType, int> types = new Dictionary<NosqlModel.Enums.IncidentType, int>();
+            types.Add(NosqlModel.Enums.IncidentType.Hardware, 0);
+            types.Add(NosqlModel.Enums.IncidentType.Software, 0);
+            types.Add(NosqlModel.Enums.IncidentType.Service, 0);
+            //add tickets depending on their incident type.
+            foreach(Ticket t in tickets)
             {
-                count++;
+                types[t.IncidentType]++;
             }
 
-            lbl_amount.Text = listofTickets.Count().ToString();
-
-            count = listofTickets.Count();
-
-            return count;
+            return types;
         }
 
-        Ticket_Logic tickets = new Ticket_Logic();
+        private void fillInProcessByIncidentChart()
+        {
+            inProcessChart.Titles.Add("In process by incident");
+            fillByIncidentChart(inProcessChart, inProcessTickets, lbl_inprocess);
+        }
+
 
         private void OverviewChart()
         {
-            int totalTicket = tickets.getTickets().Count();
 
-            int resolved = tickets.getResolvedTickets().Count();
+            int resolved = resolvedTickets.Count();
 
-            int unresolved = tickets.getUnResolvedTickets().Count();
+            int unresolved = unresolvedTickets.Count();
 
-            int inprocess = tickets.getInProcessTickets().Count();
+            int inprocess = inProcessTickets.Count();
 
-            int overalltickets = totalTicket - (resolved + unresolved + inprocess);
+            overAllChart.Series["Series1"].Points.AddY(resolved); // number of resolved issues
+            overAllChart.Series["Series1"].Points.AddY(unresolved);
+            overAllChart.Series["Series1"].Points.AddY(inprocess);
+            overAllChart.Series["Series1"].IsVisibleInLegend = false;
 
-            chart1.Series["Series1"].Points.AddY(resolved); // number of resolved issues
-            chart1.Series["Series1"].Points.AddY(unresolved);
-            chart1.Series["Series1"].Points.AddY(inprocess);
-            chart1.Series["Series1"].Points.AddY(overalltickets); // number of unresolved issues
-            chart1.Series["Series1"].IsVisibleInLegend = false;
+            overAllChart.Titles.Add("Ticket Overview");
+            showPercentage(overAllChart);
 
-            chart1.Titles.Add("Ticket Overview");
+            int i = 0;
+            String[] s = { "\nResolved", "\nUnresolved", "\nIn Process" };
+            foreach (DataPoint p in overAllChart.Series["Series1"].Points)
+            {
+                if (p.YValues[0] != 0)
+                {
+                    p.Label += s[i];
+                }
+                i++;
+            }
+
+        }
+
+        public void fillByIncidentChart(Chart chartToEdit, List<Ticket> tickets, Label lbl)
+        {
+            Dictionary<NosqlModel.Enums.IncidentType, int> types = separateTicketsByIncidentType(tickets);
+
+            int hardware = types[NosqlModel.Enums.IncidentType.Hardware];
+            int software = types[NosqlModel.Enums.IncidentType.Software];
+            int service = types[NosqlModel.Enums.IncidentType.Service];
+            int total = allTickets.Count() - (hardware + software + service);
+
+            chartToEdit.Series["Series1"].Points.AddY(hardware);
+            chartToEdit.Series["Series1"].Points.AddY(software);
+            chartToEdit.Series["Series1"].Points.AddY(service);
+            chartToEdit.Series["Series1"].Points.AddY(total);
+
+            lbl.Text = (hardware + software + service) + "/" + allTickets.Count();
+
+            showPercentage(chartToEdit);
+            //add name for the charts
+            showIncidentTypeLabels(chartToEdit);
+        }
+
+        private void fillResolvedChart()
+        {
+            resolvedChart.Titles.Add("resolved tickets");
+            fillByIncidentChart(resolvedChart, resolvedTickets, lbl_resolved);
         }
 
         //method unresolved tickets and resolved tickets
         //4 fill charts methods with different incident colors.
         //charts for each incidents.
-        private void UnresolvedChart()
+        private void fillUnresolvedChart()
         {
-            int totalTicket = tickets.getTickets().Count();
-            int unresolved = tickets.getUnResolvedTickets().Count();
-
-
-            int overalltickets = totalTicket - (unresolved);
-            UnresolvedPie.Series["Series1"].Points.AddY(unresolved);
-            UnresolvedPie.Series["Series1"].Points.AddY(overalltickets); // number of unresolved issues
-
-            UnresolvedPie.Series["Series1"].IsVisibleInLegend = false;
-            UnresolvedPie.Titles.Add("Unresolved Tickets");
+            unResolvedChart.Titles.Add("Unresolved Tickets");
+            fillByIncidentChart(unResolvedChart, unresolvedTickets, lbl_unresolved);
         }
 
+        private void showIncidentTypeLabels(Chart c)
+        {
+            int i = 0;
+            String[] s = { "\nHardware", "\nSoftware", "\nService", "\nTickets" };
+            foreach (DataPoint p in c.Series["Series1"].Points)
+            {
+                if (p.YValues[0] != 0)
+                {
+                    p.Label += s[i];
+                }
+                i++;
+            }
+        }
+
+        //add percetage to chart
+        private void showPercentage(Chart c)
+        {
+            c.Series["Series1"].IsValueShownAsLabel = true;
+
+            foreach (DataPoint p in c.Series["Series1"].Points)
+            {
+                if(p.YValues[0] != 0)
+                {
+                    p.Label = "#PERCENT";
+                }
+                else
+                {
+                    p.Label = " ";
+                }
+            }
+        }
+
+        private void overAllChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resolvedChart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DashBoardForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
