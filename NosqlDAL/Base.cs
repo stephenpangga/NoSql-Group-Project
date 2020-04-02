@@ -10,6 +10,10 @@ namespace NosqlDAL
         private MongoClient MongoClient;
         private IMongoDatabase database;
 
+        protected readonly string TicketColl = "Tickets";
+        protected readonly string IncidentColl = "Incidents";
+        protected readonly string UserColl = "Users";
+
         public Base()
         {
             MongoClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
