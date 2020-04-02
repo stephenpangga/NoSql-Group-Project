@@ -10,14 +10,14 @@ namespace NosqlLogic
     {
         Customer_DAO customer_DAO = new Customer_DAO();
         //make ticket list(to get for one employee) and tickets model
-        public List<Ticket> FetchEmployeeTickets(string collectionName, string searchTerm, string attribute)
+        public List<Ticket> FetchEmployeeTickets(string searchTerm)
         {
-            return customer_DAO.GetTicketsForCustomer(collectionName, searchTerm, attribute);
+            return customer_DAO.GetTicketsForCustomer("Tickets", searchTerm, "Reportedby");
         }
 
-        public bool ChangeCustomerInfo(string collectionName, int searchValue, string attribute, string updateValue, string column)
+        public bool ChangeCustomerInfo(int searchValue, string updateValue, string column)
         {
-            var result = customer_DAO.UpdateCustomerInfo(collectionName, searchValue, attribute, updateValue, column);
+            var result = customer_DAO.UpdateCustomerInfo("Users", searchValue, "userId", updateValue, column);
             return result;
         }
 

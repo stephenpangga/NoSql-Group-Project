@@ -38,7 +38,7 @@ namespace NosqlUI
 
             //user will be sent from login to be used here
             //tickets will be get using fullname to make it uniqe
-            tickets = customers_Logic.FetchEmployeeTickets("Tickets",fullName,"Reportedby");
+            tickets = customers_Logic.FetchEmployeeTickets(fullName);
 
             //dataList.Clear();
             dataListView.Columns.Add("Subject", 140);
