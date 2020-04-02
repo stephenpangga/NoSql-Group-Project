@@ -35,6 +35,12 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.showCustomers = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
+            this.userID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +62,7 @@
             this.editbuttom.TabIndex = 1;
             this.editbuttom.Text = "Edit employee";
             this.editbuttom.UseVisualStyleBackColor = true;
+            this.editbuttom.Click += new System.EventHandler(this.editbuttom_Click);
             // 
             // deletebutton
             // 
@@ -65,6 +72,7 @@
             this.deletebutton.TabIndex = 2;
             this.deletebutton.Text = "Delete employee";
             this.deletebutton.UseVisualStyleBackColor = true;
+            this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
             // 
             // returnbutton
             // 
@@ -81,6 +89,16 @@
             // 
             // showCustomers
             // 
+            this.showCustomers.BackgroundImageTiled = true;
+            this.showCustomers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.userID,
+            this.Email,
+            this.Password,
+            this.FirstName,
+            this.LastName,
+            this.Role});
+            this.showCustomers.FullRowSelect = true;
+            this.showCustomers.GridLines = true;
             this.showCustomers.HideSelection = false;
             this.showCustomers.Location = new System.Drawing.Point(44, 64);
             this.showCustomers.Name = "showCustomers";
@@ -97,6 +115,30 @@
             this.button1.Text = "Reload data";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // userID
+            // 
+            this.userID.Width = -2;
+            // 
+            // Email
+            // 
+            this.Email.Width = -2;
+            // 
+            // Password
+            // 
+            this.Password.Width = -2;
+            // 
+            // FirstName
+            // 
+            this.FirstName.Width = -2;
+            // 
+            // LastName
+            // 
+            this.LastName.Width = -2;
+            // 
+            // Role
+            // 
+            this.Role.Width = -2;
             // 
             // CustomerManagement
             // 
@@ -126,5 +168,11 @@
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.ListView showCustomers;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader userID;
+        private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.ColumnHeader Password;
+        private System.Windows.Forms.ColumnHeader FirstName;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader Role;
     }
 }

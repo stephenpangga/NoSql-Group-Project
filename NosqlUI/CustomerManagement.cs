@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +16,11 @@ namespace NosqlUI
     public partial class CustomerManagement : Form
     {
         Customers_Logic customers_Logic = new Customers_Logic();
-        List<Employees> employees = new List<Employees>();
+        List<User> employees = new List<User>();
         public CustomerManagement()
         {
             InitializeComponent();
+            showCustomers.View = View.Details;
             LoadEmployees();
         }
 
@@ -32,21 +34,26 @@ namespace NosqlUI
         {
             employees = customers_Logic.getAllEmployees("Users");
 
-            showCustomers.View = View.Details;
-
-            showCustomers.Columns.Add("userID", -2, HorizontalAlignment.Left);
-            showCustomers.Columns.Add("E-mail", -2, HorizontalAlignment.Left);
-            showCustomers.Columns.Add("Password", -2, HorizontalAlignment.Left);
-            showCustomers.Columns.Add("FirstName", -2, HorizontalAlignment.Left);
-            showCustomers.Columns.Add("LastName", -2, HorizontalAlignment.Left);
-            showCustomers.Columns.Add("Role", -2, HorizontalAlignment.Left);
-
-            foreach (Employees employee in employees)
+            foreach (User employee in employees)
             {
-                var item = new string[6] { employee.userID.ToString(), employee.email, employee.password, employee.firstName, employee.lastName, employee.role.ToString() };
+                var item = new string[6] { employee.userId.ToString(), employee.Email, employee.Password, employee.FirstName, employee.LastName, employee.roles.ToString() };
 
                 showCustomers.Items.Add(new ListViewItem(item));
             }
+        }
+
+        string getSelectedId() 
+        {
+            //Here we take the selected item from the listview and taking the first row, the id.
+            string item = showCustomers.SelectedItems[0].ToString();
+            //I couldn't figure out why it took more data than just the ID stored in the row, so here I filter the id numbers out of strin item.
+            string id = "";
+            for (int i = 0; i < item.Length; i++)
+            {
+                if (Char.IsDigit(item[i]))
+                    id += item[i];
+            }
+            return id;
         }
 
         private void CustomerManagement_Load(object sender, EventArgs e)
@@ -62,7 +69,25 @@ namespace NosqlUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            showCustomers.Items.Clear();
             LoadEmployees();
         }
+
+        private void deletebutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editbuttom_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+
     }
 }

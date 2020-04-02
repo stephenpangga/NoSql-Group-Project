@@ -23,7 +23,7 @@ namespace NosqlLogic
 
 
         //Method made by Tim
-        public List<Employees> getAllEmployees(string collectionName) 
+        public List<User> getAllEmployees(string collectionName) 
         {
             return customer_DAO.getAllEmployees(collectionName);
         }
@@ -58,9 +58,9 @@ namespace NosqlLogic
         public int getNewID() 
         {
             int id = 0;
-            List<Employees> employees = customer_DAO.getAllEmployees("Users");
-            foreach (Employees employee in employees) 
-            { if (employee.userID > id) { id = employee.userID; } }
+            List<User> employees = customer_DAO.getAllEmployees("Users");
+            foreach (User employee in employees) 
+            { if (employee.userId > id) { id = employee.userId; } }
             return id + 1;
         }
 

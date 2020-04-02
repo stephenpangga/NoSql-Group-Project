@@ -37,7 +37,7 @@
             this.lastNameBox = new System.Windows.Forms.TextBox();
             this.firstNameBox = new System.Windows.Forms.TextBox();
             this.roleBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -124,23 +124,23 @@
             this.roleBox.Size = new System.Drawing.Size(142, 21);
             this.roleBox.TabIndex = 9;
             // 
-            // label5
+            // warningLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label5.Location = new System.Drawing.Point(233, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(186, 26);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Enter a new User!";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.warningLabel.Location = new System.Drawing.Point(233, 36);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(186, 26);
+            this.warningLabel.TabIndex = 10;
+            this.warningLabel.Text = "Enter a new User!";
+            this.warningLabel.Click += new System.EventHandler(this.label5_Click);
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 403);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.roleBox);
             this.Controls.Add(this.firstNameBox);
             this.Controls.Add(this.lastNameBox);
@@ -169,6 +169,6 @@
         private System.Windows.Forms.TextBox lastNameBox;
         private System.Windows.Forms.TextBox firstNameBox;
         private System.Windows.Forms.ComboBox roleBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label warningLabel;
     }
 }
