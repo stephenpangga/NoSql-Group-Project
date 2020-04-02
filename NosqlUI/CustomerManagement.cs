@@ -44,7 +44,7 @@ namespace NosqlUI
 
         string getSelectedId() 
         {
-            //Here we take the selected item from the listview and taking the first row, the id.
+            //Here we take the selected item from the listview and taking the first row, the id
             string item = showCustomers.SelectedItems[0].ToString();
             //I couldn't figure out why it took more data than just the ID stored in the row, so here I filter the id numbers out of strin item.
             string id = "";
