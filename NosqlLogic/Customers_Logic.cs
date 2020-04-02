@@ -64,6 +64,12 @@ namespace NosqlLogic
             return id + 1;
         }
 
+        //Tim - send the data to delete through.
+        public void deleteUser(string id, string searchterm, string collectionName) 
+        {
+            customer_DAO.deleteUser(id, searchterm, collectionName);
+        }
+
         public string getNewPassword() 
         {
             string password = "";

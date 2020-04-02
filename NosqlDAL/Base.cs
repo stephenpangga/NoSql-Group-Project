@@ -40,6 +40,14 @@ namespace NosqlDAL
             collection.InsertOne(document);
         }
 
+        //Tim - delete data from the database
+        public void deleteData(int variable, string searchterm, string collectionName) 
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq(searchterm, variable);
+            collection.DeleteOne(deleteFilter);
+        }
+
         protected BsonDocument SearchDocument(string collectionName, string searchValue)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);

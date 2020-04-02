@@ -61,6 +61,11 @@ namespace NosqlDAL
             return employees;
         }
 
+        public void deleteUser(string id, string searchterm, string collectionName) 
+        {
+            deleteData(Int32.Parse(id), searchterm, collectionName);
+        }
+
         public void enterUser(int id, string mail, string password, string firstname, string lastname, string role) 
         {
             InsertUser(id, mail, password, firstname, lastname, role);

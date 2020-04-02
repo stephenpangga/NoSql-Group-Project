@@ -50,8 +50,8 @@ namespace NosqlUI
             string id = "";
             for (int i = 0; i < item.Length; i++)
             {
-                if (Char.IsDigit(item[i]))
-                    id += item[i];
+               if (Char.IsDigit(item[i]))
+                   id += item[i];
             }
             return id;
         }
@@ -75,7 +75,12 @@ namespace NosqlUI
 
         private void deletebutton_Click(object sender, EventArgs e)
         {
-
+            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            else
+            {
+                RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
+                RemoveCustomer.Show();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
