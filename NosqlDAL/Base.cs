@@ -25,14 +25,6 @@ namespace NosqlDAL
             return Document;
         }
 
-        protected List<BsonDocument> GetAllEmployees(string collectionName) 
-        {
-            var collection = database.GetCollection<BsonDocument>(collectionName);
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            var Document = collection.Find(filter).ToList();
-            return Document;
-        }
-
         //Tim - Insert a new user into the database / cluster
         public void InsertUser(int id, string mail, string password, string firstName, string lastName, string role) 
         {
