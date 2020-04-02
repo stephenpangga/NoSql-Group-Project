@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 using NosqlModel;
 using NosqlModel.Enums;
 
@@ -19,7 +20,16 @@ namespace NosqlDAL
 
             return admin;
         }
+        public User GetUser(string Coll, ObjectId searchTerm)
+        {
+            User admin = new User();
+            var document = GetDocumentByInt(Coll, searchTerm);
 
+            admin.Email = document["email"].ToString();
+            admin.FirstName = document["firstName"].ToString();
+
+            return admin;
+        }
         //this method is just a useless working test(fornow)
         public User SearchUser(string Coll, string searchTerm)
         {

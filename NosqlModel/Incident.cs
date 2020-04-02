@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 using NosqlModel;
 using NosqlModel.Enums;
 
@@ -8,11 +9,11 @@ namespace NosqlModel
 {
     public class Incident
     {
-        public int id;
+        public ObjectId id;
         public DateTime reportDate;
         public string subject;
         public IncidentType incidentType;
-        public Employees incidentUser;
+        public User incidentUser;
         public PriorityTypes priority;
         public DateTime deadline;
         public string description;

@@ -38,19 +38,11 @@ namespace NosqlUI
                 incidentDeadline_cbx.Items.Add(deadline.Text);
             }
 
-            User tmpuser = new User()
+            Customers_Logic users_Logic = new Customers_Logic();
+            foreach (User user in users_Logic.getAllEmployees())
             {
-                userId = 101,
-                FirstName = "admin",
-                LastName = "admin",
-                Email = "admin@gmail.com",
-                roles = NosqlModel.Enums.Roles.Admin,
-                Password = "admin"
-            };
-            currentUser = tmpuser;
-
-            //Users_Logic users_Logic = new Users_Logic();
-            //foreach(User user in users_Logic.getUsers())
+                incidentUser_cbx.Items.Add(new ComboItem(user.FirstName,user));
+            }
         }
 
 
@@ -62,7 +54,7 @@ namespace NosqlUI
             {
                 subject = incidentSubject_txtbx.Text,
                 reportDate = incidentDate_dtp.Value,
-                incidentUser = currentUser,
+                incidentUser = (incidentUser_cbx.SelectedItem as ComboItem).m_user,
                 priority = (NosqlModel.Enums.PriorityTypes)incidentPriority_cbx.SelectedIndex,
                 description = incidentDescription_rtxtbx.Text
             };
@@ -80,14 +72,9 @@ namespace NosqlUI
             Incident_Logic.InsertIncident(incident);
         }
 
-        private User getEmployee()
-        {
-            Customers_Logic customers_Logic = new Customers_Logic();
-            customers_Logic.getAllEmployees();
-        }
-
         private void incidentType_cbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            incidentSubType_cbx.Show();
             foreach (IncidentType categorie in IncidentType.categories)
             {
                 if (categorie.Main.ToString() == incidentType_cbx.Text)

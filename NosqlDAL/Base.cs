@@ -28,7 +28,13 @@ namespace NosqlDAL
             var Document = collection.Find(filter).FirstOrDefault();
             return Document;
         }
-
+        protected BsonDocument GetDocumentByInt(string collectionName, ObjectId searchValue)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", searchValue);
+            var Document = collection.Find(filter).FirstOrDefault();
+            return Document;
+        }
         //Tim - Insert a new user into the database / cluster
         public void InsertUser(int id, string mail, string password, string firstName, string lastName, string role) 
         {

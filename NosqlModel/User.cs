@@ -7,6 +7,7 @@ namespace NosqlModel
 {
     public class User
     {
+        public ObjectId id;
         public int userId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
