@@ -12,7 +12,7 @@ namespace NosqlModel
         public DateTime reportDate;
         public string subject;
         public IncidentType incidentType;
-        public User incidentUser;
+        public Employees incidentUser;
         public PriorityTypes priority;
         public DateTime deadline;
         public string description;

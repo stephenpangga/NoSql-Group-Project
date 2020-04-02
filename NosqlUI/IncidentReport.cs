@@ -48,6 +48,9 @@ namespace NosqlUI
                 Password = "admin"
             };
             currentUser = tmpuser;
+
+            //Users_Logic users_Logic = new Users_Logic();
+            //foreach(User user in users_Logic.getUsers())
         }
 
 
@@ -75,6 +78,12 @@ namespace NosqlUI
             }
 
             Incident_Logic.InsertIncident(incident);
+        }
+
+        private User getEmployee()
+        {
+            Customers_Logic customers_Logic = new Customers_Logic();
+            customers_Logic.getAllEmployees();
         }
 
         private void incidentType_cbx_SelectedIndexChanged(object sender, EventArgs e)

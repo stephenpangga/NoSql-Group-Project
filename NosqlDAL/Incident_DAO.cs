@@ -9,10 +9,10 @@ namespace NosqlDAL
 {
     public class Incident_DAO : Base
     {
-        public readonly string COLLECTION = "Incidents";
+        
         public List<Incident> GetIncidents()
         {
-            var documents = GetAll(COLLECTION);
+            var documents = GetAll(IncidentColl);
 
             List<Incident> incidents = new List<Incident>();
 
@@ -52,7 +52,7 @@ namespace NosqlDAL
         private User GetUserData(int id)
         {
             Users_DAO users_DAO = new Users_DAO();
-            return users_DAO.GetUser(users_DAO.COLLECTION , id);
+            return users_DAO.GetUser(UserColl , id);
         }
         public void CreateIncident(Incident incident)
         {
@@ -67,7 +67,7 @@ namespace NosqlDAL
             document["Description"] = incident.description;
             document["Status"] = incident.status;
 
-            InsertOne(document, COLLECTION);
+            InsertOne(document, IncidentColl);
         }
 
         //clean this later.
