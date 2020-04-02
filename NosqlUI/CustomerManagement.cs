@@ -32,7 +32,7 @@ namespace NosqlUI
 
         void LoadEmployees()
         {
-            employees = customers_Logic.getAllEmployees("Users");
+            employees = customers_Logic.getAllEmployees();
 
             foreach (User employee in employees)
             {

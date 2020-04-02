@@ -18,6 +18,6 @@ namespace NosqlLogic
         public void InsertIncident(Incident incident)
         {
             incident_dao.CreateIncident(incident);
-        }
+        } 
     }
 }

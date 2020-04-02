@@ -93,6 +93,7 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboItem.cs" />
     <Compile Include="CustomerChangeInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>

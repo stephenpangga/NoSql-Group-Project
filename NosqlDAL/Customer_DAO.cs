@@ -43,17 +43,20 @@ namespace NosqlDAL
         }
 
         //Get all the employes from the 'user' table
-        public List<User> getAllEmployees(string collectionName)
+        public List<User> getAllEmployees()
         {
-            var collection = GetAll(collectionName);
+            var collection = GetAll(UserColl);
 
             List<User> employees = new List<User>();
 
             //Use the Employees model and fill all the needed data into it, forming a list which can be used in the logic layer and the form itself.
             foreach (var doc in collection) 
             {
-                User employee = new User(doc["userId"].ToInt32(), doc["email"].ToString(), doc["password"].ToString(), 
-                    doc["firstName"].ToString(), doc["lastName"].ToString(), (Roles)Enum.Parse(typeof(Roles), doc["role"].ToString()));
+                User employee = new User(doc["userId"].ToInt32(), doc["email"].ToString(), doc["password"].ToString(),
+                    doc["firstName"].ToString(), doc["lastName"].ToString(), (Roles)Enum.Parse(typeof(Roles), doc["role"].ToString()))
+                {
+                    id = (ObjectId)doc.GetValue("_id")
+                };
 
                 employees.Add(employee);
             }

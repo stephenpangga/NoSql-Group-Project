@@ -19,31 +19,24 @@ namespace NosqlLogic
         //ticket status
         public List<Ticket> getResolvedTickets()
         {
-            return Ticket_data.getSpecificTickets("Resolved");
+            return Ticket_data.getSpecificTickets("Resolved", "Status");
         }
         
         public List<Ticket> getUnResolvedTickets()
         {
-            return Ticket_data.getSpecificTickets("Unresolved");
+            return Ticket_data.getSpecificTickets("Unresolved", "Status");
         }
 
         public List<Ticket> getInProcessTickets()
         {
-            return Ticket_data.getSpecificTickets("InProcess");
+            return Ticket_data.getSpecificTickets("InProcess", "Status");
+        }
+        //based on priority
+        public List<Ticket> getUrgentTickets()
+        {
+            return Ticket_data.getSpecificTickets("High", "Priorty");
         }
 
-        //ticket incident
-        public List<Ticket> getSoftwareIncidents()
-        {
-            return Ticket_data.getSpecificTickets("Software");
-        }
-        public List<Ticket> getHardwareIncidents()
-        {
-            return Ticket_data.getSpecificTickets("Hardware");
-        }
-        public List<Ticket> getServiceIncidents()
-        {
-            return Ticket_data.getSpecificTickets("Service");
-        }
+
     }
 }

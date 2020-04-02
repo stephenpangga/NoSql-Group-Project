@@ -46,7 +46,7 @@ namespace NosqlUI
                 {
                     //use the name from login form for changing stuff
                     string newEmail = ChngeEmailtxtbx.Text;
-                    check = customers_Logic.ChangeCustomerInfo("Users", usrId, "userId", newEmail, "email");
+                    check = customers_Logic.ChangeCustomerInfo(usrId,newEmail,"email");
                     if (check == true)
                     {
                         MessageBox.Show("Your email was successfully changed.", "Successfull.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,7 +77,7 @@ namespace NosqlUI
 
                 if(newPassword.Length > 7)
                 {
-                    check= customers_Logic.ChangeCustomerInfo("Users", usrId, "userId", newPassword, "password");
+                    check= customers_Logic.ChangeCustomerInfo(usrId,newPassword, "password");
                     if(check == true)
                     {
                         MessageBox.Show("Your password was successfully changed.", "Successfull.", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -10,6 +10,10 @@ namespace NosqlDAL
         private MongoClient MongoClient;
         private IMongoDatabase database;
 
+        protected readonly string TicketColl = "Tickets";
+        protected readonly string IncidentColl = "Incidents";
+        protected readonly string UserColl = "Users";
+
         public Base()
         {
             MongoClient = new MongoClient("mongodb+srv://622022:MongoDB454%21@awesomecluster-7pybh.mongodb.net/test?retryWrites=true&w=majority");
@@ -24,7 +28,13 @@ namespace NosqlDAL
             var Document = collection.Find(filter).FirstOrDefault();
             return Document;
         }
-
+        protected BsonDocument GetDocumentByInt(string collectionName, ObjectId searchValue)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", searchValue);
+            var Document = collection.Find(filter).FirstOrDefault();
+            return Document;
+        }
         //Tim - Insert a new user into the database / cluster
         public void InsertUser(int id, string mail, string password, string firstName, string lastName, string role) 
         {
