@@ -51,6 +51,12 @@ namespace NosqlDAL
             return employees;
         }
 
+        //Tim- update empoyee
+        public void updateUser(string id, string value, string column) 
+        {
+            updateUser(id, value, column);
+        }
+
         public void deleteUser(string id, string searchterm, string collectionName) 
         {
             deleteData(Int32.Parse(id), searchterm, collectionName);

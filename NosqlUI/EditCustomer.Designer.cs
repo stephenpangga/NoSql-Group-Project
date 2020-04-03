@@ -31,26 +31,27 @@
             this.userEditLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.value = new System.Windows.Forms.TextBox();
+            this.column = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userEditLabel
             // 
             this.userEditLabel.AutoSize = true;
             this.userEditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.userEditLabel.Location = new System.Drawing.Point(264, 41);
+            this.userEditLabel.Location = new System.Drawing.Point(222, 63);
             this.userEditLabel.Name = "userEditLabel";
-            this.userEditLabel.Size = new System.Drawing.Size(102, 26);
+            this.userEditLabel.Size = new System.Drawing.Size(0, 26);
             this.userEditLabel.TabIndex = 0;
-            this.userEditLabel.Text = "Edit User";
             // 
             // editButton
             // 
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.editButton.Location = new System.Drawing.Point(416, 313);
+            this.editButton.Location = new System.Drawing.Point(361, 303);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(192, 75);
             this.editButton.TabIndex = 1;
@@ -61,7 +62,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button1.Location = new System.Drawing.Point(150, 313);
+            this.button1.Location = new System.Drawing.Point(93, 303);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 75);
             this.button1.TabIndex = 2;
@@ -69,58 +70,87 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // value
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.textBox1.Location = new System.Drawing.Point(416, 202);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 32);
-            this.textBox1.TabIndex = 3;
+            this.value.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.value.Location = new System.Drawing.Point(361, 202);
+            this.value.Name = "value";
+            this.value.Size = new System.Drawing.Size(152, 32);
+            this.value.TabIndex = 3;
             // 
-            // comboBox1
+            // column
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(416, 132);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 33);
-            this.comboBox1.TabIndex = 4;
+            this.column.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.column.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.column.FormattingEnabled = true;
+            this.column.Items.AddRange(new object[] {
+            "userId",
+            "email",
+            "firstName",
+            "lastName"});
+            this.column.Location = new System.Drawing.Point(361, 132);
+            this.column.Name = "column";
+            this.column.Size = new System.Drawing.Size(152, 33);
+            this.column.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label1.Location = new System.Drawing.Point(171, 132);
+            this.label1.Location = new System.Drawing.Point(163, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 26);
             this.label1.TabIndex = 5;
             this.label1.Text = "Catagory:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(171, 202);
+            this.label2.Location = new System.Drawing.Point(167, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 26);
             this.label2.TabIndex = 6;
             this.label2.Text = "New value:";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button2.Location = new System.Drawing.Point(617, 230);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 52);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Reset Password";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button3.Location = new System.Drawing.Point(617, 326);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(109, 52);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Switch role";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.column);
+            this.Controls.Add(this.value);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.userEditLabel);
             this.Name = "EditCustomer";
             this.Text = "EditCustomer";
+            this.Load += new System.EventHandler(this.EditCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,9 +161,11 @@
         private System.Windows.Forms.Label userEditLabel;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox value;
+        private System.Windows.Forms.ComboBox column;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

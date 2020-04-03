@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using NosqlModel;
 using MongoDB.Bson;
-using NosqlModel;
 
 namespace NosqlDAL
 {

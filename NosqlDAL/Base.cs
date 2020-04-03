@@ -129,7 +129,19 @@ namespace NosqlDAL
             return checkResult;
         }
 
-        protected bool UpdateDocumentbyString(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        //Tim - just to update from my end. Making a serperate method is easier in this case.
+        protected void UpdateUser(string id, string updateValue, string column)
+        {
+            //select which document to update
+            var collection = database.GetCollection<BsonDocument>("Users");
+            var filter = Builders<BsonDocument>.Filter.Eq("userId", id);
+
+            //select what value to change in that document
+            var update = Builders<BsonDocument>.Update.Set(column, updateValue);
+            var result = collection.UpdateOne(filter, update);
+        }
+
+            protected bool UpdateDocumentbyString(string collectionName, string searchValue, string attribute, string updateValue, string column)
         {
             //select which document to update
             var collection = database.GetCollection<BsonDocument>(collectionName);

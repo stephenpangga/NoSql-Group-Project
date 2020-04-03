@@ -17,8 +17,6 @@ namespace NosqlLogic
             return result;
         }
 
-
-        //Method made by Tim
         public List<User> getAllEmployees(string collectionName) 
         {
             return customer_DAO.getAllEmployees(collectionName);
@@ -29,6 +27,12 @@ namespace NosqlLogic
             string pass= getNewPassword();
             customer_DAO.sendEmail(email, pass);
             customer_DAO.resetPass(email, pass);
+        }
+
+        //Tim - update user
+        public void updateUser(string id, string value, string column) 
+        {
+            customer_DAO.updateUser(id, value, column);
         }
 
         //Tim - Send the new user info to the database

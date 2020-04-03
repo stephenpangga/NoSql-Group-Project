@@ -32,7 +32,7 @@ namespace NosqlUI
 
         void LoadEmployees()
         {
-            employees = customers_Logic.getAllEmployees();
+            employees = customers_Logic.getAllEmployees("Users");
 
             foreach (User employee in employees)
             {
@@ -78,8 +78,8 @@ namespace NosqlUI
             if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
             else
             {
-                //RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
-                //RemoveCustomer.Show();
+                RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
+                RemoveCustomer.Show();
             }
         }
 
