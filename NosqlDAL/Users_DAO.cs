@@ -50,6 +50,7 @@ namespace NosqlDAL
                 User admin = new User();
                 var document = SearchByString("Users", Email, "email");
 
+                admin.id = document["_id"].AsObjectId;
                 admin.userId = document["userId"].ToInt32();
                 admin.Email = document["email"].ToString();
                 admin.Password = document["password"].ToString();

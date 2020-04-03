@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using NosqlDAL;
 using NosqlModel;
+using MongoDB.Bson;
+
 
 namespace NosqlLogic
 {
@@ -18,6 +20,8 @@ namespace NosqlLogic
         public void InsertIncident(Incident incident)
         {
             incident_dao.CreateIncident(incident);
+
+
         }
 
         //stephen stuff COPIED FROM TICKET LOGIC BC JESSE HAS TO MAKE A NEW CLASS 2 DAYS BEFORE THE DEADLINE INSTEAD OF USING WHAT
@@ -48,5 +52,10 @@ namespace NosqlLogic
         {
             return incident_dao.getAllIncidents();
         }
+        public List<Incident> FetchEmployeeTickets(ObjectId searchTerm)
+        {
+            return incident_dao.GetTicketsForCustomer(searchTerm);
+        }
+
     }
 }

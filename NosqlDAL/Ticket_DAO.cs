@@ -32,7 +32,7 @@ namespace NosqlDAL
         public List<Ticket> getSpecificTickets(string ticketStatus, string column)
         {
             List<Ticket> tickets = new List<Ticket>();
-            var document = GetSpecificDocumentsList("Tickets",ticketStatus, column);
+            var document = GetSpecificDocumentList("Tickets",ticketStatus, column);
             foreach (var info in document)
             {
                 string subject = info["Subject"].ToString();
@@ -52,7 +52,7 @@ namespace NosqlDAL
         public List<Ticket> getIncidentTicket(string incident)
         {
             List<Ticket> tickets = new List<Ticket>();
-            var document = GetSpecificDocumentsList("Tickets", incident, "Incidenttype");
+            var document = GetSpecificDocumentList("Tickets", incident, "Incidenttype");
             foreach (var info in document)
             {
                 string subject = info["Subject"].ToString();
