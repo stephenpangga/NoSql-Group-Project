@@ -67,12 +67,12 @@ namespace NosqlDAL
         {
             foreach(IncidentType category in IncidentType.categories)
             {
-                if(category.Sub == sub && category.Main.ToString() == main)
+                if(category.Sub.Equals(sub) && category.Main.ToString().Equals(main))
                 {
                     return category;
                 }
             }
-            throw new Exception("IncidentType not found");
+            return IncidentType.Uncategorised;
         }
 
         private User GetUserData(ObjectId id)
@@ -142,7 +142,7 @@ namespace NosqlDAL
             return incidents;
         }
 
-        //fixed get all method, fuck you jesse ffs
+        //fixed get all method
         public List<Incident> getAllIncidents()
         {
             var documents = GetAll(IncidentColl);

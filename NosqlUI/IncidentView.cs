@@ -31,26 +31,8 @@ namespace NosqlUI
         {
             this.incidents = incidents;
             InitializeComponent();
-            loadListView();
-            LoadData();
-        }
 
-        //this method is never called. so delete it if you want. -stephen
-        private void IncidentManagment_Load(object sender, EventArgs e)
-        {
-            incident_lstvw.GridLines = true;
-            incident_lstvw.View = View.Details;
-
-            //Add Column Header
-
-            incident_lstvw.Columns.Add("Subject", 150);
-            incident_lstvw.Columns.Add("Report date", 150);
-            incident_lstvw.Columns.Add("Deadline", 150);
-            incident_lstvw.Columns.Add("User", 150);
-            incident_lstvw.Columns.Add("Type", 150);
-            incident_lstvw.Columns.Add("Priority", 150);
-            incident_lstvw.Columns.Add("Status", 150);
-
+loadListView();
             LoadData();
         }
 
@@ -62,12 +44,12 @@ namespace NosqlUI
             //Add Column Header
 
             incident_lstvw.Columns.Add("Subject", 150);
-            incident_lstvw.Columns.Add("Report date", 150);
-            incident_lstvw.Columns.Add("Deadline", 150);
-            incident_lstvw.Columns.Add("User", 150);
-            incident_lstvw.Columns.Add("Type", 150);
-            incident_lstvw.Columns.Add("Priority", 150);
-            incident_lstvw.Columns.Add("Status", 150);
+            incident_lstvw.Columns.Add("Report date", 75);
+            incident_lstvw.Columns.Add("Deadline", 75);
+            incident_lstvw.Columns.Add("User", 75);
+            incident_lstvw.Columns.Add("Type", 75);
+            incident_lstvw.Columns.Add("Priority", 75);
+            incident_lstvw.Columns.Add("Status", 75);
         }
 
 
@@ -82,9 +64,8 @@ namespace NosqlUI
             {
 
                 ListViewItem lv = new ListViewItem(incident.subject);
-                //lv.SubItems.Add();
-                lv.SubItems.Add(incident.reportDate.ToString());
-                lv.SubItems.Add(incident.deadline.ToString());
+                lv.SubItems.Add(incident.reportDate.ToShortDateString());
+                lv.SubItems.Add(incident.deadline.ToShortDateString());
                 lv.SubItems.Add(incident.incidentUser.FirstName + " " + incident.incidentUser.LastName);
                 lv.SubItems.Add(incident.incidentType.Main.ToString());
                 lv.SubItems.Add(incident.priority.ToString());
