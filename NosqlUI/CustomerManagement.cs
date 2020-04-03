@@ -78,8 +78,8 @@ namespace NosqlUI
             if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
             else
             {
-                RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
-                RemoveCustomer.Show();
+                //RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
+                //RemoveCustomer.Show();
             }
         }
 

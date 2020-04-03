@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using NosqlDAL;
 using NosqlModel;
+using MongoDB.Bson;
 
 namespace NosqlLogic
 {
     public class Customers_Logic
     {
         Customer_DAO customer_DAO = new Customer_DAO();
-        //make ticket list(to get for one employee) and tickets model
-        public List<Ticket> FetchEmployeeTickets(string searchTerm)
+        
+        public bool ChangeCustomerInfo(ObjectId searchValue, string updateValue, string column)
         {
-            return customer_DAO.GetTicketsForCustomer("Tickets", searchTerm, "Reportedby");
-        }
-
-        public bool ChangeCustomerInfo(int searchValue, string updateValue, string column)
-        {
-            var result = customer_DAO.UpdateCustomerInfo("Users", searchValue, "userId", updateValue, column);
+            var result = customer_DAO.UpdateCustomerInfo("Users", searchValue, "_id", updateValue, column);
             return result;
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using NosqlDAL;
 using NosqlModel;
+using MongoDB.Bson;
+
 
 namespace NosqlLogic
 {
@@ -18,6 +20,11 @@ namespace NosqlLogic
         public void InsertIncident(Incident incident)
         {
             incident_dao.CreateIncident(incident);
-        } 
+        }
+
+        public List<Incident> FetchEmployeeTickets(ObjectId searchTerm)
+        {
+            return incident_dao.GetTicketsForCustomer( searchTerm);
+        }
     }
 }

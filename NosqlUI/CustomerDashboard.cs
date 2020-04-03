@@ -14,9 +14,8 @@ namespace NosqlUI
 {
     public partial class CustomerDashboard : Form
     {
-        Customers_Logic customers_Logic = new Customers_Logic();
-        List<Ticket> tickets = new List<Ticket>();
-        private string fullName;
+        Incident_Logic incident_Logic = new Incident_Logic();
+        List<Incident> incidents = new List<Incident>();
         User loggedInUser;
         public CustomerDashboard(User currentUser)
         {
@@ -34,22 +33,22 @@ namespace NosqlUI
 
         void FillListView(User user)
         {
-            fullName = user.FirstName + " "+ user.LastName;
 
             //user will be sent from login to be used here
             //tickets will be get using fullname to make it uniqe
-            tickets = customers_Logic.FetchEmployeeTickets(fullName);
+            incidents = incident_Logic.FetchEmployeeTickets(user.id);
 
             //dataList.Clear();
             dataListView.Columns.Add("Subject", 140);
-            dataListView.Columns.Add("Description", 120);
-            dataListView.Columns.Add("Status", 160);
+            dataListView.Columns.Add("Reported by", 120);
+            dataListView.Columns.Add("Reported date", 160);
             dataListView.Columns.Add("Deadline", 120);
-            dataListView.Columns.Add("Incident type", 240);
+            dataListView.Columns.Add("Status", 100);
+            dataListView.Columns.Add("Priority", 100);
 
-            foreach (Ticket ticket in tickets)
+            foreach (Incident incident in incidents)
             {
-                var item = new string[5] { ticket.Subject.ToString(),ticket.Description,ticket.Status.ToString(),ticket.Deadline.ToString(), ticket.IncidentType.ToString() };
+                var item = new string[6] { incident.subject, incident.incidentUser.FirstName,incident.reportDate.ToString(),incident.deadline.ToString(),incident.status.ToString(),incident.priority.ToString()};
 
                 dataListView.Items.Add(new ListViewItem(item));
             }
@@ -62,7 +61,7 @@ namespace NosqlUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm(loggedInUser.userId);
+            CustomerChangeInfoForm changeInfoForm = new CustomerChangeInfoForm(loggedInUser.id);
             changeInfoForm.Show();
         }
 

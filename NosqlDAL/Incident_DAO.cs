@@ -37,6 +37,33 @@ namespace NosqlDAL
             return incidents;
         }
 
+        public List<Incident> GetTicketsForCustomer(ObjectId searchTerm)
+        {
+            var documents = GetSpecificDocumentsList(IncidentColl, searchTerm, "IncidentUser");
+
+            List<Incident> tickets = new List<Incident>();
+
+            foreach (var document in documents)
+            {
+                Incident incident = new Incident()
+                {
+                    id = (ObjectId)document["_id"],
+                    subject = document["Subject"].ToString(),
+                    reportDate = DateTime.Parse(document["ReportDate"].ToString()),
+                    incidentType = GetIncidentType(document["IncidentMainType"].ToString(), document["IncidentSubType"].ToString()),
+                    incidentUser = GetUserData((ObjectId)document["IncidentUser"]),
+                    priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), document["Priority"].ToString()),
+                    deadline = DateTime.Parse(document["Deadline"].ToString()),
+                    description = document["Description"].ToString(),
+                    status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), document["Status"].ToString())
+
+                };
+                tickets.Add(incident);
+            }
+
+            return tickets;
+        }
+
         private IncidentType GetIncidentType(string main, string sub)
         {
             foreach(IncidentType category in IncidentType.categories)

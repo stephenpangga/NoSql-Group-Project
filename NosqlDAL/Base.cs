@@ -66,7 +66,15 @@ namespace NosqlDAL
             return firstDocument;
         }
 
-        protected List<BsonDocument> GetSpecificDocumentsList(string collectionName, string searchValue, string attribute)
+        protected List<BsonDocument> GetSpecificDocumentsList(string collectionName, ObjectId searchValue, string attribute)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
+            var documents = collection.Find(filter).ToList();
+            return documents;
+        }
+
+        protected List<BsonDocument> GetSpecificDocumentList(string collectionName, string searchValue, string attribute)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);
             var filter = Builders<BsonDocument>.Filter.Eq(attribute, searchValue);
@@ -96,7 +104,7 @@ namespace NosqlDAL
         }
 
         //attribute is the column for selecting doc and column is used to select the column to be updated
-        protected bool UpdateDocument(string collectionName, int searchValue, string attribute,string updateValue,string column)
+        protected bool UpdateDocument(string collectionName, ObjectId searchValue, string attribute,string updateValue,string column)
         {
             //select which document to update
             var collection = database.GetCollection<BsonDocument>(collectionName);
