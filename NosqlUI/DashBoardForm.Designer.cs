@@ -128,14 +128,14 @@
             this.unResolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea3.Name = "ChartArea1";
             this.unResolvedChart.ChartAreas.Add(chartArea3);
-            this.unResolvedChart.Location = new System.Drawing.Point(393, 109);
+            this.unResolvedChart.Location = new System.Drawing.Point(351, 109);
             this.unResolvedChart.Name = "unResolvedChart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series3.IsVisibleInLegend = false;
             series3.Name = "Series1";
             this.unResolvedChart.Series.Add(series3);
-            this.unResolvedChart.Size = new System.Drawing.Size(208, 201);
+            this.unResolvedChart.Size = new System.Drawing.Size(267, 246);
             this.unResolvedChart.TabIndex = 7;
             this.unResolvedChart.Text = "Chart";
             this.unResolvedChart.Click += new System.EventHandler(this.unResolvedChart_Click);
@@ -173,7 +173,7 @@
             this.resolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea4.Name = "ChartArea1";
             this.resolvedChart.ChartAreas.Add(chartArea4);
-            this.resolvedChart.Location = new System.Drawing.Point(393, 336);
+            this.resolvedChart.Location = new System.Drawing.Point(351, 370);
             this.resolvedChart.Name = "resolvedChart";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -181,7 +181,7 @@
             series4.IsVisibleInLegend = false;
             series4.Name = "Series1";
             this.resolvedChart.Series.Add(series4);
-            this.resolvedChart.Size = new System.Drawing.Size(208, 201);
+            this.resolvedChart.Size = new System.Drawing.Size(267, 246);
             this.resolvedChart.TabIndex = 16;
             this.resolvedChart.Text = "chart2";
             this.resolvedChart.Click += new System.EventHandler(this.resolvedChart_Click);
@@ -191,7 +191,7 @@
             this.lbl_unresolved.AutoSize = true;
             this.lbl_unresolved.BackColor = System.Drawing.Color.White;
             this.lbl_unresolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_unresolved.Location = new System.Drawing.Point(471, 206);
+            this.lbl_unresolved.Location = new System.Drawing.Point(456, 221);
             this.lbl_unresolved.Name = "lbl_unresolved";
             this.lbl_unresolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_unresolved.TabIndex = 18;
@@ -214,7 +214,7 @@
             this.lbl_resolved.AutoSize = true;
             this.lbl_resolved.BackColor = System.Drawing.Color.White;
             this.lbl_resolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_resolved.Location = new System.Drawing.Point(471, 431);
+            this.lbl_resolved.Location = new System.Drawing.Point(456, 474);
             this.lbl_resolved.Name = "lbl_resolved";
             this.lbl_resolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_resolved.TabIndex = 20;
