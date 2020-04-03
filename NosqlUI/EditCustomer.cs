@@ -39,11 +39,13 @@ namespace NosqlUI
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtColumn.SelectedItem.ToString()) || String.IsNullOrEmpty(textValue.Text))
-            { userEditLabel.Text = "Fill in all boxes, please*"; userEditLabel.ForeColor = Color.Red; }
+            if (String.IsNullOrEmpty(txtColumn.Text) || String.IsNullOrEmpty(textValue.Text))
+            { userEditLabel.Text = "Please fill in all boxes"; userEditLabel.ForeColor = Color.Red; }
             else
             {
                 customers_Logic.updateUser(usedID, textValue.Text, txtColumn.Text);
+                CustomerManagementSuccess PopUp = new CustomerManagementSuccess();
+                PopUp.Show();
                 this.Close();
             }
         }
@@ -66,6 +68,8 @@ namespace NosqlUI
         private void button2_Click(object sender, EventArgs e)
         {
             customers_Logic.changePassword(usedID);
+            CustomerManagementSuccess PopUp = new CustomerManagementSuccess();
+            PopUp.Show();
             this.Close();
         }
 
@@ -83,6 +87,8 @@ namespace NosqlUI
                 }
             }
             customers_Logic.updateUser(usedID, role, "role");
+            CustomerManagementSuccess PopUp = new CustomerManagementSuccess();
+            PopUp.Show();
             this.Close();
         }
     }

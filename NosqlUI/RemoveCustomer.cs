@@ -37,6 +37,8 @@ namespace NosqlUI
         private void button1_Click(object sender, EventArgs e)
         {
             customers_Logic.deleteUser(usedID, "userId", "Users");
+            CustomerManagementSuccess PopUp = new CustomerManagementSuccess(); 
+            PopUp.Show();
             this.Close();
         }
 
