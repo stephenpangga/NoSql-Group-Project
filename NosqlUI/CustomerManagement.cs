@@ -90,7 +90,12 @@ namespace NosqlUI
 
         private void editbuttom_Click(object sender, EventArgs e)
         {
-       
+            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            else
+            {
+                EditCustomer EditCustomer = new EditCustomer(getSelectedId());
+                EditCustomer.Show();
+            }
         }
 
 

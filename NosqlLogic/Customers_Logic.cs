@@ -23,9 +23,9 @@ namespace NosqlLogic
 
 
         //Method made by Tim
-        public List<User> getAllEmployees() 
+        public List<User> getAllEmployees(string collectionName) 
         {
-            return customer_DAO.getAllEmployees();
+            return customer_DAO.getAllEmployees(collectionName);
         }
 
         public void SendEmail(string email)
@@ -58,7 +58,7 @@ namespace NosqlLogic
         public int getNewID() 
         {
             int id = 0;
-            List<User> employees = customer_DAO.getAllEmployees();
+            List<User> employees = customer_DAO.getAllEmployees("Users");
             foreach (User employee in employees) 
             { if (employee.userId > id) { id = employee.userId; } }
             return id + 1;

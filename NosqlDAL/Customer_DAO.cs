@@ -43,9 +43,9 @@ namespace NosqlDAL
         }
 
         //Get all the employes from the 'user' table
-        public List<User> getAllEmployees()
+        public List<User> getAllEmployees(string collectionName)
         {
-            var collection = GetAll(UserColl);
+            var collection = GetAll(collectionName);
 
             List<User> employees = new List<User>();
 
