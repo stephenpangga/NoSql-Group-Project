@@ -57,7 +57,7 @@ namespace NosqlUI
             Incident_Logic incident_Logic = new Incident_Logic();
             List<Incident> incidents = incident_Logic.getAll();
 
-            IncidentManagment.getView(incidents).Show();
+            new IncidentManagment(incidents).Show();
             this.Hide();
             //IncidentManagment.getView().disableButton(btn_IncidentM);
         }
