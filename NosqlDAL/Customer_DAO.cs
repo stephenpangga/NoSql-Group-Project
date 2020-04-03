@@ -15,9 +15,9 @@ namespace NosqlDAL
     {
         
 
-        public bool UpdateCustomerInfo(string collectionName, ObjectId searchValue, string attribute, string updateValue, string column)
+        public bool UpdateCustomerInfo( ObjectId searchValue, string attribute, string updateValue, string column)
         {
-            var result = UpdateDocument(collectionName, searchValue, attribute, updateValue, column);
+            var result = UpdateDocument(UserColl, searchValue, attribute, updateValue, column);
             return result;
             
         }

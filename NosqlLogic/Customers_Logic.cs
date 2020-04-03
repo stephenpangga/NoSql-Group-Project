@@ -13,7 +13,7 @@ namespace NosqlLogic
         
         public bool ChangeCustomerInfo(ObjectId searchValue, string updateValue, string column)
         {
-            var result = customer_DAO.UpdateCustomerInfo("Users", searchValue, "_id", updateValue, column);
+            var result = customer_DAO.UpdateCustomerInfo( searchValue, "_id", updateValue, column);
             return result;
         }
 
