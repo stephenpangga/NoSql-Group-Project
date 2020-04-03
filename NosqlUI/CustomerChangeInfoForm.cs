@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using NosqlLogic;
 using NosqlModel;
+using MongoDB.Bson;
 
 namespace NosqlUI
 {
@@ -17,8 +18,8 @@ namespace NosqlUI
     {
         Customers_Logic customers_Logic = new Customers_Logic();
         bool check;
-        int usrId;
-        public CustomerChangeInfoForm(int userId)
+        ObjectId usrId;
+        public CustomerChangeInfoForm(ObjectId userId)
         {
             InitializeComponent();
             usrId = userId;

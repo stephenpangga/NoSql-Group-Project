@@ -17,27 +17,27 @@ namespace NosqlUI
         string usedID = "";
         Customers_Logic customers_Logic = new Customers_Logic();
 
-        public RemoveCustomer(string id)
-        {
-            usedID = id;
-            string deleteThisEmployer = "";
-            InitializeComponent();
-            List<User> employees = new List<User>();
-            employees = customers_Logic.getAllEmployees("Users");
+        //public RemoveCustomer(string id)
+        //{
+        //    usedID = id;
+        //    string deleteThisEmployer = "";
+        //    InitializeComponent();
+        //    List<User> employees = new List<User>();
+        //    employees = customers_Logic.getAllEmployees("Users");
 
-            foreach (User employee in employees)
-            {
-                if (employee.userId.ToString() == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
-                userLabel.Text = employee.userId.ToString();
-            }
-            userLabel.Text = deleteThisEmployer;
-        }
+        //    foreach (User employee in employees)
+        //    {
+        //        if (employee.userId.ToString() == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
+        //        userLabel.Text = employee.userId.ToString();
+        //    }
+        //    userLabel.Text = deleteThisEmployer;
+        //}
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            customers_Logic.deleteUser(usedID, "userId", "Users");
+            //customers_Logic.deleteUser(usedID, "userId", "Users");
             this.Close();
         }
 

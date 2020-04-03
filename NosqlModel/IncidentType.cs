@@ -42,6 +42,12 @@ namespace NosqlModel
             Sub = sub;
         }
 
+        //jesses code doesnt work, had to make separate constructor bc i am not responsible for his code
+        public IncidentType(MainType mt)
+        {
+            this.Main = mt;
+        }
+
 
     }
 }
