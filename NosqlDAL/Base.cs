@@ -134,7 +134,7 @@ namespace NosqlDAL
         {
             //select which document to update
             var collection = database.GetCollection<BsonDocument>("Users");
-            var filter = Builders<BsonDocument>.Filter.Eq("userId", id);
+            var filter = Builders<BsonDocument>.Filter.Eq("userId", Int32.Parse(id));
 
             //select what value to change in that document
             var update = Builders<BsonDocument>.Update.Set(column, updateValue);
