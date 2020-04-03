@@ -44,7 +44,21 @@ namespace NosqlLogic
         //based on priority
         public List<Incident> getUrgentTickets()
         {
-            return incident_dao.getSpecificIncidentTickets("High", "Priority");
+            List<Incident> urgentIncident = incident_dao.getSpecificIncidentTickets("High", "Priority");
+
+            List<Incident> unresolvedUrgetTickets = new List<Incident>();
+
+            for (int i = 0; i < urgentIncident.Count; i++)
+            {
+                if (urgentIncident[i].status == NosqlModel.Enums.Status.Unresolved)
+                {
+                    //urgentIncident.RemoveAt(i);
+                    unresolvedUrgetTickets.Add(urgentIncident[i]);
+                }
+            }
+
+            return unresolvedUrgetTickets;
+            //return incident_dao.getSpecificIncidentTickets("High", "Priority");
         }
 
         //separate get all
