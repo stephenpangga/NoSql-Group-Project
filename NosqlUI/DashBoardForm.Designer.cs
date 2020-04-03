@@ -88,7 +88,7 @@
             series1.IsVisibleInLegend = false;
             series1.Name = "Series1";
             this.overAllChart.Series.Add(series1);
-            this.overAllChart.Size = new System.Drawing.Size(208, 201);
+            this.overAllChart.Size = new System.Drawing.Size(267, 246);
             this.overAllChart.TabIndex = 3;
             this.overAllChart.Text = "chart1";
             this.overAllChart.Click += new System.EventHandler(this.overAllChart_Click);
@@ -109,7 +109,7 @@
             this.inProcessChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea2.Name = "ChartArea1";
             this.inProcessChart.ChartAreas.Add(chartArea2);
-            this.inProcessChart.Location = new System.Drawing.Point(479, 109);
+            this.inProcessChart.Location = new System.Drawing.Point(46, 370);
             this.inProcessChart.Name = "inProcessChart";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -117,7 +117,7 @@
             series2.IsVisibleInLegend = false;
             series2.Name = "Series1";
             this.inProcessChart.Series.Add(series2);
-            this.inProcessChart.Size = new System.Drawing.Size(208, 201);
+            this.inProcessChart.Size = new System.Drawing.Size(267, 246);
             this.inProcessChart.TabIndex = 6;
             this.inProcessChart.Text = "chart2";
             this.inProcessChart.Click += new System.EventHandler(this.inProcessChart_Click);
@@ -128,7 +128,7 @@
             this.unResolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea3.Name = "ChartArea1";
             this.unResolvedChart.ChartAreas.Add(chartArea3);
-            this.unResolvedChart.Location = new System.Drawing.Point(260, 109);
+            this.unResolvedChart.Location = new System.Drawing.Point(393, 109);
             this.unResolvedChart.Name = "unResolvedChart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -143,7 +143,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 404);
+            this.label5.Location = new System.Drawing.Point(789, 442);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 12;
@@ -152,7 +152,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 436);
+            this.label6.Location = new System.Drawing.Point(789, 474);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 13;
@@ -161,7 +161,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 369);
+            this.label7.Location = new System.Drawing.Point(789, 407);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 15;
@@ -173,7 +173,7 @@
             this.resolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea4.Name = "ChartArea1";
             this.resolvedChart.ChartAreas.Add(chartArea4);
-            this.resolvedChart.Location = new System.Drawing.Point(693, 109);
+            this.resolvedChart.Location = new System.Drawing.Point(393, 336);
             this.resolvedChart.Name = "resolvedChart";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -191,7 +191,7 @@
             this.lbl_unresolved.AutoSize = true;
             this.lbl_unresolved.BackColor = System.Drawing.Color.White;
             this.lbl_unresolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_unresolved.Location = new System.Drawing.Point(338, 206);
+            this.lbl_unresolved.Location = new System.Drawing.Point(471, 206);
             this.lbl_unresolved.Name = "lbl_unresolved";
             this.lbl_unresolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_unresolved.TabIndex = 18;
@@ -203,7 +203,7 @@
             this.lbl_inprocess.AutoSize = true;
             this.lbl_inprocess.BackColor = System.Drawing.Color.White;
             this.lbl_inprocess.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_inprocess.Location = new System.Drawing.Point(556, 206);
+            this.lbl_inprocess.Location = new System.Drawing.Point(153, 484);
             this.lbl_inprocess.Name = "lbl_inprocess";
             this.lbl_inprocess.Size = new System.Drawing.Size(55, 24);
             this.lbl_inprocess.TabIndex = 19;
@@ -214,7 +214,7 @@
             this.lbl_resolved.AutoSize = true;
             this.lbl_resolved.BackColor = System.Drawing.Color.White;
             this.lbl_resolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_resolved.Location = new System.Drawing.Point(767, 206);
+            this.lbl_resolved.Location = new System.Drawing.Point(471, 431);
             this.lbl_resolved.Name = "lbl_resolved";
             this.lbl_resolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_resolved.TabIndex = 20;
@@ -225,7 +225,7 @@
             this.lbl_urgent.AutoSize = true;
             this.lbl_urgent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_urgent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbl_urgent.Location = new System.Drawing.Point(276, 360);
+            this.lbl_urgent.Location = new System.Drawing.Point(721, 542);
             this.lbl_urgent.Name = "lbl_urgent";
             this.lbl_urgent.Size = new System.Drawing.Size(140, 27);
             this.lbl_urgent.TabIndex = 0;
