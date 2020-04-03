@@ -57,6 +57,12 @@ namespace NosqlDAL
             var deleteFilter = Builders<BsonDocument>.Filter.Eq(searchterm, variable);
             collection.DeleteOne(deleteFilter);
         }
+        public void deleteData(ObjectId variable, string searchterm, string collectionName)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq(searchterm, variable);
+            collection.DeleteOne(deleteFilter);
+        }
 
         protected BsonDocument SearchDocument(string collectionName, string searchValue)
         {

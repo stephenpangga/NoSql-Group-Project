@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NosqlLogic;
 using NosqlModel;
+using NosqlModel.Enums;
 
 namespace NosqlUI
 {
@@ -32,11 +33,11 @@ namespace NosqlUI
             this.incidents = incidents;
             InitializeComponent();
 
-loadListView();
+            load();
             LoadData();
         }
 
-        private void loadListView()
+        private void load()
         {
             incident_lstvw.GridLines = true;
             incident_lstvw.View = View.Details;
@@ -50,13 +51,23 @@ loadListView();
             incident_lstvw.Columns.Add("Type", 75);
             incident_lstvw.Columns.Add("Priority", 75);
             incident_lstvw.Columns.Add("Status", 75);
+
+            LoadData();
+
+            foreach (PriorityTypes priority in (PriorityTypes[])Enum.GetValues(typeof(PriorityTypes)))
+            {
+                incidentPriority_cbx.Items.Add(priority.ToString());
+            }
+            foreach (Status status in (Status[])Enum.GetValues(typeof(Status)))
+            {
+                incidentStatus_cbx.Items.Add(status);
+            }
         }
 
-
+        Incident_Logic incident_Logic = new Incident_Logic();
         private void LoadData()
         {
-            Incident_Logic incident_Logic = new Incident_Logic();
-            //List<Incident> incidents = incident_Logic.getAllIncidents();
+            List<Incident> incidents = incident_Logic.getAllIncidents();
 
             incident_lstvw.Items.Clear();
 
@@ -79,6 +90,42 @@ loadListView();
         private void incidentCreate_btn_Click(object sender, EventArgs e)
         {
             IncidentReport.getView().Show();
+        }
+
+        private void incident_lstvw_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (incident_lstvw.SelectedItems.Count == 1)
+            {
+                Incident incident = (Incident)incident_lstvw.SelectedItems[0].Tag;
+                incidentDescription_rtbx.Text = incident.description;
+                incidentMain_tbx.Text = incident.incidentType.Main.ToString();
+                incidentSub_tbx.Text = incident.incidentType.Sub;
+                incidentStatus_cbx.SelectedIndex = (int)incident.status;
+                incidentPriority_cbx.SelectedIndex = (int)incident.priority;
+            }
+        }
+
+        private void incidentUpdate_btn_Click(object sender, EventArgs e)
+        {
+            if (incident_lstvw.SelectedItems.Count == 1)
+            {
+                Incident incident = (Incident)incident_lstvw.SelectedItems[0].Tag;
+                incident.description = incidentDescription_rtbx.Text;
+                incident.status = (Status)incidentStatus_cbx.SelectedIndex;
+                incident.priority = (PriorityTypes)incidentPriority_cbx.SelectedIndex;
+                incident_Logic.UpdateIncident(incident);
+            }
+            LoadData();
+        }
+
+        private void incidentDelete_btn_Click(object sender, EventArgs e)
+        {
+            if (incident_lstvw.SelectedItems.Count == 1)
+            {
+                Incident incident = (Incident)incident_lstvw.SelectedItems[0].Tag;
+                incident_Logic.DeleteIncident(incident.id);
+            }
+            LoadData();
         }
     }
 }

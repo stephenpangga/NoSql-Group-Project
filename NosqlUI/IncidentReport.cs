@@ -43,10 +43,11 @@ namespace NosqlUI
                 incidentDeadline_cbx.Items.Add(deadline.Text);
             }
 
+            //loads user combobox with users
             Customers_Logic users_Logic = new Customers_Logic();
             foreach (User user in users_Logic.getAllEmployees("Users"))
             {
-                incidentUser_cbx.Items.Add(new ComboItem(user.FirstName,user));
+                incidentUser_cbx.Items.Add(new ComboItem($"{user.FirstName} {user.LastName}", user));
             }
         }
 
@@ -60,11 +61,10 @@ namespace NosqlUI
                 subject = incidentSubject_txtbx.Text,
                 reportDate = incidentDate_dtp.Value,
                 incidentUser = (incidentUser_cbx.SelectedItem as ComboItem).m_user,
-                priority = (NosqlModel.Enums.PriorityTypes)incidentPriority_cbx.SelectedIndex,
+                priority = (PriorityTypes)incidentPriority_cbx.SelectedIndex,
                 description = incidentDescription_rtxtbx.Text,
                 status = Status.Unresolved
             };
-
             incident.SetDeadline(incidentDeadline_cbx.Text);
 
             foreach (NosqlModel.IncidentType category in NosqlModel.IncidentType.categories)

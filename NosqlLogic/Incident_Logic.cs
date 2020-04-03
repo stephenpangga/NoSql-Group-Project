@@ -44,18 +44,49 @@ namespace NosqlLogic
         //based on priority
         public List<Incident> getUrgentTickets()
         {
-            return incident_dao.getSpecificIncidentTickets("High", "Priority");
+            List<Incident> urgentIncident = incident_dao.getSpecificIncidentTickets("High", "Priority");
+
+            List<Incident> unresolvedUrgetTickets = new List<Incident>();
+
+            for (int i = 0; i < urgentIncident.Count; i++)
+            {
+                if (urgentIncident[i].status == NosqlModel.Enums.Status.Unresolved)
+                {
+                    //urgentIncident.RemoveAt(i);
+                    unresolvedUrgetTickets.Add(urgentIncident[i]);
+                }
+            }
+
+            return unresolvedUrgetTickets;
+            //return incident_dao.getSpecificIncidentTickets("High", "Priority");
         }
 
         //separate get all
         public List<Incident> getAll()
         {
-            return incident_dao.getAllIncidents();
+            return incident_dao.GetIncidents();
         }
         public List<Incident> FetchEmployeeTickets(ObjectId searchTerm)
         {
             return incident_dao.GetTicketsForCustomer(searchTerm);
         }
 
+        public bool UpdateIncident(Incident incident)
+        {
+            bool result = incident_dao.UpdateIncident(incident.id, "_id", incident.status.ToString(), "Status");
+            if (result)
+                result = incident_dao.UpdateIncident(incident.id, "_id", incident.priority.ToString(), "Priority");
+            if (result)
+                result = incident_dao.UpdateIncident(incident.id, "_id", incident.description, "Description");
+
+            return result;
+
+        }
+
+        public void DeleteIncident(ObjectId _id)
+        {
+            incident_dao.DeleteIncident(_id,"_id");
+        }
     }
+
 }
