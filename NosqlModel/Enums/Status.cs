@@ -6,9 +6,10 @@ namespace NosqlModel.Enums
 {
     public enum Status
     {
-        Resolved,
+        PastDeadLine,
         Unresolved,
         InProcess,
-        PassDeadLine
+        Resolved
+        
     }
 }
