@@ -76,7 +76,6 @@
             this.txtColumn.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtColumn.FormattingEnabled = true;
             this.txtColumn.Items.AddRange(new object[] {
-            "userId",
             "email",
             "firstName",
             "lastName"});

@@ -23,7 +23,6 @@ namespace NosqlUI
             InitializeComponent();
             usedID = id;
             string editThisEmployer = "";
-            InitializeComponent();
             employees = customers_Logic.getAllEmployees("Users");
 
             foreach (User employee in employees)
@@ -35,8 +34,7 @@ namespace NosqlUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string value = textValue.Text;
-            userEditLabel.Text = value;
+            this.Close();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -45,9 +43,8 @@ namespace NosqlUI
             { userEditLabel.Text = "Fill in all boxes, please*"; userEditLabel.ForeColor = Color.Red; }
             else
             {
-                //customers_Logic.createUser(firstNameBox.Text, lastNameBox.Text, mailBox.Text, roleBox.Text);
-                //this.Close();
-                userEditLabel.Text = "Success.";
+                customers_Logic.updateUser(usedID, textValue.Text, txtColumn.Text);
+                this.Close();
             }
         }
 
@@ -74,13 +71,16 @@ namespace NosqlUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string role = "";
+            string role = "Employee";
             employees = customers_Logic.getAllEmployees("Users");
 
             foreach (User employee in employees)
             {
-                if (employee.roles.ToString() == "Admin") { role = "Employee"; }
-                else if (employee.roles.ToString() == "Employee") { role = "Admin"; }
+                if (usedID == employee.userId.ToString())
+                {
+                    if (employee.roles.ToString() == "Admin") { role = "Employee"; }
+                    else if (employee.roles.ToString() == "Employee") { role = "Admin"; }
+                }
             }
             customers_Logic.updateUser(usedID, role, "role");
             this.Close();
