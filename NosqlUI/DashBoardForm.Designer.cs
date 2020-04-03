@@ -231,6 +231,7 @@
             this.lbl_urgent.TabIndex = 0;
             this.lbl_urgent.Text = "Urgent Tickets";
             this.lbl_urgent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_urgent.Click += new System.EventHandler(this.lbl_urgent_Click);
             // 
             // DashBoardForm
             // 

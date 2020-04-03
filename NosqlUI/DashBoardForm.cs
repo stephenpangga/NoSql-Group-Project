@@ -28,6 +28,7 @@ namespace NosqlUI
         List<Incident> unresolvedTickets;
         List<Incident> resolvedTickets;
         List<Incident> allTickets;
+        List<Incident> urgentTickets;
         public DashBoardForm(User loggendUser)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace NosqlUI
             unresolvedTickets = incident_Logic.getUnResolvedTickets();
             resolvedTickets = incident_Logic.getResolvedTickets();
             allTickets = incident_Logic.getAll();
+            urgentTickets = incident_Logic.getUrgentTickets();
 
             label6.Text = allTickets.Count().ToString();
 
@@ -200,6 +202,12 @@ namespace NosqlUI
         private void resolvedChart_Click(object sender, EventArgs e)
         {
             new IncidentManagment(resolvedTickets).Show();
+            this.Hide();
+        }
+
+        private void lbl_urgent_Click(object sender, EventArgs e)
+        {
+            new IncidentManagment(urgentTickets).Show();
             this.Hide();
         }
     }
