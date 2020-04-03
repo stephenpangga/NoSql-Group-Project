@@ -180,14 +180,27 @@ namespace NosqlUI
 
         }
 
-        private void resolvedChart_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DashBoardForm_Load(object sender, EventArgs e)
         {
 
+        }
+        //filter charts to incident view
+        private void unResolvedChart_Click(object sender, EventArgs e)
+        {
+            new IncidentManagment(unresolvedTickets).Show();
+           // IncidentManagment.getView(unresolvedTickets).Show();
+            this.Hide();
+        }
+
+        private void inProcessChart_Click(object sender, EventArgs e)
+        {
+            new IncidentManagment(inProcessTickets).Show();
+            this.Hide();
+        }
+        private void resolvedChart_Click(object sender, EventArgs e)
+        {
+            new IncidentManagment(resolvedTickets).Show();
+            this.Hide();
         }
     }
 }

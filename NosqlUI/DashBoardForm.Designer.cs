@@ -120,6 +120,7 @@
             this.inProcessChart.Size = new System.Drawing.Size(208, 201);
             this.inProcessChart.TabIndex = 6;
             this.inProcessChart.Text = "chart2";
+            this.inProcessChart.Click += new System.EventHandler(this.inProcessChart_Click);
             // 
             // unResolvedChart
             // 
@@ -137,6 +138,7 @@
             this.unResolvedChart.Size = new System.Drawing.Size(208, 201);
             this.unResolvedChart.TabIndex = 7;
             this.unResolvedChart.Text = "Chart";
+            this.unResolvedChart.Click += new System.EventHandler(this.unResolvedChart_Click);
             // 
             // label5
             // 
