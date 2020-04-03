@@ -66,6 +66,7 @@ namespace NosqlDAL
             return firstDocument;
         }
 
+        //get by object id
         protected List<BsonDocument> GetSpecificDocumentsList(string collectionName, ObjectId searchValue, string attribute)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -74,6 +75,7 @@ namespace NosqlDAL
             return documents;
         }
 
+        //get by string
         protected List<BsonDocument> GetSpecificDocumentList(string collectionName, string searchValue, string attribute)
         {
             var collection = database.GetCollection<BsonDocument>(collectionName);
