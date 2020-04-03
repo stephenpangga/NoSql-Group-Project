@@ -120,7 +120,7 @@ namespace NosqlDAL
         public List<Incident> getSpecificIncidentTickets(string ticketStatus, string column)
         {
             List<Incident> incidents = new List<Incident>();
-            var document = GetSpecificDocumentList("Incidents", ticketStatus, column);
+            var document = GetSpecificDocumentList(IncidentColl, ticketStatus, column);
             foreach (var info in document)
             {
                 ObjectId id = (ObjectId)info["_id"];
