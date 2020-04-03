@@ -23,7 +23,7 @@ namespace NosqlUI
             string deleteThisEmployer = "";
             InitializeComponent();
             List<User> employees = new List<User>();
-            employees = customers_Logic.getAllEmployees("Users");
+            //employees = customers_Logic.getAllEmployees("Users");
 
             foreach (User employee in employees)
             {

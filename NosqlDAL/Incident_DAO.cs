@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NosqlModel;
 using MongoDB.Bson;
-
+using NosqlModel;
 
 namespace NosqlDAL
 {
@@ -89,6 +89,59 @@ namespace NosqlDAL
                 return null;
             }
         }
-    }
 
+        //get incidents with different status - by stephen
+        public List<Incident> getSpecificIncidentTickets(string ticketStatus, string column)
+        {
+            List<Incident> incidents = new List<Incident>();
+            var document = GetSpecificDocumentsList("Incidents", ticketStatus, column);
+            foreach (var info in document)
+            {
+                ObjectId id = (ObjectId)info["_id"];
+                string subject = info["Subject"].ToString();
+                DateTime reportDate = DateTime.Parse(info["ReportDate"].ToString());
+                IncidentType.MainType mainType = (IncidentType.MainType)Enum.Parse(typeof(IncidentType.MainType), info["IncidentMainType"].ToString());
+                IncidentType incidentType = new IncidentType(mainType);
+               // IncidentType incidentType = GetIncidentType(info["IncidentMainType"].ToString(), info["IncidentSubType"].ToString());
+                User incidentUser = GetUserData((ObjectId)info["IncidentUser"]);
+                NosqlModel.Enums.PriorityTypes priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), info["Priority"].ToString());
+                DateTime deadline = DateTime.Parse(info["Deadline"].ToString());
+                string description = info["Description"].ToString();
+                NosqlModel.Enums.Status status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), info["Status"].ToString());
+
+                Incident incident = new Incident(id, reportDate, subject, incidentType, incidentUser, priority, deadline, description, status);
+
+                incidents.Add(incident);
+            }
+            return incidents;
+        }
+
+        //fixed get all method, fuck you jesse ffs
+        public List<Incident> getAllIncidents()
+        {
+            var documents = GetAll(IncidentColl);
+
+            List<Incident> incidents = new List<Incident>();
+
+            foreach (var info in documents)
+            {
+                ObjectId id = (ObjectId)info["_id"];
+                string subject = info["Subject"].ToString();
+                DateTime reportDate = DateTime.Parse(info["ReportDate"].ToString());
+                IncidentType.MainType mainType = (IncidentType.MainType)Enum.Parse(typeof(IncidentType.MainType), info["IncidentMainType"].ToString());
+                IncidentType incidentType = new IncidentType(mainType);
+                User incidentUser = GetUserData((ObjectId)info["IncidentUser"]);
+                NosqlModel.Enums.PriorityTypes priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), info["Priority"].ToString());
+                DateTime deadline = DateTime.Parse(info["Deadline"].ToString());
+                string description = info["Description"].ToString();
+                NosqlModel.Enums.Status status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), info["Status"].ToString());
+
+                Incident incident = new Incident(id, reportDate, subject, incidentType, incidentUser, priority, deadline, description, status);
+
+                incidents.Add(incident);
+            }
+
+            return incidents;
+        }
+    }
 }
