@@ -35,6 +35,18 @@
             this.incidentCreate_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // btn_Dashboard
+            // 
+            this.btn_Dashboard.Location = new System.Drawing.Point(30, 28);
+            // 
+            // btn_IncidentM
+            // 
+            this.btn_IncidentM.Location = new System.Drawing.Point(276, 28);
+            // 
+            // btn_UserM
+            // 
+            this.btn_UserM.Location = new System.Drawing.Point(521, 28);
+            // 
             // incident_lstvw
             // 
             this.incident_lstvw.HideSelection = false;
@@ -76,7 +88,7 @@
             // 
             this.incidentCreate_btn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.incidentCreate_btn.Location = new System.Drawing.Point(619, 130);
-            this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4);
             this.incidentCreate_btn.Name = "incidentCreate_btn";
             this.incidentCreate_btn.Size = new System.Drawing.Size(219, 53);
             this.incidentCreate_btn.TabIndex = 19;
@@ -88,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 634);
+            this.ClientSize = new System.Drawing.Size(1280, 634);
             this.Controls.Add(this.incidentCreate_btn);
             this.Controls.Add(this.incidentFilter_lbl);
             this.Controls.Add(this.incidentFilter_txtbx);

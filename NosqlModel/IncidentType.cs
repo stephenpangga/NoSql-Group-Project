@@ -18,6 +18,7 @@ namespace NosqlModel
         public static readonly IncidentType Software = new IncidentType(MainType.Software, 9, "Other");
         public static readonly IncidentType Payment = new IncidentType(MainType.Service, 10, "Payment issue");
         public static readonly IncidentType Service = new IncidentType(MainType.Service, 11, "Other");
+        public static readonly IncidentType Uncategorised = new IncidentType(MainType.Unknown, 12, "Uncategorised");
 
         //used for searching subtypes
         public static readonly List<IncidentType> categories = new List<IncidentType>()
@@ -28,7 +29,7 @@ namespace NosqlModel
         // used for getting maintypes
         public enum MainType
         {
-            Hardware, Software, Service
+            Hardware, Software, Service, Unknown
         }
 
         public MainType Main { get; private set; }

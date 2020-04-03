@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NosqlModel;
 using NosqlLogic;
+using NosqlModel.Enums;
 
 namespace NosqlUI
 {
@@ -29,10 +30,14 @@ namespace NosqlUI
         {
             InitializeComponent();
             incidentSubType_cbx.Hide();
-            foreach (IncidentType.MainType mainType in (IncidentType.MainType[])Enum.GetValues(typeof(IncidentType.MainType)))
+            //loads main type combo box with options
+            foreach (NosqlModel.IncidentType.MainType mainType in (NosqlModel.IncidentType.MainType[])Enum.GetValues(typeof(NosqlModel.IncidentType.MainType)))
             {
-                incidentType_cbx.Items.Add(mainType);
+                if (!mainType.ToString().Equals("Unknown"))
+                    incidentType_cbx.Items.Add(mainType);
             }
+
+            //loads deadline combobox with deadline options
             foreach (DeadlineType deadline in DeadlineType.deadlines)
             {
                 incidentDeadline_cbx.Items.Add(deadline.Text);
@@ -56,12 +61,13 @@ namespace NosqlUI
                 reportDate = incidentDate_dtp.Value,
                 incidentUser = (incidentUser_cbx.SelectedItem as ComboItem).m_user,
                 priority = (NosqlModel.Enums.PriorityTypes)incidentPriority_cbx.SelectedIndex,
-                description = incidentDescription_rtxtbx.Text
+                description = incidentDescription_rtxtbx.Text,
+                status = Status.Unresolved
             };
 
             incident.SetDeadline(incidentDeadline_cbx.Text);
 
-            foreach (IncidentType category in IncidentType.categories)
+            foreach (NosqlModel.IncidentType category in NosqlModel.IncidentType.categories)
             {
                 if (category.Sub == incidentSubType_cbx.Text && category.Main.ToString() == incidentType_cbx.Text)
                 {
@@ -75,7 +81,9 @@ namespace NosqlUI
         private void incidentType_cbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             incidentSubType_cbx.Show();
-            foreach (IncidentType categorie in IncidentType.categories)
+            incidentSubType_cbx.Items.Clear();
+
+            foreach (NosqlModel.IncidentType categorie in NosqlModel.IncidentType.categories)
             {
                 if (categorie.Main.ToString() == incidentType_cbx.Text)
                 {
