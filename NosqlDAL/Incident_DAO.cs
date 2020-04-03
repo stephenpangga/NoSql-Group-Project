@@ -142,7 +142,7 @@ namespace NosqlDAL
             return incidents;
         }
 
-        //fixed get all method, fuck you jesse ffs
+        //fixed get all method
         public List<Incident> getAllIncidents()
         {
             var documents = GetAll(IncidentColl);

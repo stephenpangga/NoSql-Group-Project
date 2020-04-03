@@ -31,12 +31,12 @@
             this.userEditLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.value = new System.Windows.Forms.TextBox();
-            this.column = new System.Windows.Forms.ComboBox();
+            this.txtColumn = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // userEditLabel
@@ -70,28 +70,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // value
+            // txtColumn
             // 
-            this.value.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.value.Location = new System.Drawing.Point(361, 202);
-            this.value.Name = "value";
-            this.value.Size = new System.Drawing.Size(152, 32);
-            this.value.TabIndex = 3;
-            // 
-            // column
-            // 
-            this.column.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.column.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.column.FormattingEnabled = true;
-            this.column.Items.AddRange(new object[] {
+            this.txtColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.txtColumn.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtColumn.FormattingEnabled = true;
+            this.txtColumn.Items.AddRange(new object[] {
             "userId",
             "email",
             "firstName",
             "lastName"});
-            this.column.Location = new System.Drawing.Point(361, 132);
-            this.column.Name = "column";
-            this.column.Size = new System.Drawing.Size(152, 33);
-            this.column.TabIndex = 4;
+            this.txtColumn.Location = new System.Drawing.Point(361, 132);
+            this.txtColumn.Name = "txtColumn";
+            this.txtColumn.Size = new System.Drawing.Size(152, 33);
+            this.txtColumn.TabIndex = 4;
             // 
             // label1
             // 
@@ -123,6 +115,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Reset Password";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -133,18 +126,27 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Switch role";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textValue
+            // 
+            this.textValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.textValue.Location = new System.Drawing.Point(361, 202);
+            this.textValue.Name = "textValue";
+            this.textValue.Size = new System.Drawing.Size(152, 32);
+            this.textValue.TabIndex = 9;
             // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textValue);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.column);
-            this.Controls.Add(this.value);
+            this.Controls.Add(this.txtColumn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.userEditLabel);
@@ -161,11 +163,11 @@
         private System.Windows.Forms.Label userEditLabel;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox value;
-        private System.Windows.Forms.ComboBox column;
+        private System.Windows.Forms.ComboBox txtColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textValue;
     }
 }

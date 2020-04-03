@@ -45,6 +45,12 @@ namespace NosqlLogic
 
         }
 
+        public void changePassword(string id) 
+        {
+            string password = getNewPassword();
+            customer_DAO.updateUser(id, password, "password");
+        }
+
         //Tim- create a new user ID which is 1 more than the last one.
         public int getNewID() 
         {
