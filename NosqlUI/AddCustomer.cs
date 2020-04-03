@@ -34,10 +34,11 @@ namespace NosqlUI
         private void button1_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(firstNameBox.Text) || String.IsNullOrEmpty(lastNameBox.Text) || String.IsNullOrEmpty(mailBox.Text) || String.IsNullOrEmpty(roleBox.Text))
-            { warningLabel.Text = "Fill in all boxes, please*"; warningLabel.ForeColor = Color.Red; }
+            { warningLabel.Text = "Pleas fill in all boxes!"; warningLabel.ForeColor = Color.Red; }
             else
             {
                 customers_Logic.createUser(firstNameBox.Text, lastNameBox.Text, mailBox.Text, roleBox.Text);
+                CustomerManagementSuccess PopUp = new CustomerManagementSuccess(); PopUp.Show();
                 this.Close();
             }
             

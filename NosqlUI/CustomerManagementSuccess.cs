@@ -10,26 +10,16 @@ using System.Windows.Forms;
 
 namespace NosqlUI
 {
-    public partial class CustomerManagementPopUp : Form
+    public partial class CustomerManagementSuccess : Form
     {
-        public CustomerManagementPopUp()
+        public CustomerManagementSuccess()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CustomerManagementPopUp_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

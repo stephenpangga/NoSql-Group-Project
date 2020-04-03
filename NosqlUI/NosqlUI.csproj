@@ -112,6 +112,12 @@
     <Compile Include="CustomerManagementPopUp.Designer.cs">
       <DependentUpon>CustomerManagementPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerManagementSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerManagementSuccess.Designer.cs">
+      <DependentUpon>CustomerManagementSuccess.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerManagementPopUp.resx">
       <DependentUpon>CustomerManagementPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerManagementSuccess.resx">
+      <DependentUpon>CustomerManagementSuccess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
