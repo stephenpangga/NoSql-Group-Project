@@ -73,16 +73,8 @@ namespace NosqlUI
             return types;
         }
 
-        private void fillInProcessByIncidentChart()
-        {
-            inProcessChart.Titles.Add("In process by incident");
-            fillByIncidentChart(inProcessChart, inProcessTickets, lbl_inprocess);
-        }
-
-
         private void OverviewChart()
         {
-
             int resolved = resolvedTickets.Count();
 
             int unresolved = unresolvedTickets.Count();
@@ -107,12 +99,30 @@ namespace NosqlUI
                 }
                 i++;
             }
+        }
 
+        //method unresolved tickets and resolved tickets
+        //4 fill charts methods with different incident colors.
+        //charts for each incidents.
+        private void fillUnresolvedChart()
+        {
+            unResolvedChart.Titles.Add("Unresolved Tickets");
+            fillByIncidentChart(unResolvedChart, unresolvedTickets, lbl_unresolved);
+        }
+        private void fillResolvedChart()
+        {
+            resolvedChart.Titles.Add("resolved tickets");
+            fillByIncidentChart(resolvedChart, resolvedTickets, lbl_resolved);
+        }
+        private void fillInProcessByIncidentChart()
+        {
+            inProcessChart.Titles.Add("In process by incident");
+            fillByIncidentChart(inProcessChart, inProcessTickets, lbl_inprocess);
         }
 
         public void fillByIncidentChart(Chart chartToEdit, List<Incident> tickets, Label lbl)
         {
-            Dictionary< NosqlModel.IncidentType.MainType, int> types = separateTicketsByIncidentType(tickets);
+            Dictionary<NosqlModel.IncidentType.MainType, int> types = separateTicketsByIncidentType(tickets);
 
             int hardware = types[NosqlModel.IncidentType.MainType.Hardware];
             int software = types[NosqlModel.IncidentType.MainType.Software];
@@ -126,26 +136,11 @@ namespace NosqlUI
             chartToEdit.Series["Series1"].Points.AddY(total);
 
             lbl.Text = (hardware + software + service) + "/" + allTickets.Count();
-           // lbl.Text = (hardware + software + service) + "/" + "10";
+            // lbl.Text = (hardware + software + service) + "/" + "10";
 
             showPercentage(chartToEdit);
             //add name for the charts
             showIncidentTypeLabels(chartToEdit);
-        }
-
-        private void fillResolvedChart()
-        {
-            resolvedChart.Titles.Add("resolved tickets");
-            fillByIncidentChart(resolvedChart, resolvedTickets, lbl_resolved);
-        }
-
-        //method unresolved tickets and resolved tickets
-        //4 fill charts methods with different incident colors.
-        //charts for each incidents.
-        private void fillUnresolvedChart()
-        {
-            unResolvedChart.Titles.Add("Unresolved Tickets");
-            fillByIncidentChart(unResolvedChart, unresolvedTickets, lbl_unresolved);
         }
 
         private void showIncidentTypeLabels(Chart c)
