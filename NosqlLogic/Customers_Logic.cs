@@ -28,7 +28,7 @@ namespace NosqlLogic
         {
             string pass= getNewPassword();
             customer_DAO.sendEmail(email, pass);
-            customer_DAO.resetEmail("Users", email, "email", pass, "password");
+            customer_DAO.resetPass(email, pass);
         }
 
         //Tim - Send the new user info to the database

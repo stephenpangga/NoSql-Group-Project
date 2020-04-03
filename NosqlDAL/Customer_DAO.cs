@@ -22,9 +22,9 @@ namespace NosqlDAL
             
         }
 
-        public bool resetEmail(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        public bool resetPass( string searchValue, string updateValue)
         {
-            var result = UpdateDocumentbyString(collectionName, searchValue, attribute, updateValue, column);
+            var result = UpdateDocumentbyString(UserColl, searchValue, "email", updateValue, "password");
             return result;
 
         }
