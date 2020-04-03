@@ -96,78 +96,42 @@ namespace NosqlDAL
             InsertOne(document, IncidentColl);
         }
 
-        //clean this later.
-        public Incident SearchByEmail(string Email)
-        {
-            try
-            {
-                Incident incident = new Incident();
-                //var document = SearchByString("Incident", Email, "email");
-
-                //admin.Email = document["email"].ToString();
-                //admin.FirstName = document["firstName"].ToString();
-                //admin.Password = document["password"].ToString();
-
-                return incident;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
         //get incidents with different status - by stephen
         public List<Incident> getSpecificIncidentTickets(string ticketStatus, string column)
         {
             List<Incident> incidents = new List<Incident>();
-            var document = GetSpecificDocumentList(IncidentColl, ticketStatus, column);
-            foreach (var info in document)
+            var documents = GetSpecificDocumentList(IncidentColl, ticketStatus, column);
+            foreach (var document in documents)
             {
-                ObjectId id = (ObjectId)info["_id"];
-                string subject = info["Subject"].ToString();
-                DateTime reportDate = DateTime.Parse(info["ReportDate"].ToString());
-                IncidentType.MainType mainType = (IncidentType.MainType)Enum.Parse(typeof(IncidentType.MainType), info["IncidentMainType"].ToString());
-                IncidentType incidentType = new IncidentType(mainType);
-               // IncidentType incidentType = GetIncidentType(info["IncidentMainType"].ToString(), info["IncidentSubType"].ToString());
-                User incidentUser = GetUserData((ObjectId)info["IncidentUser"]);
-                NosqlModel.Enums.PriorityTypes priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), info["Priority"].ToString());
-                DateTime deadline = DateTime.Parse(info["Deadline"].ToString());
-                string description = info["Description"].ToString();
-                NosqlModel.Enums.Status status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), info["Status"].ToString());
+                Incident incident = new Incident()
+                {
+                    id = (ObjectId)document["_id"],
+                    subject = document["Subject"].ToString(),
+                    reportDate = DateTime.Parse(document["ReportDate"].ToString()),
+                    incidentType = GetIncidentType(document["IncidentMainType"].ToString(), document["IncidentSubType"].ToString()),
+                    incidentUser = GetUserData((ObjectId)document["IncidentUser"]),
+                    priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), document["Priority"].ToString()),
+                    deadline = DateTime.Parse(document["Deadline"].ToString()),
+                    description = document["Description"].ToString(),
+                    status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), document["Status"].ToString())
 
-                Incident incident = new Incident(id, reportDate, subject, incidentType, incidentUser, priority, deadline, description, status);
-
+                };
                 incidents.Add(incident);
             }
             return incidents;
         }
-
-        //fixed get all method
-        public List<Incident> getAllIncidents()
+        public bool UpdateIncident(ObjectId searchValue, string attribute, string updateValue, string column)
         {
-            var documents = GetAll(IncidentColl);
+            var result = UpdateDocument(IncidentColl, searchValue, attribute, updateValue, column);
+            return result;
+            
+        }
 
-            List<Incident> incidents = new List<Incident>();
-
-            foreach (var info in documents)
-            {
-                ObjectId id = (ObjectId)info["_id"];
-                string subject = info["Subject"].ToString();
-                DateTime reportDate = DateTime.Parse(info["ReportDate"].ToString());
-                IncidentType.MainType mainType = (IncidentType.MainType)Enum.Parse(typeof(IncidentType.MainType), info["IncidentMainType"].ToString());
-                IncidentType incidentType = new IncidentType(mainType);
-                User incidentUser = GetUserData((ObjectId)info["IncidentUser"]);
-                NosqlModel.Enums.PriorityTypes priority = (NosqlModel.Enums.PriorityTypes)Enum.Parse(typeof(NosqlModel.Enums.PriorityTypes), info["Priority"].ToString());
-                DateTime deadline = DateTime.Parse(info["Deadline"].ToString());
-                string description = info["Description"].ToString();
-                NosqlModel.Enums.Status status = (NosqlModel.Enums.Status)Enum.Parse(typeof(NosqlModel.Enums.Status), info["Status"].ToString());
-
-                Incident incident = new Incident(id, reportDate, subject, incidentType, incidentUser, priority, deadline, description, status);
-
-                incidents.Add(incident);
-            }
-
-            return incidents;
+        public void DeleteIncident(ObjectId searchValue, string attribute)
+        {
+            deleteData(searchValue, attribute, IncidentColl);
         }
     }
+
+    
 }

@@ -39,7 +39,7 @@ namespace NosqlUI
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtColumn.Text) || String.IsNullOrEmpty(textValue.Text))
+            if (String.IsNullOrEmpty(txtColumn.SelectedItem.ToString()) || String.IsNullOrEmpty(textValue.Text))
             { userEditLabel.Text = "Fill in all boxes, please*"; userEditLabel.ForeColor = Color.Red; }
             else
             {

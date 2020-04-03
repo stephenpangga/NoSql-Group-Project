@@ -64,12 +64,29 @@ namespace NosqlLogic
         //separate get all
         public List<Incident> getAll()
         {
-            return incident_dao.getAllIncidents();
+            return incident_dao.GetIncidents();
         }
         public List<Incident> FetchEmployeeTickets(ObjectId searchTerm)
         {
             return incident_dao.GetTicketsForCustomer(searchTerm);
         }
 
+        public bool UpdateIncident(Incident incident)
+        {
+            bool result = incident_dao.UpdateIncident(incident.id, "_id", incident.status.ToString(), "Status");
+            if (result)
+                result = incident_dao.UpdateIncident(incident.id, "_id", incident.priority.ToString(), "Priority");
+            if (result)
+                result = incident_dao.UpdateIncident(incident.id, "_id", incident.description, "Description");
+
+            return result;
+
+        }
+
+        public void DeleteIncident(ObjectId _id)
+        {
+            incident_dao.DeleteIncident(_id,"_id");
+        }
     }
+
 }
