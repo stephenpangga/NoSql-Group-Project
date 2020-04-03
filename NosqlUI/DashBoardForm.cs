@@ -16,26 +16,36 @@ namespace NosqlUI
 {
     public partial class DashBoardForm : BaseForm
     {
-        Ticket_Logic ticket_logic;
+        //Ticket_Logic ticket_logic;
+        Incident_Logic incident_Logic;
 
-        List<Ticket> inProcessTickets;
+       /* List<Ticket> inProcessTickets;
         List<Ticket> unresolvedTickets;
         List<Ticket> resolvedTickets;
-        List<Ticket> allTickets;
+        List<Ticket> allTickets;*/
+        
+        List<Incident> inProcessTickets;
+        List<Incident> unresolvedTickets;
+        List<Incident> resolvedTickets;
+        List<Incident> allTickets;
         public DashBoardForm(User loggendUser)
         {
             InitializeComponent();
-            ticket_logic = new Ticket_Logic();
-            inProcessTickets = ticket_logic.getInProcessTickets();
-            unresolvedTickets = ticket_logic.getUnResolvedTickets();
-            resolvedTickets = ticket_logic.getResolvedTickets();
-            allTickets = ticket_logic.getTickets();
+            //ticket_logic = new Ticket_Logic();
+            incident_Logic = new Incident_Logic();
+
+            inProcessTickets = incident_Logic.getInProcessTickets();
+            unresolvedTickets = incident_Logic.getUnResolvedTickets();
+            resolvedTickets = incident_Logic.getResolvedTickets();
+            allTickets = incident_Logic.getAll();
+
+            label6.Text = allTickets.Count().ToString();
 
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
 
             fillCharts();
 
-            int urgent = ticket_logic.getUrgentTickets().Count();
+            int urgent = incident_Logic.getUrgentTickets().Count();
             lbl_urgent.Text += "\n\n" + urgent + "\n ";
         }
 
@@ -48,31 +58,23 @@ namespace NosqlUI
         }
 
         
-        private Dictionary<NosqlModel.Enums.IncidentType, int> separateTicketsByIncidentType(List<Ticket> tickets)
+        private Dictionary<NosqlModel.IncidentType.MainType, int> separateTicketsByIncidentType(List<Incident> tickets)
         {
-            Dictionary<NosqlModel.Enums.IncidentType, int> types = new Dictionary<NosqlModel.Enums.IncidentType, int>();
-            types.Add(NosqlModel.Enums.IncidentType.Hardware, 0);
-            types.Add(NosqlModel.Enums.IncidentType.Software, 0);
-            types.Add(NosqlModel.Enums.IncidentType.Service, 0);
+            Dictionary<NosqlModel.IncidentType.MainType, int> types = new Dictionary<NosqlModel.IncidentType.MainType, int>();
+            types.Add(NosqlModel.IncidentType.MainType.Hardware, 0);
+            types.Add(NosqlModel.IncidentType.MainType.Software, 0);
+            types.Add(NosqlModel.IncidentType.MainType.Service, 0);
             //add tickets depending on their incident type.
-            foreach(Ticket t in tickets)
+            foreach(Incident t in tickets)
             {
-                types[t.IncidentType]++;
+                types[t.incidentType.Main]++;
             }
 
             return types;
         }
 
-        private void fillInProcessByIncidentChart()
-        {
-            inProcessChart.Titles.Add("In process by incident");
-            fillByIncidentChart(inProcessChart, inProcessTickets, lbl_inprocess);
-        }
-
-
         private void OverviewChart()
         {
-
             int resolved = resolvedTickets.Count();
 
             int unresolved = unresolvedTickets.Count();
@@ -97,34 +99,6 @@ namespace NosqlUI
                 }
                 i++;
             }
-
-        }
-
-        public void fillByIncidentChart(Chart chartToEdit, List<Ticket> tickets, Label lbl)
-        {
-            Dictionary<NosqlModel.Enums.IncidentType, int> types = separateTicketsByIncidentType(tickets);
-
-            int hardware = types[NosqlModel.Enums.IncidentType.Hardware];
-            int software = types[NosqlModel.Enums.IncidentType.Software];
-            int service = types[NosqlModel.Enums.IncidentType.Service];
-            int total = allTickets.Count() - (hardware + software + service);
-
-            chartToEdit.Series["Series1"].Points.AddY(hardware);
-            chartToEdit.Series["Series1"].Points.AddY(software);
-            chartToEdit.Series["Series1"].Points.AddY(service);
-            chartToEdit.Series["Series1"].Points.AddY(total);
-
-            lbl.Text = (hardware + software + service) + "/" + allTickets.Count();
-
-            showPercentage(chartToEdit);
-            //add name for the charts
-            showIncidentTypeLabels(chartToEdit);
-        }
-
-        private void fillResolvedChart()
-        {
-            resolvedChart.Titles.Add("resolved tickets");
-            fillByIncidentChart(resolvedChart, resolvedTickets, lbl_resolved);
         }
 
         //method unresolved tickets and resolved tickets
@@ -134,6 +108,39 @@ namespace NosqlUI
         {
             unResolvedChart.Titles.Add("Unresolved Tickets");
             fillByIncidentChart(unResolvedChart, unresolvedTickets, lbl_unresolved);
+        }
+        private void fillResolvedChart()
+        {
+            resolvedChart.Titles.Add("resolved tickets");
+            fillByIncidentChart(resolvedChart, resolvedTickets, lbl_resolved);
+        }
+        private void fillInProcessByIncidentChart()
+        {
+            inProcessChart.Titles.Add("In process by incident");
+            fillByIncidentChart(inProcessChart, inProcessTickets, lbl_inprocess);
+        }
+
+        public void fillByIncidentChart(Chart chartToEdit, List<Incident> tickets, Label lbl)
+        {
+            Dictionary<NosqlModel.IncidentType.MainType, int> types = separateTicketsByIncidentType(tickets);
+
+            int hardware = types[NosqlModel.IncidentType.MainType.Hardware];
+            int software = types[NosqlModel.IncidentType.MainType.Software];
+            int service = types[NosqlModel.IncidentType.MainType.Service];
+            int total = allTickets.Count() - (hardware + software + service);
+            //int total = 10;
+
+            chartToEdit.Series["Series1"].Points.AddY(hardware);
+            chartToEdit.Series["Series1"].Points.AddY(software);
+            chartToEdit.Series["Series1"].Points.AddY(service);
+            chartToEdit.Series["Series1"].Points.AddY(total);
+
+            lbl.Text = (hardware + software + service) + "/" + allTickets.Count();
+            // lbl.Text = (hardware + software + service) + "/" + "10";
+
+            showPercentage(chartToEdit);
+            //add name for the charts
+            showIncidentTypeLabels(chartToEdit);
         }
 
         private void showIncidentTypeLabels(Chart c)

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.overAllChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbl_name = new System.Windows.Forms.Label();
             this.inProcessChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -66,6 +66,11 @@
             // 
             this.btn_UserM.Location = new System.Drawing.Point(644, 56);
             // 
+            // linegrBox
+            // 
+            this.linegrBox.Location = new System.Drawing.Point(12, 93);
+            this.linegrBox.Size = new System.Drawing.Size(900, 10);
+            // 
             // overAllChart
             // 
             this.overAllChart.BorderlineColor = System.Drawing.Color.Black;
@@ -73,16 +78,16 @@
             this.overAllChart.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.overAllChart.BorderSkin.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             this.overAllChart.BorderSkin.BorderWidth = 8;
-            chartArea5.Name = "ChartArea1";
-            this.overAllChart.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.overAllChart.ChartAreas.Add(chartArea1);
             this.overAllChart.Location = new System.Drawing.Point(46, 109);
             this.overAllChart.Name = "overAllChart";
             this.overAllChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.IsVisibleInLegend = false;
-            series5.Name = "Series1";
-            this.overAllChart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.IsVisibleInLegend = false;
+            series1.Name = "Series1";
+            this.overAllChart.Series.Add(series1);
             this.overAllChart.Size = new System.Drawing.Size(208, 201);
             this.overAllChart.TabIndex = 3;
             this.overAllChart.Text = "chart1";
@@ -102,16 +107,16 @@
             // 
             this.inProcessChart.BorderlineColor = System.Drawing.Color.Black;
             this.inProcessChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea6.Name = "ChartArea1";
-            this.inProcessChart.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.inProcessChart.ChartAreas.Add(chartArea2);
             this.inProcessChart.Location = new System.Drawing.Point(479, 109);
             this.inProcessChart.Name = "inProcessChart";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.IsValueShownAsLabel = true;
-            series6.IsVisibleInLegend = false;
-            series6.Name = "Series1";
-            this.inProcessChart.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "Series1";
+            this.inProcessChart.Series.Add(series2);
             this.inProcessChart.Size = new System.Drawing.Size(208, 201);
             this.inProcessChart.TabIndex = 6;
             this.inProcessChart.Text = "chart2";
@@ -120,15 +125,15 @@
             // 
             this.unResolvedChart.BorderlineColor = System.Drawing.Color.Black;
             this.unResolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea7.Name = "ChartArea1";
-            this.unResolvedChart.ChartAreas.Add(chartArea7);
+            chartArea3.Name = "ChartArea1";
+            this.unResolvedChart.ChartAreas.Add(chartArea3);
             this.unResolvedChart.Location = new System.Drawing.Point(260, 109);
             this.unResolvedChart.Name = "unResolvedChart";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series7.IsVisibleInLegend = false;
-            series7.Name = "Series1";
-            this.unResolvedChart.Series.Add(series7);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.IsVisibleInLegend = false;
+            series3.Name = "Series1";
+            this.unResolvedChart.Series.Add(series3);
             this.unResolvedChart.Size = new System.Drawing.Size(208, 201);
             this.unResolvedChart.TabIndex = 7;
             this.unResolvedChart.Text = "Chart";
@@ -164,16 +169,16 @@
             // 
             this.resolvedChart.BorderlineColor = System.Drawing.Color.Black;
             this.resolvedChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea8.Name = "ChartArea1";
-            this.resolvedChart.ChartAreas.Add(chartArea8);
+            chartArea4.Name = "ChartArea1";
+            this.resolvedChart.ChartAreas.Add(chartArea4);
             this.resolvedChart.Location = new System.Drawing.Point(693, 109);
             this.resolvedChart.Name = "resolvedChart";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series8.IsValueShownAsLabel = true;
-            series8.IsVisibleInLegend = false;
-            series8.Name = "Series1";
-            this.resolvedChart.Series.Add(series8);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.IsValueShownAsLabel = true;
+            series4.IsVisibleInLegend = false;
+            series4.Name = "Series1";
+            this.resolvedChart.Series.Add(series4);
             this.resolvedChart.Size = new System.Drawing.Size(208, 201);
             this.resolvedChart.TabIndex = 16;
             this.resolvedChart.Text = "chart2";
@@ -182,9 +187,9 @@
             // lbl_unresolved
             // 
             this.lbl_unresolved.AutoSize = true;
-            this.lbl_unresolved.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_unresolved.BackColor = System.Drawing.Color.White;
             this.lbl_unresolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_unresolved.Location = new System.Drawing.Point(337, 206);
+            this.lbl_unresolved.Location = new System.Drawing.Point(338, 206);
             this.lbl_unresolved.Name = "lbl_unresolved";
             this.lbl_unresolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_unresolved.TabIndex = 18;
@@ -194,7 +199,7 @@
             // lbl_inprocess
             // 
             this.lbl_inprocess.AutoSize = true;
-            this.lbl_inprocess.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_inprocess.BackColor = System.Drawing.Color.White;
             this.lbl_inprocess.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_inprocess.Location = new System.Drawing.Point(556, 206);
             this.lbl_inprocess.Name = "lbl_inprocess";
@@ -205,7 +210,7 @@
             // lbl_resolved
             // 
             this.lbl_resolved.AutoSize = true;
-            this.lbl_resolved.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_resolved.BackColor = System.Drawing.Color.White;
             this.lbl_resolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_resolved.Location = new System.Drawing.Point(767, 206);
             this.lbl_resolved.Name = "lbl_resolved";
@@ -245,6 +250,7 @@
             this.Name = "DashBoardForm";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.DashBoardForm_Load);
+            this.Controls.SetChildIndex(this.linegrBox, 0);
             this.Controls.SetChildIndex(this.overAllChart, 0);
             this.Controls.SetChildIndex(this.lbl_name, 0);
             this.Controls.SetChildIndex(this.inProcessChart, 0);

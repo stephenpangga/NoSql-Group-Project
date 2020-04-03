@@ -16,17 +16,28 @@ namespace NosqlUI
     {
         // makes incidentManagment accesible from anywhere
         private static IncidentManagment view;
-        public static IncidentManagment getView()
+        List<Incident> incidents;
+
+        //im passing on the ticket list here, so that i can show different filtered incident. -stephen
+        public static IncidentManagment getView(List<Incident> incidents)
         {
             if (view == null)
             {
-                view = new IncidentManagment();
+                view = new IncidentManagment(incidents);
             }
             return view;
         }
-        public IncidentManagment()
+        public IncidentManagment(List<Incident> incidents)
         {
+            this.incidents = incidents;
             InitializeComponent();
+
+loadListView();
+            LoadData();
+        }
+
+        private void loadListView()
+        {
             incident_lstvw.GridLines = true;
             incident_lstvw.View = View.Details;
 
@@ -39,15 +50,13 @@ namespace NosqlUI
             incident_lstvw.Columns.Add("Type", 75);
             incident_lstvw.Columns.Add("Priority", 75);
             incident_lstvw.Columns.Add("Status", 75);
-
-            LoadData();
         }
 
 
         private void LoadData()
         {
             Incident_Logic incident_Logic = new Incident_Logic();
-            List<Incident> incidents = incident_Logic.getAllIncidents();
+            //List<Incident> incidents = incident_Logic.getAllIncidents();
 
             incident_lstvw.Items.Clear();
 
@@ -63,8 +72,6 @@ namespace NosqlUI
                 lv.SubItems.Add(incident.status.ToString());
                 lv.Tag = incident;
                 incident_lstvw.Items.Add(lv);
-
-
             }
 
         }

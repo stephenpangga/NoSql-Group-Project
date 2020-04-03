@@ -30,6 +30,22 @@ namespace NosqlModel
             }
         }
 
+        public Incident()
+        {
+            //because jesse refuses to use constructors (:
+        }
 
+        public Incident(ObjectId id, DateTime reportDate, String subject, IncidentType incidentType, User incidentUser, PriorityTypes priority, DateTime deadline, String description, Status status)
+        {
+            this.id = id;
+            this.reportDate = reportDate;
+            this.subject = subject;
+            this.incidentType = incidentType;
+            this.incidentUser = incidentUser;
+            this.priority = priority;
+            this.deadline = deadline;
+            this.description = description;
+            this.status = status;
+        }
     }
 }

@@ -13,39 +13,26 @@ namespace NosqlDAL
 {
     public class Customer_DAO : Base
     {
-        public List<Ticket> GetTicketsForCustomer(string Coll, string searchTerm, string attribute)
+        
+
+        public bool UpdateCustomerInfo( ObjectId searchValue, string attribute, string updateValue, string column)
         {
-            var documents = GetSpecificDocumentsList(Coll, searchTerm, attribute);
-
-            List<Ticket> tickets = new List<Ticket>();
-
-            foreach(var doc in documents)
-            {
-                Ticket ticket = new Ticket(doc["Subject"].ToString(), doc["Description"].ToString(), (Status)Enum.Parse(typeof(Status), doc["Status"].ToString()), doc["Deadline"].ToInt32(), (NosqlModel.Enums.IncidentType)Enum.Parse(typeof(NosqlModel.Enums.IncidentType), doc["Incidenttype"].ToString()));
-                tickets.Add(ticket);
-            }
-
-            return tickets;
-        }
-
-        public bool UpdateCustomerInfo(string collectionName, int searchValue, string attribute, string updateValue, string column)
-        {
-            var result = UpdateDocument(collectionName, searchValue, attribute, updateValue, column);
+            var result = UpdateDocument(UserColl, searchValue, attribute, updateValue, column);
             return result;
             
         }
 
-        public bool resetEmail(string collectionName, string searchValue, string attribute, string updateValue, string column)
+        public bool resetPass( string searchValue, string updateValue)
         {
-            var result = UpdateDocumentbyString(collectionName, searchValue, attribute, updateValue, column);
+            var result = UpdateDocumentbyString(UserColl, searchValue, "email", updateValue, "password");
             return result;
 
         }
 
         //Get all the employes from the 'user' table
-        public List<User> getAllEmployees()
+        public List<User> getAllEmployees(string collectionName)
         {
-            var collection = GetAll(UserColl);
+            var collection = GetAll(collectionName);
 
             List<User> employees = new List<User>();
 
@@ -62,6 +49,17 @@ namespace NosqlDAL
             }
 
             return employees;
+        }
+
+        //Tim- update empoyee
+        public void updateUser(string id, string value, string column) 
+        {
+            updateUser(id, value, column);
+        }
+
+        public void deleteUser(string id, string searchterm, string collectionName) 
+        {
+            deleteData(Int32.Parse(id), searchterm, collectionName);
         }
 
         public void enterUser(int id, string mail, string password, string firstname, string lastname, string role) 

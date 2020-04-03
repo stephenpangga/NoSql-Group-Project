@@ -40,6 +40,7 @@ namespace NosqlUI
                 customers_Logic.createUser(firstNameBox.Text, lastNameBox.Text, mailBox.Text, roleBox.Text);
                 this.Close();
             }
+            
         }
 
         private void AddCustomer_Load(object sender, EventArgs e)

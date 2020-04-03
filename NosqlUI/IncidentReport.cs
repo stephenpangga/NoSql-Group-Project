@@ -44,7 +44,7 @@ namespace NosqlUI
             }
 
             Customers_Logic users_Logic = new Customers_Logic();
-            foreach (User user in users_Logic.getAllEmployees())
+            foreach (User user in users_Logic.getAllEmployees("Users"))
             {
                 incidentUser_cbx.Items.Add(new ComboItem(user.FirstName,user));
             }

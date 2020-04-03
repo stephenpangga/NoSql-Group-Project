@@ -32,7 +32,7 @@ namespace NosqlUI
 
         void LoadEmployees()
         {
-            employees = customers_Logic.getAllEmployees();
+            employees = customers_Logic.getAllEmployees("Users");
 
             foreach (User employee in employees)
             {
@@ -44,14 +44,14 @@ namespace NosqlUI
 
         string getSelectedId() 
         {
-            //Here we take the selected item from the listview and taking the first row, the id.
+            //Here we take the selected item from the listview and taking the first row, the id
             string item = showCustomers.SelectedItems[0].ToString();
             //I couldn't figure out why it took more data than just the ID stored in the row, so here I filter the id numbers out of strin item.
             string id = "";
             for (int i = 0; i < item.Length; i++)
             {
-                if (Char.IsDigit(item[i]))
-                    id += item[i];
+               if (Char.IsDigit(item[i]))
+                   id += item[i];
             }
             return id;
         }
@@ -75,7 +75,12 @@ namespace NosqlUI
 
         private void deletebutton_Click(object sender, EventArgs e)
         {
-
+            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            else
+            {
+                RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
+                RemoveCustomer.Show();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -85,7 +90,12 @@ namespace NosqlUI
 
         private void editbuttom_Click(object sender, EventArgs e)
         {
-       
+            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            else
+            {
+                EditCustomer EditCustomer = new EditCustomer(getSelectedId());
+                EditCustomer.Show();
+            }
         }
 
 
