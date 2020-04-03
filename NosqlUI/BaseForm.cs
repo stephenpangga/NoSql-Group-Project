@@ -1,4 +1,5 @@
-﻿using NosqlModel;
+﻿using NosqlLogic;
+using NosqlModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,6 @@ namespace NosqlUI
 {
     public partial class BaseForm : Form
     {
-
-
         public User currentUser = new User();
 
         public BaseForm() // for when no one is logged in
@@ -29,7 +28,9 @@ namespace NosqlUI
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
-
+            DashBoardForm d = new DashBoardForm(currentUser);
+            d.Show();
+            this.Close();
         }
 
         //to hide the buttons not needed for some forms
@@ -38,6 +39,7 @@ namespace NosqlUI
             btn_Dashboard.Hide();
             btn_IncidentM.Hide();
             btn_UserM.Hide();
+            linegrBox.Hide();
         }
 
         //disable button for current view
@@ -52,9 +54,12 @@ namespace NosqlUI
 
         private void btn_IncidentM_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().Show();
+            Incident_Logic incident_Logic = new Incident_Logic();
+            List<Incident> incidents = incident_Logic.getAll();
+
+            IncidentManagment.getView(incidents).Show();
             this.Hide();
-            IncidentManagment.getView().disableButton(btn_IncidentM);
+            //IncidentManagment.getView().disableButton(btn_IncidentM);
         }
 
         private void btn_UserM_Click(object sender, EventArgs e)
