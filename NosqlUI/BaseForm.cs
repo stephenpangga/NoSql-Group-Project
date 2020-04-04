@@ -40,6 +40,7 @@ namespace NosqlUI
             btn_IncidentM.Hide();
             btn_UserM.Hide();
             linegrBox.Hide();
+            btn_logout.Hide();
         }
 
         //disable button for current view
@@ -48,6 +49,7 @@ namespace NosqlUI
             btn_Dashboard.Enabled = true;
             btn_IncidentM.Enabled = true;
             btn_UserM.Enabled = true;
+            btn_logout.Enabled = true;
 
             btn.Enabled = false;
         }
@@ -69,5 +71,11 @@ namespace NosqlUI
             this.Hide();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm logInForm = new LoginForm();
+            logInForm.Show();
+        }
     }
 }
