@@ -63,7 +63,7 @@ namespace NosqlUI
         }
 
         Incident_Logic incident_Logic = new Incident_Logic();
-        private void LoadAllData()
+        public void LoadAllData()
         {
             incident_lstvw.Items.Clear();
 

@@ -76,6 +76,8 @@ namespace NosqlUI
             }
 
             Incident_Logic.InsertIncident(incident);
+            IncidentManagment.getView().LoadAllData();
+            this.Close();
         }
 
         private void incidentType_cbx_SelectedIndexChanged(object sender, EventArgs e)
