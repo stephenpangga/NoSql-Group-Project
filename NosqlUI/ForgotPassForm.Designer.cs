@@ -36,9 +36,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(252, 257);
+            this.button1.Location = new System.Drawing.Point(323, 226);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 38);
+            this.button1.Size = new System.Drawing.Size(150, 38);
             this.button1.TabIndex = 0;
             this.button1.Text = "Reset Password";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,7 +46,7 @@
             // 
             // frgtemailtxtbox
             // 
-            this.frgtemailtxtbox.Location = new System.Drawing.Point(158, 114);
+            this.frgtemailtxtbox.Location = new System.Drawing.Point(340, 114);
             this.frgtemailtxtbox.Name = "frgtemailtxtbox";
             this.frgtemailtxtbox.Size = new System.Drawing.Size(279, 22);
             this.frgtemailtxtbox.TabIndex = 1;
@@ -64,9 +64,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 114);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(219, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(93, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Your email:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
