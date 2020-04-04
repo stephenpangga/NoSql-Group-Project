@@ -17,24 +17,22 @@ namespace NosqlUI
     {
         // makes incidentManagment accesible from anywhere
         private static IncidentManagment view;
-        List<Incident> incidents;
+        public List<Incident> incidents;
 
-        //im passing on the ticket list here, so that i can show different filtered incident. -stephen
-        public static IncidentManagment getView(List<Incident> incidents)
+        public static IncidentManagment getView()
         {
-            if (view == null)
+            if (view == null || view.IsDisposed)
             {
-                view = new IncidentManagment(incidents);
+                view = new IncidentManagment();
             }
             return view;
         }
-        public IncidentManagment(List<Incident> incidents)
-        {
-            this.incidents = incidents;
-            InitializeComponent();
 
+        private IncidentManagment()
+        {
+            InitializeComponent();
+            disableButton(btn_IncidentM);
             load();
-            LoadData();
         }
 
         private void load()
@@ -52,7 +50,7 @@ namespace NosqlUI
             incident_lstvw.Columns.Add("Priority", 75);
             incident_lstvw.Columns.Add("Status", 75);
 
-            LoadData();
+            LoadAllData();
 
             foreach (PriorityTypes priority in (PriorityTypes[])Enum.GetValues(typeof(PriorityTypes)))
             {
@@ -65,29 +63,48 @@ namespace NosqlUI
         }
 
         Incident_Logic incident_Logic = new Incident_Logic();
-        private void LoadData()
+        public void LoadAllData()
         {
-            List<Incident> incidents = incident_Logic.getAllIncidents();
-
             incident_lstvw.Items.Clear();
 
-            foreach (Incident incident in incidents)
+            if (UnresolvedIncident_ckbx.Checked || resolvedIncident_ckbx.Checked || InProcessIncident_ckbx.Checked || urgentIncident_ckbx.Checked)
             {
+                incidents = incident_Logic.getAllIncidents();
 
-                ListViewItem lv = new ListViewItem(incident.subject);
-                lv.SubItems.Add(incident.reportDate.ToShortDateString());
-                lv.SubItems.Add(incident.deadline.ToShortDateString());
-                lv.SubItems.Add(incident.incidentUser.FirstName + " " + incident.incidentUser.LastName);
-                lv.SubItems.Add(incident.incidentType.Main.ToString());
-                lv.SubItems.Add(incident.priority.ToString());
-                lv.SubItems.Add(incident.status.ToString());
-                lv.Tag = incident;
-                incident_lstvw.Items.Add(lv);
+
+                foreach (Incident incident in incidents)
+                {
+                    if ((resolvedIncident_ckbx.Checked && incident.status == Status.Resolved) ||
+                        (UnresolvedIncident_ckbx.Checked && incident.status == Status.Unresolved) ||
+                        (InProcessIncident_ckbx.Checked && incident.status == Status.InProcess))
+                    {
+                        if (urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High)
+                            LoadData(incident);
+                        else if (!urgentIncident_ckbx.Checked)
+                            LoadData(incident);
+                    }
+                    else if ((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) && !resolvedIncident_ckbx.Checked && !UnresolvedIncident_ckbx.Checked && !InProcessIncident_ckbx.Checked)
+                    {
+                        LoadData(incident);
+                    }
+                }
             }
-
         }
 
-        private void incidentCreate_btn_Click(object sender, EventArgs e)
+        private void LoadData(Incident incident)
+        {
+            ListViewItem lv = new ListViewItem(incident.subject);
+            lv.SubItems.Add(incident.reportDate.ToShortDateString());
+            lv.SubItems.Add(incident.deadline.ToShortDateString());
+            lv.SubItems.Add(incident.incidentUser.FirstName + " " + incident.incidentUser.LastName);
+            lv.SubItems.Add(incident.incidentType.Main.ToString());
+            lv.SubItems.Add(incident.priority.ToString());
+            lv.SubItems.Add(incident.status.ToString());
+            lv.Tag = incident;
+            incident_lstvw.Items.Add(lv);
+        }
+
+            private void incidentCreate_btn_Click(object sender, EventArgs e)
         {
             IncidentReport.getView().Show();
         }
@@ -115,7 +132,7 @@ namespace NosqlUI
                 incident.priority = (PriorityTypes)incidentPriority_cbx.SelectedIndex;
                 incident_Logic.UpdateIncident(incident);
             }
-            LoadData();
+            LoadAllData();
         }
 
         private void incidentDelete_btn_Click(object sender, EventArgs e)
@@ -125,7 +142,22 @@ namespace NosqlUI
                 Incident incident = (Incident)incident_lstvw.SelectedItems[0].Tag;
                 incident_Logic.DeleteIncident(incident.id);
             }
-            LoadData();
+            LoadAllData();
+        }
+
+        public void SetFilter(CheckBox ckbx)
+        {
+            InProcessIncident_ckbx.Checked = false;
+            UnresolvedIncident_ckbx.Checked = false;
+            resolvedIncident_ckbx.Checked = false;
+            urgentIncident_ckbx.Checked = false;
+
+            ckbx.Checked = true;
+        }
+
+        private void urgentIncident_ckbx_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadAllData();
         }
     }
 }

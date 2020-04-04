@@ -76,6 +76,8 @@ namespace NosqlUI
             }
 
             Incident_Logic.InsertIncident(incident);
+            IncidentManagment.getView().LoadAllData();
+            this.Close();
         }
 
         private void incidentType_cbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +92,11 @@ namespace NosqlUI
                     incidentSubType_cbx.Items.Add(categorie.Sub);
                 }
             }
+        }
+
+        private void incidentCancel_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

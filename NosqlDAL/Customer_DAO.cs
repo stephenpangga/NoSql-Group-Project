@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using NosqlModel.Enums;
 using System.Net.Mail;
+using System.Net;
 
 
 
@@ -69,26 +70,28 @@ namespace NosqlDAL
 
         public void  sendEmail(string email, string tempPass)
         {
-            try
+            var fromAddress = new MailAddress("jumbomumbo399@gmail.com", "Admin");
+            var toAddress = new MailAddress(email);
+            const string fromPassword = "Haarlem123!";
+            const string subject = "Password reset request.";
+            string body = "Here is a temporary password for you to login: " + tempPass + ".Make sure to change your password when you log in.Ignore this email if you did not request a reset of password or if you do not know the reason of this email.";
+
+            var smtp = new SmtpClient
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("jumbomumbo399@gmail.com");
-                mail.To.Add(email);
-                mail.Subject = "Password reset request.";
-                mail.Body = "Here is a temporary password for you to login: "+ tempPass+ ".Make sure to change your password when you log in.";
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("jumbomumbo399@gmail.com", "Haarlem123!");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-                
-            }
-            catch (Exception ex)
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
             {
-                ex.ToString();
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
             }
         }
     }

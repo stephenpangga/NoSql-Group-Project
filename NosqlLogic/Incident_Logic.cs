@@ -61,11 +61,7 @@ namespace NosqlLogic
             //return incident_dao.getSpecificIncidentTickets("High", "Priority");
         }
 
-        //separate get all
-        public List<Incident> getAll()
-        {
-            return incident_dao.GetIncidents();
-        }
+       
         public List<Incident> FetchEmployeeTickets(ObjectId searchTerm)
         {
             return incident_dao.GetTicketsForCustomer(searchTerm);
