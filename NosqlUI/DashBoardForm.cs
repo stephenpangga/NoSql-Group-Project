@@ -38,7 +38,7 @@ namespace NosqlUI
             inProcessTickets = incident_Logic.getInProcessTickets();
             unresolvedTickets = incident_Logic.getUnResolvedTickets();
             resolvedTickets = incident_Logic.getResolvedTickets();
-            allTickets = incident_Logic.getAll();
+            allTickets = incident_Logic.getAllIncidents();
             urgentTickets = incident_Logic.getUrgentTickets();
 
             label6.Text = allTickets.Count().ToString();
@@ -189,25 +189,28 @@ namespace NosqlUI
         //filter charts to incident view
         private void unResolvedChart_Click(object sender, EventArgs e)
         {
-            new IncidentManagment(unresolvedTickets).Show();
-           // IncidentManagment.getView(unresolvedTickets).Show();
+            IncidentManagment.getView().Show();
+            IncidentManagment.getView().SetFilter(IncidentManagment.getView().UnresolvedIncident_ckbx);
             this.Hide();
         }
 
         private void inProcessChart_Click(object sender, EventArgs e)
         {
-            new IncidentManagment(inProcessTickets).Show();
+            IncidentManagment.getView().Show();
+            IncidentManagment.getView().SetFilter(IncidentManagment.getView().InProcessIncident_ckbx);
             this.Hide();
         }
         private void resolvedChart_Click(object sender, EventArgs e)
         {
-            new IncidentManagment(resolvedTickets).Show();
+            IncidentManagment.getView().Show();
+            IncidentManagment.getView().SetFilter(IncidentManagment.getView().resolvedIncident_ckbx);
             this.Hide();
         }
 
         private void lbl_urgent_Click(object sender, EventArgs e)
         {
-            new IncidentManagment(urgentTickets).Show();
+            IncidentManagment.getView().Show();
+            IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
             this.Hide();
         }
     }

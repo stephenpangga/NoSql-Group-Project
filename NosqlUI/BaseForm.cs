@@ -55,11 +55,9 @@ namespace NosqlUI
         private void btn_IncidentM_Click(object sender, EventArgs e)
         {
             Incident_Logic incident_Logic = new Incident_Logic();
-            List<Incident> incidents = incident_Logic.getAll();
 
-            new IncidentManagment(incidents).Show();
             this.Hide();
-            //IncidentManagment.getView().disableButton(btn_IncidentM);
+            IncidentManagment.getView().Show();
         }
 
         private void btn_UserM_Click(object sender, EventArgs e)
