@@ -68,7 +68,7 @@ namespace NosqlUI
             else
             {
                 //if user doesnt not exist, show this message
-                MessageBox.Show("the user does not exist.","", MessageBoxButtons.OK);
+                MessageBox.Show("The user does not exist.","", MessageBoxButtons.OK);
             }
             
             //send user to different forms(employee or customer) based on their roles            
