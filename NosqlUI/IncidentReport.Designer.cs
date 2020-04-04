@@ -232,6 +232,7 @@
             this.incidentCancel_btn.TabIndex = 17;
             this.incidentCancel_btn.Text = "CANCEL";
             this.incidentCancel_btn.UseVisualStyleBackColor = true;
+            this.incidentCancel_btn.Click += new System.EventHandler(this.incidentCancel_btn_Click);
             // 
             // incidentSubmit_btn
             // 
