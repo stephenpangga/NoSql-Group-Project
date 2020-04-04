@@ -81,6 +81,7 @@
             this.returnbutton.TabIndex = 3;
             this.returnbutton.Text = "Go Back";
             this.returnbutton.UseVisualStyleBackColor = true;
+            this.returnbutton.Click += new System.EventHandler(this.returnbutton_Click);
             // 
             // eventLog1
             // 

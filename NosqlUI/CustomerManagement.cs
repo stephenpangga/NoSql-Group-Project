@@ -102,5 +102,10 @@ namespace NosqlUI
         {
 
         }
+
+        private void returnbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
