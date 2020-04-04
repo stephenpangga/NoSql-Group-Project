@@ -36,7 +36,6 @@
             this.showCustomers = new System.Windows.Forms.ListView();
             this.userID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -93,7 +92,6 @@
             this.showCustomers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.userID,
             this.Email,
-            this.Password,
             this.FirstName,
             this.LastName,
             this.Role});
@@ -105,29 +103,31 @@
             this.showCustomers.Size = new System.Drawing.Size(614, 364);
             this.showCustomers.TabIndex = 4;
             this.showCustomers.UseCompatibleStateImageBehavior = false;
+            this.showCustomers.SelectedIndexChanged += new System.EventHandler(this.showCustomers_SelectedIndexChanged);
             // 
             // userID
             // 
+            this.userID.Text = "User ID";
             this.userID.Width = -2;
             // 
             // Email
             // 
+            this.Email.Text = "E-mail";
             this.Email.Width = -2;
-            // 
-            // Password
-            // 
-            this.Password.Width = -2;
             // 
             // FirstName
             // 
+            this.FirstName.Text = "First Name";
             this.FirstName.Width = -2;
             // 
             // LastName
             // 
+            this.LastName.Text = "Last Name";
             this.LastName.Width = -2;
             // 
             // Role
             // 
+            this.Role.Text = "Role";
             this.Role.Width = -2;
             // 
             // button1
@@ -170,7 +170,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader userID;
         private System.Windows.Forms.ColumnHeader Email;
-        private System.Windows.Forms.ColumnHeader Password;
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader Role;

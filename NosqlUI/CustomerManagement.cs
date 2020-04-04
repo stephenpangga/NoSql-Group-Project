@@ -36,7 +36,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                var item = new string[6] { employee.userId.ToString(), employee.Email, employee.Password, employee.FirstName, employee.LastName, employee.roles.ToString() };
+                var item = new string[5] { employee.userId.ToString(), employee.Email, employee.FirstName, employee.LastName, employee.roles.ToString() };
 
                 showCustomers.Items.Add(new ListViewItem(item));
             }
@@ -98,6 +98,9 @@ namespace NosqlUI
             }
         }
 
+        private void showCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
