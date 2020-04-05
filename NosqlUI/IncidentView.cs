@@ -67,7 +67,7 @@ namespace NosqlUI
         {
             incident_lstvw.Items.Clear();
 
-            if (UnresolvedIncident_ckbx.Checked || resolvedIncident_ckbx.Checked || InProcessIncident_ckbx.Checked || urgentIncident_ckbx.Checked)
+            if (UnresolvedIncident_ckbx.Checked || resolvedIncident_ckbx.Checked || InProcessIncident_ckbx.Checked || urgentIncident_ckbx.Checked || pastDeadline_ckbx.Checked)
             {
                 incidents = incident_Logic.getAllIncidents();
 
@@ -85,7 +85,7 @@ namespace NosqlUI
                             LoadData(incident);
                     }
                     else if (((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) ||
-                              (pastDeadline_ckbx.Checked && incident.deadline > DateTime.Now))
+                              (pastDeadline_ckbx.Checked && incident.deadline < DateTime.Now))
                               && !resolvedIncident_ckbx.Checked && !UnresolvedIncident_ckbx.Checked && !InProcessIncident_ckbx.Checked)
                     {
                         LoadData(incident);
@@ -159,6 +159,11 @@ namespace NosqlUI
         }
 
         private void urgentIncident_ckbx_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadAllData();
+        }
+
+        private void pastDeadline_ckbx_CheckedChanged(object sender, EventArgs e)
         {
             LoadAllData();
         }
