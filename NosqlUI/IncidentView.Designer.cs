@@ -101,9 +101,9 @@
             this.incidentViewTitle_lbl.Location = new System.Drawing.Point(24, 63);
             this.incidentViewTitle_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.incidentViewTitle_lbl.Name = "incidentViewTitle_lbl";
-            this.incidentViewTitle_lbl.Size = new System.Drawing.Size(188, 29);
+            this.incidentViewTitle_lbl.Size = new System.Drawing.Size(198, 29);
             this.incidentViewTitle_lbl.TabIndex = 4;
-            this.incidentViewTitle_lbl.Text = "Overview tickets";
+            this.incidentViewTitle_lbl.Text = "Overview Tickets";
             // 
             // incidentCreate_btn
             // 
@@ -370,7 +370,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IncidentManagment";
-            this.Text = "IncidentManagment";
+            this.Text = "Incident Managment";
             this.Controls.SetChildIndex(this.btn_logout, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.linegrBox, 0);
