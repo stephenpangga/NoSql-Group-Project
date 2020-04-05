@@ -128,7 +128,21 @@ namespace NosqlLogic
         }
         public List<Incident> getPassDeadLineTicketsFast()
         {
-            return filterByStatus(NosqlModel.Enums.Status.PastDeadLine);
+            if (all == null)
+            {
+                all = getAllIncidents();
+            }
+
+            List<Incident> filtered = new List<Incident>();
+            for (int i = 0; i < all.Count; i++)
+            {
+                if (all[i].deadline < DateTime.Now && all[i].status != NosqlModel.Enums.Status.Resolved) 
+                {
+                    //urgentIncident.RemoveAt(i);
+                    filtered.Add(all[i]);
+                }
+            }
+            return filtered;
         }
 
 
