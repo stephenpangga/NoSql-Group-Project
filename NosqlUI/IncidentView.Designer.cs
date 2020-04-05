@@ -47,6 +47,7 @@
             this.UnresolvedIncident_ckbx = new System.Windows.Forms.CheckBox();
             this.InProcessIncident_ckbx = new System.Windows.Forms.CheckBox();
             this.urgentIncident_ckbx = new System.Windows.Forms.CheckBox();
+            this.pastDeadline_ckbx = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_Dashboard
@@ -273,11 +274,23 @@
             this.urgentIncident_ckbx.UseVisualStyleBackColor = true;
             this.urgentIncident_ckbx.CheckedChanged += new System.EventHandler(this.urgentIncident_ckbx_CheckedChanged);
             // 
+            // pastDeadline_ckbx
+            // 
+            this.pastDeadline_ckbx.AutoSize = true;
+            this.pastDeadline_ckbx.Location = new System.Drawing.Point(266, 150);
+            this.pastDeadline_ckbx.Margin = new System.Windows.Forms.Padding(2);
+            this.pastDeadline_ckbx.Name = "pastDeadline_ckbx";
+            this.pastDeadline_ckbx.Size = new System.Drawing.Size(92, 17);
+            this.pastDeadline_ckbx.TabIndex = 38;
+            this.pastDeadline_ckbx.Text = "Past Deadline";
+            this.pastDeadline_ckbx.UseVisualStyleBackColor = true;
+            // 
             // IncidentManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 597);
+            this.Controls.Add(this.pastDeadline_ckbx);
             this.Controls.Add(this.urgentIncident_ckbx);
             this.Controls.Add(this.InProcessIncident_ckbx);
             this.Controls.Add(this.UnresolvedIncident_ckbx);
@@ -324,6 +337,7 @@
             this.Controls.SetChildIndex(this.UnresolvedIncident_ckbx, 0);
             this.Controls.SetChildIndex(this.InProcessIncident_ckbx, 0);
             this.Controls.SetChildIndex(this.urgentIncident_ckbx, 0);
+            this.Controls.SetChildIndex(this.pastDeadline_ckbx, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,5 +364,6 @@
         public System.Windows.Forms.CheckBox UnresolvedIncident_ckbx;
         public System.Windows.Forms.CheckBox InProcessIncident_ckbx;
         public System.Windows.Forms.CheckBox urgentIncident_ckbx;
+        public System.Windows.Forms.CheckBox pastDeadline_ckbx;
     }
 }

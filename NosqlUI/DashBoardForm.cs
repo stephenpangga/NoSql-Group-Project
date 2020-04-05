@@ -236,9 +236,9 @@ namespace NosqlUI
 
         private void lbl_passdeadline_Click(object sender, EventArgs e)
         {
-            //IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
-            //IncidentManagment.getView().Show();
-            //this.Hide();
+            IncidentManagment.getView().SetFilter(IncidentManagment.getView().pastDeadline_ckbx);
+            IncidentManagment.getView().Show();
+            this.Hide();
         }
     }
 }
