@@ -42,18 +42,17 @@ namespace NosqlUI
             }
         }
 
-        string getSelectedId() 
+        int getSelectedId() 
         {
             //Here we take the selected item from the listview and taking the first row, the id
             string item = showCustomers.SelectedItems[0].ToString();
-            //I couldn't figure out why it took more data than just the ID stored in the row, so here I filter the id numbers out of strin item.
             string id = "";
             for (int i = 0; i < item.Length; i++)
             {
                if (Char.IsDigit(item[i]))
                    id += item[i];
             }
-            return id;
+            return Int32.Parse(id);
         }
 
         private void CustomerManagement_Load(object sender, EventArgs e)

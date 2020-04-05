@@ -213,5 +213,10 @@ namespace NosqlUI
             IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
             this.Hide();
         }
+
+        private void btn_UserM_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

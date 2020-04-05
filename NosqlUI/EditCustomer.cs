@@ -14,11 +14,11 @@ namespace NosqlUI
 {
     public partial class EditCustomer : Form
     {
-        string usedID = "";
+        int usedID = 0;
         Customers_Logic customers_Logic = new Customers_Logic();
         List<User> employees = new List<User>();
 
-        public EditCustomer(string id)
+        public EditCustomer(int id)
         {
             InitializeComponent();
             usedID = id;
@@ -27,7 +27,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                if (employee.userId.ToString() == id) { editThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName; }
+                if (employee.userId == id) { editThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName; }
             }
             userEditLabel.Text = editThisEmployer;
         }
@@ -80,7 +80,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                if (usedID == employee.userId.ToString())
+                if (usedID == employee.userId)
                 {
                     if (employee.roles.ToString() == "Admin") { role = "Employee"; }
                     else if (employee.roles.ToString() == "Employee") { role = "Admin"; }

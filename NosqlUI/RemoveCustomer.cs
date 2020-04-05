@@ -14,10 +14,10 @@ namespace NosqlUI
 {
     public partial class RemoveCustomer : Form
     {
-        string usedID = "";
+        int usedID = 0;
         Customers_Logic customers_Logic = new Customers_Logic();
 
-        public RemoveCustomer(string id)
+        public RemoveCustomer(int id)
         {
             usedID = id;
             string deleteThisEmployer = "";
@@ -27,7 +27,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                if (employee.userId.ToString() == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
+                if (employee.userId == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
             }
             userLabel.Text = deleteThisEmployer;
         }
