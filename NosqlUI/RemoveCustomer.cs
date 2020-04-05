@@ -14,11 +14,12 @@ namespace NosqlUI
 {
     public partial class RemoveCustomer : Form
     {
-        string usedID = "";
+        int usedID = 0;
         Customers_Logic customers_Logic = new Customers_Logic();
 
-        public RemoveCustomer(string id)
+        public RemoveCustomer(int id)
         {
+            //More than anything this form acts like a pop-up to display the user that was selected and to give the employee a second chance to make sure they want to perminantly delete the user.
             usedID = id;
             string deleteThisEmployer = "";
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                if (employee.userId.ToString() == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
+                if (employee.userId == id) { deleteThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName;  }
             }
             userLabel.Text = deleteThisEmployer;
         }

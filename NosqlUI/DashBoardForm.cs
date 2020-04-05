@@ -214,5 +214,10 @@ namespace NosqlUI
             IncidentManagment.getView().Show();
             this.Hide();
         }
+
+        private void btn_UserM_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

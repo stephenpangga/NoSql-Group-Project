@@ -14,12 +14,14 @@ namespace NosqlUI
 {
     public partial class EditCustomer : Form
     {
-        string usedID = "";
+        //This will be filled in EditCustomer and used globally in the different methods.
+        int usedID = 0;
         Customers_Logic customers_Logic = new Customers_Logic();
         List<User> employees = new List<User>();
 
-        public EditCustomer(string id)
+        public EditCustomer(int id)
         {
+            //This is basically feedback to show which user you're working with. In hinesight I could have probably passed on first and last name from the previous form.
             InitializeComponent();
             usedID = id;
             string editThisEmployer = "";
@@ -27,7 +29,7 @@ namespace NosqlUI
 
             foreach (User employee in employees)
             {
-                if (employee.userId.ToString() == id) { editThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName; }
+                if (employee.userId == id) { editThisEmployer = "ID: " + employee.userId.ToString() + " || " + employee.FirstName + " " + employee.LastName; }
             }
             userEditLabel.Text = editThisEmployer;
         }
@@ -39,6 +41,7 @@ namespace NosqlUI
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            //We have to check if the boxes are filled or not. Once this is the case we send the data through to the database and close the form with a pop-up.
             if (String.IsNullOrEmpty(txtColumn.Text) || String.IsNullOrEmpty(textValue.Text))
             { userEditLabel.Text = "Please fill in all boxes"; userEditLabel.ForeColor = Color.Red; }
             else
@@ -67,6 +70,7 @@ namespace NosqlUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //We send the id to the changePassword method, show a pop-up and close the form.
             customers_Logic.changePassword(usedID);
             CustomerManagementSuccess PopUp = new CustomerManagementSuccess();
             PopUp.Show();
@@ -75,17 +79,22 @@ namespace NosqlUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string role = "Employee";
+            //Here we use the variable role, which will be filled in the loop later.
+            string role = "";
             employees = customers_Logic.getAllEmployees("Users");
 
+            //First we've got to check which role the employee already has.
             foreach (User employee in employees)
             {
-                if (usedID == employee.userId.ToString())
+                //We find the user based on the Id that was passed through
+                if (usedID == employee.userId)
                 {
+                    //And we give them the other role from the one they already had.
                     if (employee.roles.ToString() == "Admin") { role = "Employee"; }
                     else if (employee.roles.ToString() == "Employee") { role = "Admin"; }
                 }
             }
+            //It's send through to the database, we show them a pop-up that their task has been done and we close the edit form.
             customers_Logic.updateUser(usedID, role, "role");
             CustomerManagementSuccess PopUp = new CustomerManagementSuccess();
             PopUp.Show();

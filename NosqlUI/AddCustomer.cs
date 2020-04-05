@@ -33,12 +33,15 @@ namespace NosqlUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //We'll check if the boxes are all filled. Else we'll change the label to a red warning text.
             if (String.IsNullOrEmpty(firstNameBox.Text) || String.IsNullOrEmpty(lastNameBox.Text) || String.IsNullOrEmpty(mailBox.Text) || String.IsNullOrEmpty(roleBox.Text))
             { warningLabel.Text = "Pleas fill in all boxes!"; warningLabel.ForeColor = Color.Red; }
+            //Send all the data through to the database and end with a pop-up.
             else
             {
                 customers_Logic.createUser(firstNameBox.Text, lastNameBox.Text, mailBox.Text, roleBox.Text);
-                CustomerManagementSuccess PopUp = new CustomerManagementSuccess(); PopUp.Show();
+                CustomerManagementSuccess PopUp = new CustomerManagementSuccess(); 
+                PopUp.Show();
                 this.Close();
             }
             

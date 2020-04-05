@@ -33,8 +33,10 @@ namespace NosqlUI
 
         void LoadEmployees()
         {
+            //Get the list of all users / employees
             employees = customers_Logic.getAllEmployees("Users");
 
+            //Add each user with all their data to the listview (Besides password. Password would be easy to add to this list, though.)
             foreach (User employee in employees)
             {
                 var item = new string[5] { employee.userId.ToString(), employee.Email, employee.FirstName, employee.LastName, employee.roles.ToString() };
@@ -43,18 +45,18 @@ namespace NosqlUI
             }
         }
 
-        string getSelectedId() 
+        int getSelectedId() 
         {
             //Here we take the selected item from the listview and taking the first row, the id
             string item = showCustomers.SelectedItems[0].ToString();
-            //I couldn't figure out why it took more data than just the ID stored in the row, so here I filter the id numbers out of strin item.
             string id = "";
+            //For some odd reason, it took a weird string, like databaseID { 106 }, or something like that so I'm filtering out the numbers and sending it back as an int.
             for (int i = 0; i < item.Length; i++)
             {
                if (Char.IsDigit(item[i]))
                    id += item[i];
             }
-            return id;
+            return Int32.Parse(id);
         }
 
         private void CustomerManagement_Load(object sender, EventArgs e)
@@ -64,19 +66,23 @@ namespace NosqlUI
 
         private void addbuttom_Click(object sender, EventArgs e)
         {
+            //Show the addusers form.
             AddCustomer AddCustomer = new AddCustomer();
             AddCustomer.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Clear all items in the list and reload them from the database.
             showCustomers.Items.Clear();
             LoadEmployees();
         }
 
         private void deletebutton_Click(object sender, EventArgs e)
         {
-            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            //See if a user was selected. If not, show a pop-up. Else show the customer delete form.
+            if (showCustomers.SelectedItems.Count < 1) 
+            { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
             else
             {
                 RemoveCustomer RemoveCustomer = new RemoveCustomer(getSelectedId());
@@ -91,7 +97,9 @@ namespace NosqlUI
 
         private void editbuttom_Click(object sender, EventArgs e)
         {
-            if (showCustomers.SelectedItems.Count < 1) { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
+            //See if a user was selected. If not, show a pop-up. Else show the customer edit form.
+            if (showCustomers.SelectedItems.Count < 1) 
+            { CustomerManagementPopUp PopUp = new CustomerManagementPopUp(); PopUp.Show(); }
             else
             {
                 EditCustomer EditCustomer = new EditCustomer(getSelectedId());

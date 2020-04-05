@@ -53,14 +53,14 @@ namespace NosqlDAL
         }
 
         //Tim- update empoyee
-        public void updateUser(string id, string value, string column) 
+        public void updateUser(int id, string value, string column) 
         {
             UpdateUser(id, value, column);
         }
 
-        public void deleteUser(string id, string searchterm, string collectionName) 
+        public void deleteUser(int id, string searchterm, string collectionName) 
         {
-            deleteData(Int32.Parse(id), searchterm, collectionName);
+            deleteData(id, searchterm, collectionName);
         }
 
         public void enterUser(int id, string mail, string password, string firstname, string lastname, string role) 

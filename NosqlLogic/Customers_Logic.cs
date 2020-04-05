@@ -30,7 +30,7 @@ namespace NosqlLogic
         }
 
         //Tim - update user
-        public void updateUser(string id, string value, string column) 
+        public void updateUser(int id, string value, string column) 
         {
             customer_DAO.updateUser(id, value, column);
         }
@@ -45,7 +45,7 @@ namespace NosqlLogic
 
         }
 
-        public void changePassword(string id) 
+        public void changePassword(int id) 
         {
             string password = getNewPassword();
             customer_DAO.updateUser(id, password, "password");
@@ -62,7 +62,7 @@ namespace NosqlLogic
         }
 
         //Tim - send the data to delete through.
-        public void deleteUser(string id, string searchterm, string collectionName) 
+        public void deleteUser(int id, string searchterm, string collectionName) 
         {
             customer_DAO.deleteUser(id, searchterm, collectionName);
         }

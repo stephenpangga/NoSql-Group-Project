@@ -136,11 +136,11 @@ namespace NosqlDAL
         }
 
         //Tim - just to update from my end. Making a serperate method is easier in this case.
-        protected void UpdateUser(string id, string updateValue, string column)
+        protected void UpdateUser(int id, string updateValue, string column)
         {
             //select which document to update
             var collection = database.GetCollection<BsonDocument>("Users");
-            var filter = Builders<BsonDocument>.Filter.Eq("userId", Int32.Parse(id));
+            var filter = Builders<BsonDocument>.Filter.Eq("userId", id);
 
             //select what value to change in that document
             var update = Builders<BsonDocument>.Update.Set(column, updateValue);
