@@ -78,12 +78,15 @@ namespace NosqlUI
                         (UnresolvedIncident_ckbx.Checked && incident.status == Status.Unresolved) ||
                         (InProcessIncident_ckbx.Checked && incident.status == Status.InProcess))
                     {
-                        if (urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High)
+                        if ((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) ||
+                            (pastDeadline_ckbx.Checked && incident.deadline > DateTime.Now))
                             LoadData(incident);
                         else if (!urgentIncident_ckbx.Checked)
                             LoadData(incident);
                     }
-                    else if ((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) && !resolvedIncident_ckbx.Checked && !UnresolvedIncident_ckbx.Checked && !InProcessIncident_ckbx.Checked)
+                    else if (((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) ||
+                              (pastDeadline_ckbx.Checked && incident.deadline > DateTime.Now))
+                              && !resolvedIncident_ckbx.Checked && !UnresolvedIncident_ckbx.Checked && !InProcessIncident_ckbx.Checked)
                     {
                         LoadData(incident);
                     }
