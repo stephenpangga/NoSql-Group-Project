@@ -68,8 +68,8 @@
             // linegrBox
             // 
             this.linegrBox.Location = new System.Drawing.Point(27, 117);
-            this.linegrBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.linegrBox.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.linegrBox.Margin = new System.Windows.Forms.Padding(5);
+            this.linegrBox.Padding = new System.Windows.Forms.Padding(5);
             this.linegrBox.Size = new System.Drawing.Size(1300, 12);
             // 
             // btn_logout
@@ -103,7 +103,7 @@
             // 
             this.incidentCreate_btn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.incidentCreate_btn.Location = new System.Drawing.Point(619, 153);
-            this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4);
             this.incidentCreate_btn.Name = "incidentCreate_btn";
             this.incidentCreate_btn.Size = new System.Drawing.Size(219, 53);
             this.incidentCreate_btn.TabIndex = 19;
@@ -133,7 +133,7 @@
             // 
             this.incidentDelete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.incidentDelete_btn.Location = new System.Drawing.Point(880, 656);
-            this.incidentDelete_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidentDelete_btn.Margin = new System.Windows.Forms.Padding(4);
             this.incidentDelete_btn.Name = "incidentDelete_btn";
             this.incidentDelete_btn.Size = new System.Drawing.Size(209, 53);
             this.incidentDelete_btn.TabIndex = 22;
@@ -145,7 +145,7 @@
             // 
             this.incidentUpdate_btn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.incidentUpdate_btn.Location = new System.Drawing.Point(1097, 657);
-            this.incidentUpdate_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidentUpdate_btn.Margin = new System.Windows.Forms.Padding(4);
             this.incidentUpdate_btn.Name = "incidentUpdate_btn";
             this.incidentUpdate_btn.Size = new System.Drawing.Size(201, 53);
             this.incidentUpdate_btn.TabIndex = 23;
@@ -219,9 +219,9 @@
             // groupBox1
             // 
             this.groupBox1.Location = new System.Drawing.Point(859, 181);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(468, 539);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
@@ -285,6 +285,7 @@
             this.pastDeadline_ckbx.TabIndex = 38;
             this.pastDeadline_ckbx.Text = "Past Deadline";
             this.pastDeadline_ckbx.UseVisualStyleBackColor = true;
+            this.pastDeadline_ckbx.CheckedChanged += new System.EventHandler(this.pastDeadline_ckbx_CheckedChanged);
             // 
             // IncidentManagment
             // 
