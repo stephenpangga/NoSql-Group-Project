@@ -42,6 +42,7 @@ namespace NosqlLogic
             int id = getNewID();
             string password = getNewPassword();
             customer_DAO.enterUser(id, email, password, firstname, lastname, role);
+            customer_DAO.sendEmailNewUser(email, password);
 
         }
 
