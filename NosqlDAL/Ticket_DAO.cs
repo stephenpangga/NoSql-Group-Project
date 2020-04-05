@@ -28,26 +28,6 @@ namespace NosqlDAL
             return tickets;
         }
 
-        //get tickets with different status
-        public List<Ticket> getSpecificTickets(string ticketStatus, string column)
-        {
-            List<Ticket> tickets = new List<Ticket>();
-            var document = GetSpecificDocumentList("Tickets",ticketStatus, column);
-            foreach (var info in document)
-            {
-                string subject = info["Subject"].ToString();
-                string description = info["Description"].ToString();
-                Status status = (Status)Enum.Parse(typeof(Status), info["Status"].ToString());
-                int deadline = int.Parse(info["Deadline"].ToString());
-                NosqlModel.Enums.IncidentType incidentType = (NosqlModel.Enums.IncidentType)Enum.Parse(typeof(NosqlModel.Enums.IncidentType), info["Incidenttype"].ToString());
-
-                Ticket ticket = new Ticket(subject, description, status, deadline, incidentType);
-
-                tickets.Add(ticket);
-            }
-            return tickets;
-        }
-        
         //get ticket based on incident type
         public List<Ticket> getIncidentTicket(string incident)
         {

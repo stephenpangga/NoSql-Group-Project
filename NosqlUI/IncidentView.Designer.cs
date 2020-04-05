@@ -271,7 +271,7 @@
             // urgentIncident_ckbx
             // 
             this.urgentIncident_ckbx.AutoSize = true;
-            this.urgentIncident_ckbx.Location = new System.Drawing.Point(294, 58);
+            this.urgentIncident_ckbx.Location = new System.Drawing.Point(273, 24);
             this.urgentIncident_ckbx.Margin = new System.Windows.Forms.Padding(2);
             this.urgentIncident_ckbx.Name = "urgentIncident_ckbx";
             this.urgentIncident_ckbx.Size = new System.Drawing.Size(58, 17);
@@ -283,7 +283,7 @@
             // pastDeadline_ckbx
             // 
             this.pastDeadline_ckbx.AutoSize = true;
-            this.pastDeadline_ckbx.Location = new System.Drawing.Point(294, 37);
+            this.pastDeadline_ckbx.Location = new System.Drawing.Point(273, 58);
             this.pastDeadline_ckbx.Margin = new System.Windows.Forms.Padding(2);
             this.pastDeadline_ckbx.Name = "pastDeadline_ckbx";
             this.pastDeadline_ckbx.Size = new System.Drawing.Size(92, 17);

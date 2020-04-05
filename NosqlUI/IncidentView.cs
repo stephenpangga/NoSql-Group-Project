@@ -32,6 +32,7 @@ namespace NosqlUI
 
         private IncidentManagment()
         {
+            this.currentUser = new User();
             InitializeComponent();
             disableButton(btn_IncidentM);
             load();

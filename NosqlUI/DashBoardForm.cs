@@ -47,7 +47,8 @@ namespace NosqlUI
 
             //reset so the data is up to date next time
             incident_Logic.resetAll();
-            
+
+            this.currentUser = loggendUser;
 
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
 

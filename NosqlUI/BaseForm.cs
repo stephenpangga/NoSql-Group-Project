@@ -14,7 +14,7 @@ namespace NosqlUI
 {
     public partial class BaseForm : Form
     {
-        public User currentUser = new User();
+        public User currentUser;
 
         public BaseForm() // for when no one is logged in
         {
@@ -66,7 +66,7 @@ namespace NosqlUI
 
         private void btn_UserM_Click(object sender, EventArgs e)
         {
-            CustomerManagement cm = new CustomerManagement();
+            CustomerManagement cm = new CustomerManagement(currentUser);
             cm.Show();
             this.Hide();
         }

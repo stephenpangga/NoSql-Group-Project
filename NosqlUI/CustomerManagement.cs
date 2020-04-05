@@ -17,8 +17,9 @@ namespace NosqlUI
     {
         Customers_Logic customers_Logic = new Customers_Logic();
         List<User> employees = new List<User>();
-        public CustomerManagement()
+        public CustomerManagement(User currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
             hideButtons();
             showCustomers.View = View.Details;
