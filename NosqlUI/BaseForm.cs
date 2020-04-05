@@ -59,9 +59,9 @@ namespace NosqlUI
         private void btn_IncidentM_Click(object sender, EventArgs e)
         {
             Incident_Logic incident_Logic = new Incident_Logic();
-
-            this.Hide();
             IncidentManagment.getView().Show();
+            this.Hide();
+
         }
 
         private void btn_UserM_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace NosqlUI
 
         private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-                LoginForm.getView().Show();
+            LoginForm.getView().Show();
         }
     }
 }

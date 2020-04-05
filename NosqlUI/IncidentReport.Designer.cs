@@ -71,10 +71,10 @@
             // 
             // linegrBox
             // 
-            this.linegrBox.Location = new System.Drawing.Point(9, 51);
+            this.linegrBox.Location = new System.Drawing.Point(17, 49);
             this.linegrBox.Margin = new System.Windows.Forms.Padding(2);
             this.linegrBox.Padding = new System.Windows.Forms.Padding(2);
-            this.linegrBox.Size = new System.Drawing.Size(1060, 8);
+            this.linegrBox.Size = new System.Drawing.Size(678, 10);
             // 
             // btn_logout
             // 
@@ -89,7 +89,7 @@
             this.incidentDate_lbl.Location = new System.Drawing.Point(14, 133);
             this.incidentDate_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentDate_lbl.Name = "incidentDate_lbl";
-            this.incidentDate_lbl.Size = new System.Drawing.Size(154, 20);
+            this.incidentDate_lbl.Size = new System.Drawing.Size(130, 17);
             this.incidentDate_lbl.TabIndex = 3;
             this.incidentDate_lbl.Text = "Data/time reported:";
             // 
@@ -100,7 +100,7 @@
             this.incidentSubject_lbl.Location = new System.Drawing.Point(14, 173);
             this.incidentSubject_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentSubject_lbl.Name = "incidentSubject_lbl";
-            this.incidentSubject_lbl.Size = new System.Drawing.Size(152, 20);
+            this.incidentSubject_lbl.Size = new System.Drawing.Size(128, 17);
             this.incidentSubject_lbl.TabIndex = 4;
             this.incidentSubject_lbl.Text = "Subject of incident:";
             // 
@@ -111,7 +111,7 @@
             this.incidentType_lbl.Location = new System.Drawing.Point(14, 215);
             this.incidentType_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentType_lbl.Name = "incidentType_lbl";
-            this.incidentType_lbl.Size = new System.Drawing.Size(132, 20);
+            this.incidentType_lbl.Size = new System.Drawing.Size(113, 17);
             this.incidentType_lbl.TabIndex = 5;
             this.incidentType_lbl.Text = "Type of incident:";
             // 
@@ -122,7 +122,7 @@
             this.íncidentUser_lbl.Location = new System.Drawing.Point(14, 315);
             this.íncidentUser_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.íncidentUser_lbl.Name = "íncidentUser_lbl";
-            this.íncidentUser_lbl.Size = new System.Drawing.Size(142, 20);
+            this.íncidentUser_lbl.Size = new System.Drawing.Size(122, 17);
             this.íncidentUser_lbl.TabIndex = 6;
             this.íncidentUser_lbl.Text = "Reported by user:";
             // 
@@ -133,7 +133,7 @@
             this.incidentPriority_lbl.Location = new System.Drawing.Point(14, 354);
             this.incidentPriority_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentPriority_lbl.Name = "incidentPriority_lbl";
-            this.incidentPriority_lbl.Size = new System.Drawing.Size(67, 20);
+            this.incidentPriority_lbl.Size = new System.Drawing.Size(56, 17);
             this.incidentPriority_lbl.TabIndex = 7;
             this.incidentPriority_lbl.Text = "Priority:";
             // 
@@ -144,7 +144,7 @@
             this.incidentDeadline_lbl.Location = new System.Drawing.Point(14, 393);
             this.incidentDeadline_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentDeadline_lbl.Name = "incidentDeadline_lbl";
-            this.incidentDeadline_lbl.Size = new System.Drawing.Size(151, 20);
+            this.incidentDeadline_lbl.Size = new System.Drawing.Size(127, 17);
             this.incidentDeadline_lbl.TabIndex = 8;
             this.incidentDeadline_lbl.Text = "Deadline/follow up:";
             // 
@@ -155,7 +155,7 @@
             this.incidentDescription_lbl.Location = new System.Drawing.Point(14, 432);
             this.incidentDescription_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.incidentDescription_lbl.Name = "incidentDescription_lbl";
-            this.incidentDescription_lbl.Size = new System.Drawing.Size(100, 20);
+            this.incidentDescription_lbl.Size = new System.Drawing.Size(83, 17);
             this.incidentDescription_lbl.TabIndex = 9;
             this.incidentDescription_lbl.Text = "Description:";
             // 
@@ -166,7 +166,7 @@
             this.incidentType_cbx.Location = new System.Drawing.Point(232, 215);
             this.incidentType_cbx.Margin = new System.Windows.Forms.Padding(4);
             this.incidentType_cbx.Name = "incidentType_cbx";
-            this.incidentType_cbx.Size = new System.Drawing.Size(462, 28);
+            this.incidentType_cbx.Size = new System.Drawing.Size(462, 24);
             this.incidentType_cbx.TabIndex = 10;
             this.incidentType_cbx.Text = "Select type";
             this.incidentType_cbx.SelectedIndexChanged += new System.EventHandler(this.incidentType_cbx_SelectedIndexChanged);
@@ -178,7 +178,7 @@
             this.incidentUser_cbx.Location = new System.Drawing.Point(232, 315);
             this.incidentUser_cbx.Margin = new System.Windows.Forms.Padding(4);
             this.incidentUser_cbx.Name = "incidentUser_cbx";
-            this.incidentUser_cbx.Size = new System.Drawing.Size(462, 28);
+            this.incidentUser_cbx.Size = new System.Drawing.Size(462, 24);
             this.incidentUser_cbx.TabIndex = 11;
             // 
             // incidentPriority_cbx
@@ -192,7 +192,7 @@
             this.incidentPriority_cbx.Location = new System.Drawing.Point(232, 354);
             this.incidentPriority_cbx.Margin = new System.Windows.Forms.Padding(4);
             this.incidentPriority_cbx.Name = "incidentPriority_cbx";
-            this.incidentPriority_cbx.Size = new System.Drawing.Size(462, 28);
+            this.incidentPriority_cbx.Size = new System.Drawing.Size(462, 24);
             this.incidentPriority_cbx.TabIndex = 12;
             // 
             // incidentDeadline_cbx
@@ -207,7 +207,7 @@
             this.incidentDeadline_cbx.Location = new System.Drawing.Point(232, 393);
             this.incidentDeadline_cbx.Margin = new System.Windows.Forms.Padding(4);
             this.incidentDeadline_cbx.Name = "incidentDeadline_cbx";
-            this.incidentDeadline_cbx.Size = new System.Drawing.Size(462, 28);
+            this.incidentDeadline_cbx.Size = new System.Drawing.Size(462, 24);
             this.incidentDeadline_cbx.TabIndex = 13;
             // 
             // incidentSubject_txtbx
@@ -216,7 +216,7 @@
             this.incidentSubject_txtbx.Location = new System.Drawing.Point(232, 173);
             this.incidentSubject_txtbx.Margin = new System.Windows.Forms.Padding(4);
             this.incidentSubject_txtbx.Name = "incidentSubject_txtbx";
-            this.incidentSubject_txtbx.Size = new System.Drawing.Size(462, 26);
+            this.incidentSubject_txtbx.Size = new System.Drawing.Size(462, 23);
             this.incidentSubject_txtbx.TabIndex = 14;
             // 
             // incidentDescription_rtxtbx
@@ -258,7 +258,7 @@
             this.incidentReportTitle_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incidentReportTitle_lbl.Location = new System.Drawing.Point(14, 51);
             this.incidentReportTitle_lbl.Name = "incidentReportTitle_lbl";
-            this.incidentReportTitle_lbl.Size = new System.Drawing.Size(375, 33);
+            this.incidentReportTitle_lbl.Size = new System.Drawing.Size(314, 29);
             this.incidentReportTitle_lbl.TabIndex = 19;
             this.incidentReportTitle_lbl.Text = "Create new incident ticket";
             // 
@@ -266,7 +266,7 @@
             // 
             this.incidentDate_dtp.Location = new System.Drawing.Point(232, 133);
             this.incidentDate_dtp.Name = "incidentDate_dtp";
-            this.incidentDate_dtp.Size = new System.Drawing.Size(462, 26);
+            this.incidentDate_dtp.Size = new System.Drawing.Size(462, 23);
             this.incidentDate_dtp.TabIndex = 20;
             // 
             // incidentSubType_cbx
@@ -274,13 +274,13 @@
             this.incidentSubType_cbx.FormattingEnabled = true;
             this.incidentSubType_cbx.Location = new System.Drawing.Point(232, 251);
             this.incidentSubType_cbx.Name = "incidentSubType_cbx";
-            this.incidentSubType_cbx.Size = new System.Drawing.Size(463, 28);
+            this.incidentSubType_cbx.Size = new System.Drawing.Size(463, 24);
             this.incidentSubType_cbx.TabIndex = 21;
             this.incidentSubType_cbx.Text = "Select Secondary Type";
             // 
             // IncidentReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 765);
             this.Controls.Add(this.incidentSubType_cbx);
