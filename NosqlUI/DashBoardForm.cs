@@ -44,6 +44,9 @@ namespace NosqlUI
             normalTickets = incident_Logic.getNormalTicketsFast();
             lowTickets = incident_Logic.getLowTicketsFast();
             passDeadline = incident_Logic.getPassDeadLineTicketsFast();
+
+            //reset so the data is up to date next time
+            incident_Logic.resetAll();
             
 
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";

@@ -181,6 +181,11 @@ namespace NosqlLogic
             return filterByPriorityUnresolved(NosqlModel.Enums.PriorityTypes.Low);
         }
 
+        public void resetAll() 
+            {
+            all = null;
+            }
+
     }
 
 }
