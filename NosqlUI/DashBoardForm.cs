@@ -189,28 +189,29 @@ namespace NosqlUI
         //filter charts to incident view
         private void unResolvedChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().Show();
             IncidentManagment.getView().SetFilter(IncidentManagment.getView().UnresolvedIncident_ckbx);
+            IncidentManagment.getView().Show();
+            
             this.Hide();
         }
 
         private void inProcessChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().Show();
             IncidentManagment.getView().SetFilter(IncidentManagment.getView().InProcessIncident_ckbx);
+            IncidentManagment.getView().Show();
             this.Hide();
         }
         private void resolvedChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().Show();
             IncidentManagment.getView().SetFilter(IncidentManagment.getView().resolvedIncident_ckbx);
+            IncidentManagment.getView().Show();
             this.Hide();
         }
 
         private void lbl_urgent_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().Show();
             IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
+            IncidentManagment.getView().Show();
             this.Hide();
         }
 
