@@ -16,39 +16,53 @@ namespace NosqlUI
 {
     public partial class DashBoardForm : BaseForm
     {
-        //Ticket_Logic ticket_logic;
+        //List of Tickets
         Incident_Logic incident_Logic;
-
-       /* List<Ticket> inProcessTickets;
-        List<Ticket> unresolvedTickets;
-        List<Ticket> resolvedTickets;
-        List<Ticket> allTickets;*/
-        
         List<Incident> inProcessTickets;
         List<Incident> unresolvedTickets;
         List<Incident> resolvedTickets;
         List<Incident> allTickets;
         List<Incident> urgentTickets;
+        List<Incident> normalTickets;
+        List<Incident> lowTickets;
+        List<Incident> passDeadline;
+
         public DashBoardForm(User loggendUser)
         {
             InitializeComponent();
             //ticket_logic = new Ticket_Logic();
             incident_Logic = new Incident_Logic();
 
-            inProcessTickets = incident_Logic.getInProcessTickets();
-            unresolvedTickets = incident_Logic.getUnResolvedTickets();
-            resolvedTickets = incident_Logic.getResolvedTickets();
+            //getting all different tickets
             allTickets = incident_Logic.getAllIncidents();
-            urgentTickets = incident_Logic.getUrgentTickets();
+            inProcessTickets = incident_Logic.getInProcessTicketsFast();
+            unresolvedTickets = incident_Logic.getUnResolvedTicketsFast();
+            resolvedTickets = incident_Logic.getResolvedTicketsFast();
 
-            label6.Text = allTickets.Count().ToString();
+            //tickets by priority
+            urgentTickets = incident_Logic.getUrgentTicketsFast();
+            normalTickets = incident_Logic.getNormalTicketsFast();
+            lowTickets = incident_Logic.getLowTicketsFast();
+            passDeadline = incident_Logic.getPassDeadLineTicketsFast();
+            
 
             lbl_name.Text = $"Welcome {loggendUser.FirstName} {loggendUser.LastName}";
 
             fillCharts();
 
-            int urgent = incident_Logic.getUrgentTickets().Count();
+            //Unresolved Ticket box
+            int urgent = urgentTickets.Count();
+            int normal= normalTickets.Count();
+            int low = lowTickets.Count();
+            int expired = passDeadline.Count();
+
             lbl_urgent.Text += "\n\n" + urgent + "\n ";
+            lbl_normal.Text += "\n\n" + normal + "\n ";
+            lbl_low.Text += "\n\n" + low + "\n ";
+            lbl_passdeadline.Text += "\n\n" + expired + "\n ";
+
+
+
         }
 
         private void fillCharts()
@@ -218,6 +232,13 @@ namespace NosqlUI
         private void btn_UserM_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbl_passdeadline_Click(object sender, EventArgs e)
+        {
+            //IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
+            //IncidentManagment.getView().Show();
+            //this.Hide();
         }
     }
 }
