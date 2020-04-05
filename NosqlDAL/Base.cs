@@ -175,5 +175,12 @@ namespace NosqlDAL
             var collection = database.GetCollection<BsonDocument>(collectionName);
             collection.InsertOne(document);
         }
+
+        protected List<BsonDocument> GetSpecificDocumentList(string collectionName, FilterDefinition<BsonDocument> filter)
+        {
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var documents = collection.Find(filter).ToList();
+            return documents;
+        }
     }
 }

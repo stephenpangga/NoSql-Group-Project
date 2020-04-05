@@ -4,7 +4,7 @@ using System.Text;
 using NosqlDAL;
 using NosqlModel;
 using MongoDB.Bson;
-
+using MongoDB.Driver;
 
 namespace NosqlLogic
 {
@@ -13,9 +13,14 @@ namespace NosqlLogic
         Incident_DAO incident_dao = new Incident_DAO();
         List<Incident> all;
 
+        public List<Incident> getAllIncidents(FilterDefinition<BsonDocument> filter)
+        {
+            all = incident_dao.GetAllIncidents(filter);
+            return all;
+        }
         public List<Incident> getAllIncidents()
         {
-            all = incident_dao.GetIncidents();
+            all = incident_dao.GetAllIncidents();
             return all;
         }
 

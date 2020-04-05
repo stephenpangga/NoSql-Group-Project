@@ -48,6 +48,11 @@
             this.InProcessIncident_ckbx = new System.Windows.Forms.CheckBox();
             this.urgentIncident_ckbx = new System.Windows.Forms.CheckBox();
             this.pastDeadline_ckbx = new System.Windows.Forms.CheckBox();
+            this.filter_gpbx = new System.Windows.Forms.GroupBox();
+            this.hardwareIncident_ckbx = new System.Windows.Forms.CheckBox();
+            this.softwareIncident_ckbx = new System.Windows.Forms.CheckBox();
+            this.serviceIncident_ckbx = new System.Windows.Forms.CheckBox();
+            this.filter_gpbx.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Dashboard
@@ -81,10 +86,10 @@
             // 
             this.incident_lstvw.FullRowSelect = true;
             this.incident_lstvw.HideSelection = false;
-            this.incident_lstvw.Location = new System.Drawing.Point(27, 229);
+            this.incident_lstvw.Location = new System.Drawing.Point(27, 261);
             this.incident_lstvw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.incident_lstvw.Name = "incident_lstvw";
-            this.incident_lstvw.Size = new System.Drawing.Size(809, 480);
+            this.incident_lstvw.Size = new System.Drawing.Size(809, 448);
             this.incident_lstvw.TabIndex = 3;
             this.incident_lstvw.UseCompatibleStateImageBehavior = false;
             this.incident_lstvw.SelectedIndexChanged += new System.EventHandler(this.incident_lstvw_SelectedIndexChanged);
@@ -102,7 +107,7 @@
             // incidentCreate_btn
             // 
             this.incidentCreate_btn.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.incidentCreate_btn.Location = new System.Drawing.Point(619, 153);
+            this.incidentCreate_btn.Location = new System.Drawing.Point(617, 198);
             this.incidentCreate_btn.Margin = new System.Windows.Forms.Padding(4);
             this.incidentCreate_btn.Name = "incidentCreate_btn";
             this.incidentCreate_btn.Size = new System.Drawing.Size(219, 53);
@@ -218,11 +223,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(859, 181);
+            this.groupBox1.Location = new System.Drawing.Point(862, 152);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(468, 539);
+            this.groupBox1.Size = new System.Drawing.Size(468, 557);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ticket Information";
@@ -230,73 +235,122 @@
             // resolvedIncident_ckbx
             // 
             this.resolvedIncident_ckbx.AutoSize = true;
-            this.resolvedIncident_ckbx.Location = new System.Drawing.Point(37, 185);
+            this.resolvedIncident_ckbx.Location = new System.Drawing.Point(11, 71);
             this.resolvedIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resolvedIncident_ckbx.Name = "resolvedIncident_ckbx";
             this.resolvedIncident_ckbx.Size = new System.Drawing.Size(89, 21);
             this.resolvedIncident_ckbx.TabIndex = 34;
             this.resolvedIncident_ckbx.Text = "Resolved";
             this.resolvedIncident_ckbx.UseVisualStyleBackColor = true;
-            this.resolvedIncident_ckbx.CheckedChanged += new System.EventHandler(this.urgentIncident_ckbx_CheckedChanged);
+            this.resolvedIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
             // 
             // UnresolvedIncident_ckbx
             // 
             this.UnresolvedIncident_ckbx.AutoSize = true;
-            this.UnresolvedIncident_ckbx.Location = new System.Drawing.Point(143, 185);
+            this.UnresolvedIncident_ckbx.Location = new System.Drawing.Point(117, 71);
             this.UnresolvedIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UnresolvedIncident_ckbx.Name = "UnresolvedIncident_ckbx";
             this.UnresolvedIncident_ckbx.Size = new System.Drawing.Size(102, 21);
             this.UnresolvedIncident_ckbx.TabIndex = 35;
             this.UnresolvedIncident_ckbx.Text = "Unresolved";
             this.UnresolvedIncident_ckbx.UseVisualStyleBackColor = true;
-            this.UnresolvedIncident_ckbx.CheckedChanged += new System.EventHandler(this.urgentIncident_ckbx_CheckedChanged);
+            this.UnresolvedIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
             // 
             // InProcessIncident_ckbx
             // 
             this.InProcessIncident_ckbx.AutoSize = true;
-            this.InProcessIncident_ckbx.Location = new System.Drawing.Point(248, 185);
+            this.InProcessIncident_ckbx.Location = new System.Drawing.Point(222, 71);
             this.InProcessIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.InProcessIncident_ckbx.Name = "InProcessIncident_ckbx";
             this.InProcessIncident_ckbx.Size = new System.Drawing.Size(96, 21);
             this.InProcessIncident_ckbx.TabIndex = 36;
             this.InProcessIncident_ckbx.Text = "In Process";
             this.InProcessIncident_ckbx.UseVisualStyleBackColor = true;
-            this.InProcessIncident_ckbx.CheckedChanged += new System.EventHandler(this.urgentIncident_ckbx_CheckedChanged);
+            this.InProcessIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
             // 
             // urgentIncident_ckbx
             // 
             this.urgentIncident_ckbx.AutoSize = true;
-            this.urgentIncident_ckbx.Location = new System.Drawing.Point(418, 185);
+            this.urgentIncident_ckbx.Location = new System.Drawing.Point(392, 71);
             this.urgentIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.urgentIncident_ckbx.Name = "urgentIncident_ckbx";
             this.urgentIncident_ckbx.Size = new System.Drawing.Size(73, 21);
             this.urgentIncident_ckbx.TabIndex = 37;
             this.urgentIncident_ckbx.Text = "Urgent";
             this.urgentIncident_ckbx.UseVisualStyleBackColor = true;
-            this.urgentIncident_ckbx.CheckedChanged += new System.EventHandler(this.urgentIncident_ckbx_CheckedChanged);
+            this.urgentIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
             // 
             // pastDeadline_ckbx
             // 
             this.pastDeadline_ckbx.AutoSize = true;
-            this.pastDeadline_ckbx.Location = new System.Drawing.Point(418, 160);
+            this.pastDeadline_ckbx.Location = new System.Drawing.Point(392, 46);
             this.pastDeadline_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pastDeadline_ckbx.Name = "pastDeadline_ckbx";
             this.pastDeadline_ckbx.Size = new System.Drawing.Size(118, 21);
             this.pastDeadline_ckbx.TabIndex = 38;
             this.pastDeadline_ckbx.Text = "Past Deadline";
             this.pastDeadline_ckbx.UseVisualStyleBackColor = true;
-            this.pastDeadline_ckbx.CheckedChanged += new System.EventHandler(this.pastDeadline_ckbx_CheckedChanged);
+            this.pastDeadline_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
+            // 
+            // filter_gpbx
+            // 
+            this.filter_gpbx.Controls.Add(this.hardwareIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.softwareIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.serviceIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.pastDeadline_ckbx);
+            this.filter_gpbx.Controls.Add(this.resolvedIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.urgentIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.UnresolvedIncident_ckbx);
+            this.filter_gpbx.Controls.Add(this.InProcessIncident_ckbx);
+            this.filter_gpbx.Location = new System.Drawing.Point(38, 152);
+            this.filter_gpbx.Name = "filter_gpbx";
+            this.filter_gpbx.Size = new System.Drawing.Size(555, 100);
+            this.filter_gpbx.TabIndex = 39;
+            this.filter_gpbx.TabStop = false;
+            this.filter_gpbx.Text = "filter";
+            // 
+            // hardwareIncident_ckbx
+            // 
+            this.hardwareIncident_ckbx.AutoSize = true;
+            this.hardwareIncident_ckbx.Location = new System.Drawing.Point(11, 29);
+            this.hardwareIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.hardwareIncident_ckbx.Name = "hardwareIncident_ckbx";
+            this.hardwareIncident_ckbx.Size = new System.Drawing.Size(91, 21);
+            this.hardwareIncident_ckbx.TabIndex = 39;
+            this.hardwareIncident_ckbx.Text = "Hardware";
+            this.hardwareIncident_ckbx.UseVisualStyleBackColor = true;
+            this.hardwareIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
+            // 
+            // softwareIncident_ckbx
+            // 
+            this.softwareIncident_ckbx.AutoSize = true;
+            this.softwareIncident_ckbx.Location = new System.Drawing.Point(117, 29);
+            this.softwareIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.softwareIncident_ckbx.Name = "softwareIncident_ckbx";
+            this.softwareIncident_ckbx.Size = new System.Drawing.Size(85, 21);
+            this.softwareIncident_ckbx.TabIndex = 40;
+            this.softwareIncident_ckbx.Text = "Software";
+            this.softwareIncident_ckbx.UseVisualStyleBackColor = true;
+            this.softwareIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
+            // 
+            // serviceIncident_ckbx
+            // 
+            this.serviceIncident_ckbx.AutoSize = true;
+            this.serviceIncident_ckbx.Location = new System.Drawing.Point(222, 29);
+            this.serviceIncident_ckbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.serviceIncident_ckbx.Name = "serviceIncident_ckbx";
+            this.serviceIncident_ckbx.Size = new System.Drawing.Size(85, 21);
+            this.serviceIncident_ckbx.TabIndex = 41;
+            this.serviceIncident_ckbx.Text = "Software";
+            this.serviceIncident_ckbx.UseVisualStyleBackColor = true;
+            this.serviceIncident_ckbx.CheckedChanged += new System.EventHandler(this.Incident_ckbx_CheckedChanged);
             // 
             // IncidentManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1343, 735);
-            this.Controls.Add(this.pastDeadline_ckbx);
-            this.Controls.Add(this.urgentIncident_ckbx);
-            this.Controls.Add(this.InProcessIncident_ckbx);
-            this.Controls.Add(this.UnresolvedIncident_ckbx);
-            this.Controls.Add(this.resolvedIncident_ckbx);
+            this.Controls.Add(this.filter_gpbx);
             this.Controls.Add(this.Priority_lbl);
             this.Controls.Add(this.incidentStatus_lbl);
             this.Controls.Add(this.incidentCategory_lbl);
@@ -335,11 +389,9 @@
             this.Controls.SetChildIndex(this.incidentCategory_lbl, 0);
             this.Controls.SetChildIndex(this.incidentStatus_lbl, 0);
             this.Controls.SetChildIndex(this.Priority_lbl, 0);
-            this.Controls.SetChildIndex(this.resolvedIncident_ckbx, 0);
-            this.Controls.SetChildIndex(this.UnresolvedIncident_ckbx, 0);
-            this.Controls.SetChildIndex(this.InProcessIncident_ckbx, 0);
-            this.Controls.SetChildIndex(this.urgentIncident_ckbx, 0);
-            this.Controls.SetChildIndex(this.pastDeadline_ckbx, 0);
+            this.Controls.SetChildIndex(this.filter_gpbx, 0);
+            this.filter_gpbx.ResumeLayout(false);
+            this.filter_gpbx.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +419,9 @@
         public System.Windows.Forms.CheckBox InProcessIncident_ckbx;
         public System.Windows.Forms.CheckBox urgentIncident_ckbx;
         public System.Windows.Forms.CheckBox pastDeadline_ckbx;
+        private System.Windows.Forms.GroupBox filter_gpbx;
+        public System.Windows.Forms.CheckBox hardwareIncident_ckbx;
+        public System.Windows.Forms.CheckBox softwareIncident_ckbx;
+        public System.Windows.Forms.CheckBox serviceIncident_ckbx;
     }
 }

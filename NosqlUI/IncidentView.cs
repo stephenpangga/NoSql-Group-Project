@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using NosqlLogic;
 using NosqlModel;
 using NosqlModel.Enums;
@@ -67,32 +69,79 @@ namespace NosqlUI
         {
             incident_lstvw.Items.Clear();
 
-            if (UnresolvedIncident_ckbx.Checked || resolvedIncident_ckbx.Checked || InProcessIncident_ckbx.Checked || urgentIncident_ckbx.Checked || pastDeadline_ckbx.Checked)
+
+            incidents = incident_Logic.getAllIncidents(getQuery());
+
+
+            foreach (Incident incident in incidents)
             {
-                incidents = incident_Logic.getAllIncidents();
-
-
-                foreach (Incident incident in incidents)
-                {
-                    if ((resolvedIncident_ckbx.Checked && incident.status == Status.Resolved) ||
-                        (UnresolvedIncident_ckbx.Checked && incident.status == Status.Unresolved) ||
-                        (InProcessIncident_ckbx.Checked && incident.status == Status.InProcess))
-                    {
-                        if ((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) ||
-                            (pastDeadline_ckbx.Checked && incident.deadline > DateTime.Now))
-                            LoadData(incident);
-                        else if (!urgentIncident_ckbx.Checked)
-                            LoadData(incident);
-                    }
-                    else if (((urgentIncident_ckbx.Checked && incident.priority == PriorityTypes.High) ||
-                              (pastDeadline_ckbx.Checked && incident.deadline < DateTime.Now))
-                              && !resolvedIncident_ckbx.Checked && !UnresolvedIncident_ckbx.Checked && !InProcessIncident_ckbx.Checked)
-                    {
-                        LoadData(incident);
-                    }
-                }
+                LoadData(incident);
             }
         }
+        private FilterDefinition<BsonDocument> getQuery()
+        {
+            var builder = Builders<BsonDocument>.Filter;
+            List<string> searchValues = new List<string>();
+            FilterDefinition<BsonDocument> filter = builder.Empty;
+
+            if (hardwareIncident_ckbx.Checked || softwareIncident_ckbx.Checked || serviceIncident_ckbx.Checked)
+            {
+
+                if (hardwareIncident_ckbx.Checked)
+                {
+                    searchValues.Add(NosqlModel.IncidentType.MainType.Hardware.ToString());
+                    //if (softwareIncident_ckbx.Checked || serviceIncident_ckbx.Checked)
+                    //    searchValue += ", ";
+
+                }
+                if (softwareIncident_ckbx.Checked)
+                {
+                    searchValues.Add(NosqlModel.IncidentType.MainType.Software.ToString());
+                    //if (serviceIncident_ckbx.Checked)
+                    //    searchValue += ", ";
+
+                }
+                if (serviceIncident_ckbx.Checked)
+                {
+                    searchValues.Add(NosqlModel.IncidentType.MainType.Service.ToString());
+
+                }
+                filter = filter & builder.In("IncidentMainType",searchValues);
+
+            }
+
+            if (resolvedIncident_ckbx.Checked || UnresolvedIncident_ckbx.Checked || InProcessIncident_ckbx.Checked)
+            {
+                searchValues = new List<string>();
+                if (resolvedIncident_ckbx.Checked)
+                {
+                    searchValues.Add(Status.Resolved.ToString());
+                }
+                if (UnresolvedIncident_ckbx.Checked)
+                {
+                    searchValues.Add(Status.Unresolved.ToString());
+                }
+                if (InProcessIncident_ckbx.Checked)
+                {
+                    searchValues.Add(Status.InProcess.ToString());
+                }
+                filter = filter & builder.In("Status" , searchValues);
+
+            }
+
+            if (urgentIncident_ckbx.Checked)
+            {
+                filter = filter & builder.Eq("Priority", PriorityTypes.High.ToString());
+            }
+            if (pastDeadline_ckbx.Checked)
+            {
+                filter = filter & builder.Lt("Deadline", DateTime.Now);
+            }
+            return filter;
+
+        }
+
+
 
         private void LoadData(Incident incident)
         {
@@ -107,7 +156,7 @@ namespace NosqlUI
             incident_lstvw.Items.Add(lv);
         }
 
-            private void incidentCreate_btn_Click(object sender, EventArgs e)
+        private void incidentCreate_btn_Click(object sender, EventArgs e)
         {
             IncidentReport.getView().Show();
         }
@@ -148,22 +197,23 @@ namespace NosqlUI
             LoadAllData();
         }
 
+        //for when linking from dashboard
         public void SetFilter(CheckBox ckbx)
         {
             InProcessIncident_ckbx.Checked = false;
             UnresolvedIncident_ckbx.Checked = false;
             resolvedIncident_ckbx.Checked = false;
             urgentIncident_ckbx.Checked = false;
+            hardwareIncident_ckbx.Checked = false;
+            softwareIncident_ckbx.Checked = false;
+            serviceIncident_ckbx.Checked = false;
+            pastDeadline_ckbx.Checked = false;
 
             ckbx.Checked = true;
         }
 
-        private void urgentIncident_ckbx_CheckedChanged(object sender, EventArgs e)
-        {
-            LoadAllData();
-        }
-
-        private void pastDeadline_ckbx_CheckedChanged(object sender, EventArgs e)
+        //event active when any checkbox is changed
+        private void Incident_ckbx_CheckedChanged(object sender, EventArgs e)
         {
             LoadAllData();
         }
