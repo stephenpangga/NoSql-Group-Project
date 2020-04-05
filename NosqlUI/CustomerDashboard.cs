@@ -68,7 +68,7 @@ namespace NosqlUI
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            LoginForm logInForm = new LoginForm();
+            LoginForm logInForm = LoginForm.getView();
             logInForm.Show();
         }
     }

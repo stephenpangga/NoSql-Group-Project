@@ -26,7 +26,7 @@ namespace NosqlUI
         }
 
         Incident_Logic Incident_Logic = new Incident_Logic();
-        public IncidentReport() : base()
+        private IncidentReport() : base()
         {
             InitializeComponent();
             incidentSubType_cbx.Hide();
@@ -97,6 +97,11 @@ namespace NosqlUI
         private void incidentCancel_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void IncidentReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm.getView().Hide();
         }
     }
 }

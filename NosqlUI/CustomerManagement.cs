@@ -116,7 +116,11 @@ namespace NosqlUI
         {
             DashBoardForm d = new DashBoardForm(currentUser);
             d.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void CustomerManagement_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

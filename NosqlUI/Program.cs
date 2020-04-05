@@ -16,7 +16,7 @@ namespace NosqlUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(LoginForm.getView());
             //Application.Run(new DashBoardForm(new NosqlModel.User()));
 
         }

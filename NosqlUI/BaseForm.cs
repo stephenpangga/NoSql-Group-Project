@@ -19,18 +19,20 @@ namespace NosqlUI
         public BaseForm() // for when no one is logged in
         {
             InitializeComponent();
+
         }
         public BaseForm(User user) // for when someone is logged in
         {
             InitializeComponent();
             this.currentUser = user;
+
         }
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             DashBoardForm d = new DashBoardForm(currentUser);
             d.Show();
-            this.Close();
+            this.Hide();
         }
 
         //to hide the buttons not needed for some forms
@@ -72,8 +74,13 @@ namespace NosqlUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            LoginForm logInForm = new LoginForm();
+            LoginForm logInForm = LoginForm.getView();
             logInForm.Show();
+        }
+
+        private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+                LoginForm.getView().Show();
         }
     }
 }

@@ -305,6 +305,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "IncidentReport";
             this.Text = "IncidentReport";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IncidentReport_FormClosed);
             this.Controls.SetChildIndex(this.btn_logout, 0);
             this.Controls.SetChildIndex(this.linegrBox, 0);
             this.Controls.SetChildIndex(this.btn_Dashboard, 0);

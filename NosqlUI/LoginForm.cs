@@ -14,8 +14,16 @@ namespace NosqlUI
 {
     public partial class LoginForm : BaseForm
     {
-
-        public LoginForm()
+        private static LoginForm view;
+        public static LoginForm getView()
+        {
+            if (view == null || view.IsDisposed)
+            {
+                view = new LoginForm();
+            }
+            return view;
+        }
+        private LoginForm()
         {
             InitializeComponent();
             hideButtons();
@@ -59,6 +67,8 @@ namespace NosqlUI
                             break;
                     }
                     this.Hide();
+                    txtbox_email.Text = "";
+                    txtbox_password.Text = "";
                 }
                 else
                 {

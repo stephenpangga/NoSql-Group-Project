@@ -61,7 +61,7 @@ namespace NosqlUI
             lbl_low.Text += "\n\n" + low + "\n ";
             lbl_passdeadline.Text += "\n\n" + expired + "\n ";
 
-
+            disableButton(btn_Dashboard);
 
         }
 
