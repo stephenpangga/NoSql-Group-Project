@@ -79,7 +79,7 @@
             // btn_logout
             // 
             this.btn_logout.Location = new System.Drawing.Point(714, 56);
-            this.btn_logout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_logout.Margin = new System.Windows.Forms.Padding(2);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(74, 33);
             this.btn_logout.TabIndex = 4;

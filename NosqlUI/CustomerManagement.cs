@@ -13,13 +13,14 @@ using NosqlModel;
 
 namespace NosqlUI
 {
-    public partial class CustomerManagement : Form
+    public partial class CustomerManagement : BaseForm
     {
         Customers_Logic customers_Logic = new Customers_Logic();
         List<User> employees = new List<User>();
         public CustomerManagement()
         {
             InitializeComponent();
+            hideButtons();
             showCustomers.View = View.Details;
             LoadEmployees();
         }
@@ -105,6 +106,8 @@ namespace NosqlUI
 
         private void returnbutton_Click(object sender, EventArgs e)
         {
+            DashBoardForm d = new DashBoardForm(currentUser);
+            d.Show();
             this.Close();
         }
     }
