@@ -18,7 +18,7 @@ namespace NosqlUI
         private static IncidentReport view;
         public static IncidentReport getView()
         {
-            if (view == null)
+            if (view == null || view.IsDisposed)
             {
                 view = new IncidentReport();
             }
