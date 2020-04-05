@@ -94,5 +94,32 @@ namespace NosqlDAL
                 smtp.Send(message);
             }
         }
+
+        public void sendEmailNewUser(string email, string tempPass)
+        {
+            var fromAddress = new MailAddress("jumbomumbo399@gmail.com", "Admin");
+            var toAddress = new MailAddress(email);
+            const string fromPassword = "Haarlem123!";
+            const string subject = "Password reset request.";
+            string body = "Here is a password for you to login: " + tempPass + ".Make sure to change your password when you log in.";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+            }
+        }
     }
 }
