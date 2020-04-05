@@ -171,7 +171,7 @@
             this.lbl_unresolved.AutoSize = true;
             this.lbl_unresolved.BackColor = System.Drawing.Color.White;
             this.lbl_unresolved.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_unresolved.Location = new System.Drawing.Point(456, 225);
+            this.lbl_unresolved.Location = new System.Drawing.Point(452, 225);
             this.lbl_unresolved.Name = "lbl_unresolved";
             this.lbl_unresolved.Size = new System.Drawing.Size(55, 24);
             this.lbl_unresolved.TabIndex = 18;
