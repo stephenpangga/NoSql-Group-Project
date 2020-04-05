@@ -21,18 +21,18 @@ namespace NosqlUI
         private static IncidentManagment view;
         public List<Incident> incidents;
 
-        public static IncidentManagment getView()
+        public static IncidentManagment getView(User user)
         {
             if (view == null || view.IsDisposed)
             {
-                view = new IncidentManagment();
+                view = new IncidentManagment(user);
             }
             return view;
         }
 
-        private IncidentManagment()
+        private IncidentManagment(User user)
         {
-            this.currentUser = new User();
+            this.currentUser = user;
             InitializeComponent();
             disableButton(btn_IncidentM);
             load();

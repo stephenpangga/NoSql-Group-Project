@@ -76,7 +76,7 @@ namespace NosqlUI
             }
 
             Incident_Logic.InsertIncident(incident);
-            IncidentManagment.getView().LoadAllData();
+            IncidentManagment.getView(currentUser).LoadAllData();
             this.Close();
         }
 

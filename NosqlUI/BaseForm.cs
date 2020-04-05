@@ -59,7 +59,7 @@ namespace NosqlUI
         private void btn_IncidentM_Click(object sender, EventArgs e)
         {
             Incident_Logic incident_Logic = new Incident_Logic();
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).Show();
             this.Hide();
 
         }

@@ -207,29 +207,29 @@ namespace NosqlUI
         //filter charts to incident view
         private void unResolvedChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().SetFilter(IncidentManagment.getView().UnresolvedIncident_ckbx);
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).SetFilter(IncidentManagment.getView(currentUser).UnresolvedIncident_ckbx);
+            IncidentManagment.getView(currentUser).Show();
             
             this.Hide();
         }
 
         private void inProcessChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().SetFilter(IncidentManagment.getView().InProcessIncident_ckbx);
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).SetFilter(IncidentManagment.getView(currentUser).InProcessIncident_ckbx);
+            IncidentManagment.getView(currentUser).Show();
             this.Hide();
         }
         private void resolvedChart_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().SetFilter(IncidentManagment.getView().resolvedIncident_ckbx);
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).SetFilter(IncidentManagment.getView(currentUser).resolvedIncident_ckbx);
+            IncidentManagment.getView(currentUser).Show();
             this.Hide();
         }
 
         private void lbl_urgent_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().SetFilter(IncidentManagment.getView().urgentIncident_ckbx);
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).SetFilter(IncidentManagment.getView(currentUser).urgentIncident_ckbx);
+            IncidentManagment.getView(currentUser).Show();
             this.Hide();
         }
 
@@ -240,8 +240,8 @@ namespace NosqlUI
 
         private void lbl_passdeadline_Click(object sender, EventArgs e)
         {
-            IncidentManagment.getView().SetFilter(IncidentManagment.getView().pastDeadline_ckbx);
-            IncidentManagment.getView().Show();
+            IncidentManagment.getView(currentUser).SetFilter(IncidentManagment.getView(currentUser).pastDeadline_ckbx);
+            IncidentManagment.getView(currentUser).Show();
             this.Hide();
         }
     }
