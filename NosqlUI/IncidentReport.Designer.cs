@@ -76,6 +76,12 @@
             this.linegrBox.Padding = new System.Windows.Forms.Padding(2);
             this.linegrBox.Size = new System.Drawing.Size(1060, 8);
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(595, 11);
+            this.btn_logout.Size = new System.Drawing.Size(99, 26);
+            this.btn_logout.Visible = false;
+            // 
             // incidentDate_lbl
             // 
             this.incidentDate_lbl.AutoSize = true;
@@ -276,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 765);
+            this.ClientSize = new System.Drawing.Size(718, 765);
             this.Controls.Add(this.incidentSubType_cbx);
             this.Controls.Add(this.incidentDate_dtp);
             this.Controls.Add(this.incidentReportTitle_lbl);
@@ -299,6 +305,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "IncidentReport";
             this.Text = "IncidentReport";
+            this.Controls.SetChildIndex(this.btn_logout, 0);
             this.Controls.SetChildIndex(this.linegrBox, 0);
             this.Controls.SetChildIndex(this.btn_Dashboard, 0);
             this.Controls.SetChildIndex(this.btn_IncidentM, 0);
