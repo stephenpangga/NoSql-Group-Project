@@ -23,7 +23,7 @@ namespace NosqlUI
             //Users_Logic userlogic = new Users_Logic();
             //User u = userlogic.SearchUser("Users", "admin");
             //User u = userlogic.getByEmail("useratgmaisl.com");
-            
+            txtbox_password.PasswordChar = '*';
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
