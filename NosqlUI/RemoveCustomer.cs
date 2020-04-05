@@ -19,6 +19,7 @@ namespace NosqlUI
 
         public RemoveCustomer(int id)
         {
+            //More than anything this form acts like a pop-up to display the user that was selected and to give the employee a second chance to make sure they want to perminantly delete the user.
             usedID = id;
             string deleteThisEmployer = "";
             InitializeComponent();
